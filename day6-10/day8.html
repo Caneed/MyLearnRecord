@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day8</title>
+    <style>
+        #rgba{
+            width: 200px;
+            height: 200px; 
+            background: rgba(0,0,0,0.5);
+        }
+        .nav a{
+            display: inline-block;
+            background-color: aqua;
+            width: 200px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .nav a:hover{
+            background-color: pink;
+        }
+        #heri{
+            font-size: 30px;
+            color: aqua;
+        }
+        #line{
+            font: 12px/1.5; 
+        }
+        #line1{
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h2>背景色半透明</h2>
+    <p>background:rgba(0,0,0,0.3);分别是红，绿，蓝，alpha的简写alpha表示透明度，取值在0-1之间</p>
+    <div id="rgba">半透明色</div>
+    <h2>背景颜色案例</h2>
+    <div class="nav">
+        <a href="#">五彩导航</a>
+        <a href="#">五彩导航</a>
+        <a href="#">五彩导航</a>
+        <a href="#">五彩导航</a>
+        <a href="#">五彩导航</a>
+    </div>
+    <h2>css三大特性</h2>
+    <h3>层叠性</h3>
+    <p>给选择器设置相同样式，其中一个会覆盖另一个冲突样式,哪个样式离结构近就遵循哪个</p>
+    <h3>继承性</h3>
+    <p>子标签会继承父标签的某些样式</p>
+    <div id="heri">
+        <p>继承父类字体的样式</p>
+    </div>
+    <p>行高的继承,子元素自己的样式继承了父元素中的行高倍数font:14px/1.5,子元素的文字大小乘以父元素中的行高倍数</p>
+    <div id="line">
+        <div id="line1">行高继承</div>
+    </div>
+    <h3>优先级</h3>
+    <p>同一元素指定多个选择器的时候就会有优先级，选择器权重由下图所示</p>
+    <p>权重数值从左向右比较</p>
+    <img src="../src/pic1.png" alt="选择器权重">
+</body>
+</html>

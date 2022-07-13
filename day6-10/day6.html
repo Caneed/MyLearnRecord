@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day6</title>
+    <style>
+        a{
+            text-decoration: none;
+            background-color: pink;
+            height: 200px;
+            width: 400px;
+            display: block;
+        }
+        div{
+            display: inline;
+
+        }
+        span{
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>元素显示模式</h1>
+    <p>有助于更好的布局页面，分为块元素和行内元素两类。</p>
+    <h2>块元素</h2>
+    <p>h1-6,div,p,ul,ol,li等都是典型的块元素</p>
+    <p>特点：独占一行<br>高度，宽度，内外边距可以控制<br>宽度默认是父级宽度的100%。<br>是一个容器及盒子里面可以放行内和块元素</p>
+    <p>p标签主要用来放文字，不能放块元素，例如div<br>h1-h6也是文字块元素，不能放其他块元素</p>
+    <h2>行内元素</h2>
+    <p>常见的行内元素包括a，strong，b，em，i，del，s，ins，u，span等，又称为内联元素</p>
+    <p>行内元素特点：<br>相邻元素在同一行上，可以一行多个显示<br>高宽无法直接设置<br>默认宽度是内容的宽度<br>行内元素只能容纳文本或者其他行内元素</p>
+    <h2>行内块元素</h2>
+    <p>既具有行内元素特点，也具有块元素的特点。<br>一行上有多个元素，每个元素之间有空白缝隙，<br>默认元素宽度就是本身内容的宽度，宽高内外边距都可以控制。<br>常见的行内块元素有input，img，td等</p>
+    <h2>元素显示模式</h2>
+    <p>在特殊情况下，把一个元素显示模式转换为另一种模式display:block,把行内元素赋予块元素的特性;块元素也可以转换为行内元素display:inline</p>
+    <a href="#">给链接赋予宽和高</a>
+    <div>块元素转换为行内元素</div>
+    <div>一行可以显示多个</div><br>
+    <p>转换为行内块元素</p>
+    <span>行内元素转换为行内块元素</span>
+    <span>一行可以显示多个，可以设置高宽</span>
+</body>
+</html>

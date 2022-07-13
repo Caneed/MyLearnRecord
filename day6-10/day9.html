@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day9</title>
+    <style>
+        #border{
+            width: 100px;
+            height: 100px;
+            border: 5px;
+            border-color: aqua;
+            border-style: dotted;
+        }
+        #mar1,#mar2{
+            height: 200px;
+            width: 200px;
+            margin: 50px;
+            background: pink;
+        }
+        #hor{
+            height: 200px;
+            width: 500px;
+            margin: 0 auto;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>css盒子模型</h1>
+    <p>盒子模型组成:border边框，padding内边距，content内容，margin外边距</p>
+    <h2>边框border</h2>
+    <p>边框可设置属性：颜色，粗细，边框样式<br>
+    border:border-width|border-style|border-color</p>
+    <p>边框的复合写法:border:1px&nbsp;solid&nbsp;red;这三个参数没有顺序 <br>
+    如果只想修饰边框上部则将border改为border-top，其他部位同理。</p>
+    <div id="border"></div>
+    <p>表格细线边框border-collapse表示相邻边框合并</p>
+    <h2>内边距padding</h2>
+    <p>内容和边框的距离padding-left|right|top|bottom</p>
+    <img src="../src/padding.png" alt="">
+    <h2>外边距margin</h2>
+    <p>外边距设置盒子外部距离，用margin控制</p>
+    <div id="mar1">1</div>
+    <div id="mar2">2</div>
+    <h2>外边距应用</h2>
+    <p>可以让块级盒子水平居中，盒子必须指定宽度，并且左右外边距为auto</p>
+    <div id="hor"></div>
+    <h2>行内元素和行内块元素水平居中</h2>
+    <p>给行内和行内块元素的父元素加一个text-align:center属性之后就可以居中显示了</p>
+
+</body>
+</html>

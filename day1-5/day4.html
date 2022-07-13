@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        p{
+            font-size: 15px;
+        }
+        .red{
+            color: red;
+        }
+        .div_red{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .div_green{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .name1{
+            color: red;
+        }
+        .name2{
+            font-size: 50px;
+        }
+        #pink{
+            color: pink;
+        }
+        *{
+            color: green;
+            font-family: '宋体';
+        }
+        #cooperation{
+            font: italic 700 16px 'Microsoft yahei';
+        }
+    </style>
+    <title>day4</title>
+</head>
+<body>
+    <p>css学习,选择器{属性:值;属性:值;}</p>
+    <p>css分为基础选择器,复合选择器<br>
+    基础选择器又分为标签选择器,类选择器,id选择器和通配符选择器<br>
+标签选择器指用标签名作为css的选择器<br>
+标签名&nbsp;{
+    属性:&nbsp;属性值;
+};<br>
+可以为同一类标签设置样式
+</p>
+<p>类选择器可以单独选择一个或者几个标签<br>
+.类名属性:属性值;<br>
+给标签用class属性来附上类名</p>
+<div class="red">我是红色</div>
+<h2>示例</h2>
+<div class="div_red"></div>
+<div class="div_green"></div>
+<div class="div_red"></div><br>
+<p>多类名:class="类名一+空格+类名二+空格+..."</p>
+<div class="name1 name2">多类名css通过不同的类名来添加样式</div><br>
+<p>id选择器,通过id选择标签,以#定义<br>
+#id名{属性:属性值;}</p>
+<div id="pink">id选择器,id不能重复使用,class可以重复使用</div><br>
+<p>通配符选择器,用*定义<br>
+*属性:属性值;<br>
+将所有除了有id选择,标签选择和类名选择的标签添加样式</p><br>
+<h2>字体属性</h2>
+<p>font-family定义字体系列</p>
+<p>font-size定义字体大小,px像素</p>
+<p>font-weight定义字体粗细</p>
+<p>font-style文字样式normal正常值,italic斜体</p>
+<div id="cooperation">字体font的复合用法:font:font-style&nbsp;font-weight&nbsp;font-size/line-height&nbsp;font-family</div>
+</body>
+</html>

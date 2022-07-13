@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/all.css">
+    <title>js1</title>
+</head>
+<script>
+    function displayDate(){
+        document.getElementById("demo").innerHTML=Date();
+    }
+    function zood(){
+        document.getElementById("yiwu").innerHTML=("哥们儿在这儿给你说唱！")
+    }
+    document.write("<h1>document标题1</h1>");
+    function changeImgAndTxt(){
+        element=document.getElementById("myImage");
+        if(element.src.match("rain")){
+            console.log("变了捏")
+            element.src="/src/Anime.jpg";
+            document.getElementById("pic_txt").innerHTML=("二次元扎不多德勒")
+        }
+        else if(element.src.match("Anime"))
+        {
+            console.log("变了捏")
+            element.src="/src/rain.jpg";
+            document.getElementById("pic_txt").innerHTML=("点击变成二次元捏")
+        }
+    }
+    function ermeng(){
+        meng=document.getElementById("ermeng")
+        meng.style.color="#ff0000";
+        meng.innerHTML="给二萌老师系上项圈捏"
+    }
+    function checkNum(){
+        var x=document.getElementById("input_num").value;
+        if(x==""||isNaN(x)){
+            alert("不是数字")
+        }
+    }
+</script>
+<body>
+    <h1>JS1</h1>
+    <h2>点击更改文本</h2>
+    <p id="demo">显示日期</p>
+    <button type="button" onclick="displayDate()">显示日期</button>
+    <button type="button" onclick="alert('欢迎')">点击欢迎</button>
+    <p id="yiwu">义！！乌！！</p>
+    <button type="button" onclick="zood()">说唱</button>
+    <h2>点击更改图片</h2>
+    <img id="myImage" onclick="changeImgAndTxt()" width="180px" height="100px" src="/src/rain.jpg">
+    <p id="pic_txt">点击变成二次元捏</p>
+    <p id="ermeng" onclick="ermeng()">二萌老师!!!</p>
+    <h2>输入框校验</h2>
+    <input type="text" id="input_num">
+    <button type="button" onclick="checkNum()">校验是否为数字</button>
+    <h2>外部js文件</h2>
+    <p>在script标签的src中设置外部js文件路径</p>
+    <script>window.alert(5+6)</script>
+</body>
+</html>

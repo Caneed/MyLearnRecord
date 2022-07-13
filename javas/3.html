@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/all.css">
+    <title>JS3</title>
+</head>
+
+<body>
+    <h1>数据类型</h1>
+    <p>值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、空（Null）、未定义（Undefined）、Symbol。<br>引用数据类型（对象类型）：对象(Object)、数组(Array)、函数(Function)，还有两个特殊的对象：正则（RegExp）和日期（Date）。
+    </p>
+    <img src="/src/jsDatatype.png" alt="" style="width: 420px; height: 510px;">
+    <h1>JS动态类型</h1>
+    <p>JavaScript 拥有动态类型。这意味着相同的变量可用作不同的类型：</p>
+    <p>v
+        var x = 5;&nbsp;// 现在 x 为数字<br>
+        var x = "John";&nbsp;// 现在 x 为字符串</p>
+    <p>变量的数据类型可以用typeof查看，返回的是变量的数据类型<br>
+        typeof "John" &nbsp;// 返回 string<br>
+        typeof 3.14 &nbsp;// 返回 number<br>
+        typeof false &nbsp;// 返回 boolean<br>
+        typeof [1,2,3,4] &nbsp;// 返回 object<br>
+        typeof {name:'John', age:34} &nbsp;// 返回 object<br></p>
+    <p id="typeof"></p>
+    <script>
+        document.getElementById("typeof").innerHTML =
+            typeof "John" + "<br>" + // 返回 string
+            typeof 3.14 + "<br>" + // 返回 number
+            typeof false + "<br>" + // 返回 boolean
+            typeof [1, 2, 3, 4] + "<br>" + // 返回 object
+            typeof {
+                name: 'John',
+                age: 34
+            }; // 返回 object
+    </script>
+    <p>JS数组<br>下面的代码创建名为 cars 的数组:<br>
+        var cars=new Array();<br>
+        cars[0]="Saab";<br>
+        cars[1]="Volvo";<br>
+        cars[2]="BMW";</p>
+    <p>或者var cars=new Array("Saab","Volvo","BMW");</p>
+    <h1>JS对象</h1>
+    <p>对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义属性由逗号分隔：var person={firstname:"John", lastname:"Doe",
+        id:5566};</p>
+    <p>声明也可以横跨多行：<br>
+        var person={<br>
+        firstname : "John",<br>
+        lastname : "Doe",<br>
+        id : 5566<br>
+        };<br>实例：</p>
+        <p id="option"></p>
+        <script>
+            var person={
+                firstname:"dedsec",
+                lastname:"Si"
+            };
+            document.getElementById("option").innerHTML="对象的姓:"+person.firstname+" <br>"+"对象的名:"+person["lastname"]
+        </script>
+        <p>Undefined 和 Null<br>Undefined 这个值表示变量不含有值。<br>可以通过将变量的值设置为 null 来清空变量</p>
+        <p>声明变量类型，可以用new来声明变量类型：<br>
+            var carname=new String;<br>
+            var x=      new Number;<br>
+            var y=      new Boolean;<br>
+            var cars=   new Array;<br>
+            var person= new Object;</p>
+            <p>对象方法创建方式：<br>
+                methodName : function() {<br>
+                    // 代码 <br>
+                }
+            </p>
+            <h1>JS函数</h1>
+            <p>函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。<br>
+            实例：</p>
+            <button type="button" onclick="btnfun()">点击hello&nbsp;world</button>
+            <script>
+                function btnfun(){
+                    window.alert("hello world!")
+                }
+            </script>
+            <h2>JS函数语法</h2>
+            <p>函数就是包裹在花括号中的代码块，前面使用了关键词 function：<br>
+                function functionname()<br>
+                {<br>
+                    // 执行代码<br>
+                }</p>
+            <p>带参数的函数,实例：<br></p>
+            <button type="button" onclick="fun('Harry Potter','Wizard')">传入姓名和职业，输出</button>
+            <script>
+                function fun(name,job){
+                    window.alert("My name is "+name+" my job is "+job)
+                }
+            </script>
+            <p style="size: bold;">tips:可以调用带有return的函数，如果仅仅想退出函数也可以直接return;不带参数</p>
+</body>
+
+</html>

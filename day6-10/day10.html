@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #radius{
+            border-radius: 10px;
+            background-color: pink;
+            height: 200px;
+            width: 200px;
+        }
+        #circle{
+            background-color: pink;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+        }
+        #double{
+            border-radius: 10px 40px;
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h2>父元素塌陷问题</h2>
+    <p>子元素和父元素同时有margin属性时，子元素不会相对父元素移动</p>
+    <P>可以为父元素指定border，或者给父元素加上内边距，又或者可以为父元素加上overflow:hidden</P>
+    <h2>清除网页元素的内外边距</h2>
+    <p>在浏览器中有默认的内外边距，清除它可以：<br>
+        *{
+            padding:0;
+            margin:0;
+        }
+    </p>
+    <h2>圆角边框</h2>
+    <p>border-radius:数值,就可以将边框变成圆角</p>
+    <div id="radius">圆角边框的盒子</div>
+    <p>将盒子变成圆形border-radius:50%;</p>
+    <div id="circle"></div>
+    <p>圆角矩形：将border-radius设置为高度的一半</p>
+    <p>border-radius可以设置四个值。分别为左上，右上，左下，右下</p>
+    <p>还可以后面设置两个数值。分别为左上加右下，右上，加左下</p>
+    <div id="double"></div>
+</body>
+</html>

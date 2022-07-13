@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day7</title>
+    <style>
+        div{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            background-color: pink;
+        }
+        #bkgimg{
+            background-image: url(../src/backiee-55551-landscape.jpg);
+            width: 500px;
+            height: 800px;
+        }
+        #rep,#norep,#repx,#repy{
+            display: inline-block;
+            width: 250px;
+            height: 200px;
+            background-image: url(../src/Snipaste_2022-03-22_18-47-14.png);
+        }
+        #norep{
+            background-repeat: no-repeat;
+        }
+        #repx{
+            background-repeat: repeat-x;
+        }
+        #repy{
+            background-repeat: repeat-y;
+        }
+        #position,#position2,#position3{
+            width: 250px;
+            height: 200px;
+            background-repeat: no-repeat;
+            background-image: url(../src/Snipaste_2022-03-22_18-47-14.png);
+            /* background-position: top right; */
+            background-position: right top;
+        }
+        #position2{
+            background-position: right;
+        }
+        #position3{
+            background-position: 20px,50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>文字在盒子中居中</h2>
+    <p>文字居中可以用line-height:行高等于盒子的高度示例：<br></p>
+    <div>文字居中</div>
+    <h2>css的背景</h2>
+    <p>background-color背景颜色,属性值有transparent或者颜色值。<br>background-image背景图片,background-image:none/url();</p>
+    <div id="bkgimg"></div>
+    <p>背景平铺，在背景小于盒子时，背景平铺，background-repeat:repeat|np-repeat|repeat-x|repeat-y;分别是平铺，不平铺，横向平铺，纵向平铺。</p>
+    <h3>平铺效果</h3>
+    <div id="rep"></div>
+    <h3>不平铺效果</h3>
+    <div id="norep"></div>
+    <h3>平铺x</h3>
+    <div id="repx"></div>
+    <h3>平铺y</h3>
+    <div id="repy"></div>
+    <h2>背景位置</h2>
+    <p>利用background-position来控制图片在盒子中的位置background-position:x y;其中x和y可以是方位名词也可以是精确的坐标，方位名词包括top|center|bottom|left|right</p><br>
+    <p>如果是方位名词，则x和y的前后顺序不要求例如top&nbsp;left和left&nbsp;top是一样的;如果只指定了一个方位名词，则另一个默认居中对齐</p>
+    <div id="position"></div>
+    <div id="position2"></div>
+    <p>精确坐标前后顺序有区别，第一个是x，第二个是y，如果有缺省值，则默认居中</p>
+    <div id="position3"></div>
+    <p>混合单位使用，将精确坐标和方位名词混合使用时，第一个表示x，第二个表示y(无示例)</p>
+    <h3>背景固定</h3>
+    <p>背景图像固定，background-attachment属性设置背景图像是否固定或者是跟着页面滚动。一般用来制造视差，background-attachment:scroll|fixed;示例见attachment.html</p>
+    <a href="attachment.html" target="_blank">视差滚动的示例</a>
+    <p>背景样式混合写法background:颜色，地址，平铺，滚动，位置。</p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+# markdown高级技巧
+
+markdown支持html元素目前支持的元素有:<kbd> <b> <i> <em> <sup> <sub> <br>
+
+## 转义
+
+Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符
+
+```
+**文本加粗** 
+\*\* 正常显示星号 \*\*
+```
+
+Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：
+
+```
+\   反斜线
+`   反引号
+*   星号
+_   下划线
+{}  花括号
+[]  方括号
+()  小括号
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   感叹号
+```
+
+## 公式
+
+**Markdown Preview Enhanced** 使用 [KaTeX](https://github.com/Khan/KaTeX) 或者 [MathJax](https://github.com/mathjax/MathJax) 来渲染数学表达式。
+
+KaTeX 拥有比 MathJax 更快的性能，但是它却少了很多 MathJax 拥有的特性。你可以查看 KaTeX supported functions/symbols 来了解 KaTeX 支持那些符号和函数。
+
+默认下的分隔符：
+
+- `$...$` 或者 `\(...\)` 中的数学表达式将会在行内显示。
+- `$$...$$` 或者 `\[...\]` 或者 ````math` 中的数学表达式将会在块内显示。

@@ -1,0 +1,52 @@
+#colorfont {
+    color: aqua;
+}
+
+#center {
+    text-align: center;
+}
+
+#left {
+    text-align: left;
+}
+
+#right {
+    text-align: right;
+}
+
+#under {
+    text-decoration: underline;
+}
+
+#over {
+    text-decoration: overline;
+}
+ol li{
+    color: pink;
+}
+ol li a{
+    color: rebeccapurple;
+}
+#nav li{
+    color: red;
+}
+#son>a{
+    color: rebeccapurple;
+}
+a:link{
+    color: #333333;
+    text-decoration: none;
+}
+a:visited{
+    color: orange;
+}
+a:hover{
+    color: blue;
+}
+a:active{
+    color: green;
+}
+input:focus{
+    color: red;
+    background-color: rebeccapurple;
+}
