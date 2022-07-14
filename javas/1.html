@@ -19,13 +19,13 @@
         element=document.getElementById("myImage");
         if(element.src.match("rain")){
             console.log("变了捏")
-            element.src="/src/Anime.jpg";
+            element.src="../src/Anime.jpg";
             document.getElementById("pic_txt").innerHTML=("二次元扎不多德勒")
         }
         else if(element.src.match("Anime"))
         {
             console.log("变了捏")
-            element.src="/src/rain.jpg";
+            element.src="../src/rain.jpg";
             document.getElementById("pic_txt").innerHTML=("点击变成二次元捏")
         }
     }
@@ -50,7 +50,7 @@
     <p id="yiwu">义！！乌！！</p>
     <button type="button" onclick="zood()">说唱</button>
     <h2>点击更改图片</h2>
-    <img id="myImage" onclick="changeImgAndTxt()" width="180px" height="100px" src="/src/rain.jpg">
+    <img id="myImage" onclick="changeImgAndTxt()" width="180px" height="100px" src="../src/rain.jpg">
     <p id="pic_txt">点击变成二次元捏</p>
     <p id="ermeng" onclick="ermeng()">二萌老师!!!</p>
     <h2>输入框校验</h2>
