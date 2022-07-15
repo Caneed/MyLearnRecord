@@ -76,6 +76,8 @@
       txt += "错误描述：" + error.message + "\n\n";
       txt += "点击确定继续。\n\n";
       alert(txt);
+    }finally{
+      window.alert("finally最后都会执行");
     }
   }
 </script>

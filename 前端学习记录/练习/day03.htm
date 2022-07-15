@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>day03</title>
+</head>
+
+<body>
+  <input type="text" id="throw">
+  <button onclick="fun()">输入5-10的数字</button>
+  <p id="err"></p>
+</body>
+<script>
+  function fun() {
+    var x;
+    x = document.getElementById("throw").value;
+    var message = document.getElementById("err");
+
+    try {
+      if (x == "") throw "值为空";
+      if (isNaN(x)) throw "不是数字";
+      x = Number(x);
+      if (x < 5) throw "太小";
+      if (x > 10) throw "太大";
+    } catch (error) {
+      message.innerHTML = '错误：' + error;
+    }
+  }
+</script>
+
+</html>
