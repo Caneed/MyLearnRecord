@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>day11</title>
+  <style>
+    #red::first-letter{
+      color: red;
+    }
+    #blue::first-line{
+      color: blue;
+    }
+    #select::selection{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>伪元素</h1>
+  <p id="red">第一个文字变红</p>
+  <p id="blue">第一行文字变蓝，<br>第二行不变</p>
+  <p id="select">被选中的文字变红，不被选择的不变</p>
+  <h1>单位</h1>
+  <p>长度单位px，绝对单位像素</p>
+  <p>em，相对单位，1em相对于父元素的font-size</p>
+  <style>
+    html {
+      font-size:16px;
+    }
+    
+    div {
+      font-size: 3rem;
+      border: 1px solid black;
+    }
+    
+    #top-div {
+      font-size: 2rem;
+      border: 1px solid red;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <p>此文档的 font-size 是 16px。</p>
+    
+    <div id="top-div">
+    这个 div 的 font-size 为 2rem，转换为浏览器字体大小的2倍。
+    <div>这个 div 元素的 font-size 为 3rem。它同时也展示出不会继承其父元素的字体尺寸。</div>
+    </div>
+    
+    <p>rem 单位设置的 font-size 相对于浏览器的基准字体尺寸，并不从其父元素继承。</p>
+    
+</body>
+</html>

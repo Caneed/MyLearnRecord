@@ -46,6 +46,38 @@
     </li>
     <li></li>
   </ul>
+  <p id="regex"></p>
+  <p id="replace"></p>
+  <p id="exec"></p>
+  <button id="try" onclick="onErr()">点击生成错误</button>
 </body>
+<script>
+  var reg = "hello,i am simon!"
+  var n = reg.search(/simon/i);
+  document.getElementById("regex").innerHTML = n;
+</script>
+<script>
+  var re = "hello,i am Simon";
+  var reb = re.replace(/Simon/i, "SI");
+  document.getElementById("replace").innerHTML = reb;
+  var
+  let = /o/
+  console.log(let.test("aaaaaa"));
+  console.log(/e/.test("hello"));
+  document.getElementById("exec").innerHTML = /e/.exec("the best thing ever");
+</script>
+<script>
+  var txt = "";
+  function onErr() {
+    try {
+      window.lert("try&catch");
+    } catch (error) {
+      txt = "本页有一个错误。\n\n";
+      txt += "错误描述：" + error.message + "\n\n";
+      txt += "点击确定继续。\n\n";
+      alert(txt);
+    }
+  }
+</script>
 
 </html>
