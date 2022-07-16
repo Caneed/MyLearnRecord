@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+*{
+  margin:0;
+  padding: 0;
+  background-color: #222222;
+}
+#alert{
+  background-color: aqua;
+  width: 100%;
+  margin: 30px auto;
+}
+#alert h1{
+  font-family: ;
+}

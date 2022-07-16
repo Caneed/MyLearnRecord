@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D和3D转换效果</title>
+</head>
+<style>
+  div{
+    margin: 90px auto;
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+  }
+  #trans{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    transform: scale(0.2,0.2);
+    transform: translate(100px);
+    transform: rotate(30deg);
+  }
+  #scale{
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    transform: scale(2,2);
+  }
+  #skew{
+    transform: skew(30deg,20deg);
+  }
+  #matrix{
+    transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+  }
+  #rotate{
+    transform: rotateX(120deg);
+  }
+  #rotateY{
+    transform: rotateY(120deg);
+  }
+</style>
+<body>
+  <div id="trans">2d效果转换</div>
+  <div id="scale">放大缩小</div>
+  <div id="skew">倾斜</div>
+  <div id="matrix">matrix</div>
+  <div id="rotate">3d旋转</div>
+  <div id="rotateY">3d旋转2</div>
+</body>
+</html>
