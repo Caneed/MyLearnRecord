@@ -48,6 +48,12 @@
     }
   </style>
   <style>
+    @keyframes boxShadow {
+      0%{box-shadow: 0px 0px 0px #888888;}
+      25%{box-shadow: 7px 7px 3px #868b86;}
+      50%{box-shadow: 14px 14px 6px #2a2b2b;}
+      100%{box-shadow: 21px 21px 9px #050505;}
+    }
     #card {
       background-color: #ffffff;
       width: 250px;
@@ -56,6 +62,7 @@
       margin: 0 auto;
       margin-top: 20px;
       text-align: center;
+      animation: boxShadow 3s ease infinite alternate;
     }
 
     #laika {

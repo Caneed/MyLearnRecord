@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动画效果</title>
+  <style>
+    div {
+      /* background-color: red; */
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    /* 动画效果创建 */
+    @keyframes fade {
+      from {
+        background: red;
+      }
+
+      to {
+        background: yellow;
+      }
+    }
+
+    @keyframes fadePercent {
+      0% {
+        background: black;
+      }
+
+      25% {
+        background: blue;
+      }
+
+      50% {
+        background: red;
+      }
+
+      100% {
+        background: white;
+      }
+    }
+
+    @keyframes posColor {
+      0% {
+        background: red;
+        left: 0px;
+        top: 0px;
+      }
+
+      25% {
+        background: yellow;
+        left: 200px;
+        top: 0px;
+      }
+
+      50% {
+        background: blue;
+        left: 200px;
+        top: 200px;
+      }
+
+      75% {
+        background: green;
+        left: 0px;
+        top: 200px;
+      }
+
+      100% {
+        background: red;
+        left: 0px;
+        top: 0px;
+      }
+    }
+
+    #animate {
+      animation: fade 5s;
+    }
+
+    #animatePercent {
+      animation: fadePercent 5s;
+    }
+    #posCol{
+      animation: posColor 10s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="animate">动画效果A</div>
+  <div id="animatePercent">动画效果B</div>
+  <div id="posCol">动画效果C</div>
+</body>
+
+</html>
