@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单验证</title>
+  <script>
+    function validate(){
+      var x=document.forms["myForm"]["fName"].value;
+      if(x===null||x==""){
+        alert("姓名不能为空");
+        return false;
+      }
+    }
+  </script>
+  <script>
+    function cValidity(){
+      var x=document.getElementById("numForm");
+      if(x.checkValidity()==false){
+        document.getElementById("demo").innerHTML = x.validationMessage;
+        console.log(x.validationMessage);
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- 表单普通提交 -->
+  <h1>表单普通验证</h1>
+  <form name="myForm" action="demo_form.php" onsubmit="return validate()" method="post">
+  姓名:<input type="text" name="fName">
+  <button type="submit">提交</button>
+
+  <!-- 表单自动提交 -->
+  <h1>表单自动验证</h1>
+  <form name="reForm" action="" onsubmit="" method="post">
+    姓名：<input type="text" name="Name" id="" required>
+    <button type="submit">提交</button>
+  </form>
+</form>
+
+<!-- 表单验证API -->
+<h1>checkValidity()方法</h1>
+<input type="number" name="" id="numForm" min="100" max="300" required>
+<button onclick="cValidity()">提交</button>
+<p id="demo"></p>
+</body>
+</html>

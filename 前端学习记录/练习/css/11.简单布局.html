@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简单布局</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    @keyframes boxShadow {
+      0% {
+        box-shadow: 0px 0px 0px #888888;
+      }
+
+      25% {
+        box-shadow: 7px 7px 3px #868b86;
+      }
+
+      50% {
+        box-shadow: 14px 14px 6px #2a2b2b;
+      }
+
+      100% {
+        box-shadow: 21px 21px 9px #050505;
+      }
+    }
+
+    #card {
+      float: left;
+      background-color: #ffffff;
+      width: 200px;
+      height: 250px;
+      border: 1px solid #e1e1e1;
+      text-align: center;
+      animation: boxShadow 3s ease infinite alternate;
+      margin-left: 20px;
+    }
+
+    #laika {
+      color: #b0b0b0;
+      margin: 6px auto;
+    }
+
+    #nav {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #banner {
+      display: inline-block;
+      width: 220px;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav">
+    <table>
+      <tr>
+        <td rowspan="2">
+          <img id="banner" src="../src/bigBanner.webp" alt="">
+        </td>
+
+        <td>
+          <div id="card">
+            <img src="../src/MIS2.png" alt="" width="100%" height="65%">
+            <b>Xiaomi&nbsp;12S&nbsp;Ultra</b>
+            <p id="laika">这真徕卡&nbsp;|&nbsp;徕卡专业影像</p>
+            <p style="color: #ff6700;">5999起</p>
+          </div>
+        </td>
+
+        <td>
+          <div id="card">
+            <img src="../src/MIS2.png" alt="" width="100%" height="65%">
+            <b>Xiaomi&nbsp;12S&nbsp;Ultra</b>
+            <p id="laika">这真徕卡&nbsp;|&nbsp;徕卡专业影像</p>
+            <p style="color: #ff6700;">5999起</p>
+          </div>
+        </td>
+
+        <td>
+          <div id="card">
+            <img src="../src/MIS2.png" alt="" width="100%" height="65%">
+            <b>Xiaomi&nbsp;12S&nbsp;Ultra</b>
+            <p id="laika">这真徕卡&nbsp;|&nbsp;徕卡专业影像</p>
+            <p style="color: #ff6700;">5999起</p>
+          </div>
+        </td>
+
+        <td>
+          <div id="card">
+            <img src="../src/MIS2.png" alt="" width="100%" height="65%">
+            <b>Xiaomi&nbsp;12S&nbsp;Ultra</b>
+            <p id="laika">这真徕卡&nbsp;|&nbsp;徕卡专业影像</p>
+            <p style="color: #ff6700;">5999起</p>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div id="card">
+            <img src="../src/MIS2.png" alt="" width="100%" height="65%">
+            <b>Xiaomi&nbsp;12S&nbsp;Ultra</b>
+            <p id="laika">这真徕卡&nbsp;|&nbsp;徕卡专业影像</p>
+            <p style="color: #ff6700;">5999起</p>
+          </div>
+        </td>
+
+        <td>
+          <div id="card">
+            <img src="../src/MIS2.png" alt="" width="100%" height="65%">
+            <b>Xiaomi&nbsp;12S&nbsp;Ultra</b>
+            <p id="laika">这真徕卡&nbsp;|&nbsp;徕卡专业影像</p>
+            <p style="color: #ff6700;">5999起</p>
+          </div>
+        </td>
+
+        <td>
+          <div id="card">
+            <img src="../src/MIS2.png" alt="" width="100%" height="65%">
+            <b>Xiaomi&nbsp;12S&nbsp;Ultra</b>
+            <p id="laika">这真徕卡&nbsp;|&nbsp;徕卡专业影像</p>
+            <p style="color: #ff6700;">5999起</p>
+          </div>
+        </td>
+
+        <td>
+          <div id="card">
+            <img src="../src/MIS2.png" alt="" width="100%" height="65%">
+            <b>Xiaomi&nbsp;12S&nbsp;Ultra</b>
+            <p id="laika">这真徕卡&nbsp;|&nbsp;徕卡专业影像</p>
+            <p style="color: #ff6700;">5999起</p>
+          </div>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>

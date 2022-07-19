@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./iconfont.css">
+  <title>购物网站头部</title>
+  <!-- 京东 -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: smaller;
+    }
+    #example{
+      width: 100%;
+    }
+    #jd_nav {
+      width: 100%;
+      height: 31px;
+      padding-left: 130px;
+      padding-right: 142px;
+      background-color: #e3e4e5;
+    }
+
+    #jd_nav a {
+      color: #9b9b9b;
+      line-height: 31px;
+      display: inline-block;
+      text-decoration: none;
+      width: 73px;
+      margin-right: 10px;
+    }
+
+    #posit {
+      margin-right: 150px;
+    }
+
+    #jd_nav a:hover {
+      color: #f10215;
+    }
+    #divid {
+      color: #9b9b9b;
+    }
+  </style>
+  <!-- 淘宝 -->
+  <style>
+    #tb_nav{
+      box-sizing:border-box;
+      height: 35px;
+      width: 100%;
+      padding:0px 37px;
+      background-color: #f5f5f5;
+    }
+    #left{
+      float: left;
+    }
+    #right{
+      float: right;
+    }
+    #tb_nav a{
+      color:#979797;
+      text-decoration: none;
+      line-height: 35px;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    #tb_nav left a{
+      width: 73px;
+    }
+  </style>
+  <!-- 小米 -->
+  <style>
+    #xm_nav{
+      box-sizing:border-box;
+      width: 100%;
+      height: 40px;
+      background-color: #333333;
+      padding: 0px 10px;
+    }
+    #left{
+      float: left;
+    }
+    #xm_nav a{
+      font-size: medium;
+      color: #b0b0b0;
+      text-decoration: none;
+      line-height: 40px;
+    }
+    #xm_nav a:hover{
+      color: #ffffff;
+    }
+    #car{
+      margin-left: 22px;
+      background-color: #424242;
+      height: 40px;
+      display: inline-block;
+      padding: 0 5px;
+    }
+    #right #car:hover{
+      color: #ff6700;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 京东 -->
+  <h1>京东头部</h1>
+  <p>原版:</p>
+  <img id="example" src="../src/京东商城.png" alt="">
+  <p>枪版：</p>
+  <div id="jd_nav">
+    <a id="posit" href="javascript:;"><i class="iconfont icon-weizhi"style="color:#f10215"></i>&nbsp;重庆</a>
+    <a href="javascripy:;">你好，请登录</a>
+    <a href="javascript:;" style="color: #f10215;">&nbsp;免...</a>
+
+    <span id="divid">|</span>
+    <a href="javascript:;">&emsp;我的订单</a>
+
+    <span id="divid">|</span>
+    <a href="javascript:;">我的京东<i class="iconfont icon-xiajiantou" style="color: #9b9b9b;"></i></a>
+
+    <span id="divid">|</span>
+    <a href="javascript:;">京东会员</a>
+
+    <span id="divid">|</span>
+    <a href="javascript:;" style="color: #f10215;">企业采购<i class="iconfont icon-xiajiantou"
+        style="color: #9b9b9b;"></i></a>
+
+    <span id="divid">|</span>
+    <a href="javascript:;">客户服务<i class="iconfont icon-xiajiantou" style="color: #9b9b9b;"></i></a>
+
+    <span id="divid">|</span>
+    <a href="javascript:;">网站导航<i class="iconfont icon-xiajiantou" style="color: #9b9b9b;"></i></a>
+
+    <span id="divid">|</span>
+    <a href="javascript:;">手机京东</a>
+
+    <span id="divid">|</span>
+    <a href="javascript:;">网站无障碍</a>
+  </div>
+
+  <!-- 淘宝 -->
+  <h1>淘宝头部</h1>
+  <p>原版：</p>
+  <img id="example" src="../src/淘宝商城.png" alt="">
+  <p>枪版</p>
+  <div id="tb_nav">
+    <!-- 左边 -->
+    <div id="left">
+      <a href="javascript:;">中国大陆<i class="iconfont icon-xiajiantou"></i></a>
+      <a href="javascript:;" style="color: #f22e37;">亲，请登录</a>
+      <a href="javascript:;">免费注册</a>
+      <a href="javascript:;">手机逛淘宝</a>
+      <a href="javascript:;">网页无障碍</a>
+    </div>
+
+    <!-- 右边 -->
+    <div id="right">
+      <a href="javascript:;">我的淘宝<i class="iconfont icon-xiajiantou"></i></a>
+      <a href="javascript:;"><i class="iconfont icon-gouwuche"></i>购物车</a>
+      <a href="javascript:;"><i class="iconfont icon-shoucang"></i>收藏夹<i class="iconfont icon-xiajiantou"></i></a>
+      <a href="javascript:;">商品分类</a>
+      <a href="javascript:;">免费开店&emsp;</a>
+      <span id="divid">|</span>
+      <a href="javascript:;">千牛卖家中心<i class="iconfont icon-xiajiantou"></i></a>
+      <a href="javascript:;">联系客服<i class="iconfont icon-xiajiantou"></i></a>
+    </div>
+  </div>
+
+  <!-- 小米 -->
+  <h1>小米头部</h1>
+  <p>原版：</p>
+  <img id="example" src="../src/小米商城.png" alt="">
+  <p>枪版：</p>
+  <div id="xm_nav">
+    <!-- 左边 -->
+    <div id="left">
+      <a href="javascript:;">小米官网</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">小米商城</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">MIUI</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">loT</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">云服务</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">天星数科</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">有品</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">小爱开放平台</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">企业团购</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">资质证照</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">协议规则</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">下载app</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">Select&nbsp;Location</a>
+    </div>
+
+    <!-- 右边 -->
+    <div id="right">
+      <a href="javascript:;">登录</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">注册</a>
+      <span id="divid">|</span>
+
+      <a href="javascript:;">消息通知</a>
+
+      <a href="javascript:;" id="car"><i class="iconfont icon-gouwuche"></i>购物车(0)</a>
+    </div>
+  </div>
+</body>
+
+</html>
