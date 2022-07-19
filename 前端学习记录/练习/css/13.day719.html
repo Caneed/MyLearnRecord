@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+      width: 590px;
+      height: 470px;
+    }
+    #bn {
+      width: 590px;
+      height: 470px;
+    }
+
+    .bottomleft {
+      position: absolute;
+      bottom: 16px;
+      left: 64px;
+    }
+    .bottomleft a {
+      width: 8px;
+      height: 8px;
+      margin-right: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .4);
+      display: inline-block;
+    }
+    .container ul{
+      width: 590px;
+      height: 470px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      animation: banner 12s infinite linear reverse;
+    }
+    .container ul:hover{
+      animation-play-state: paused;
+    }
+    .container ul li{
+      float: left;
+      list-style: none;
+    }
+    @keyframes banner {
+      from{
+        top: 0;
+      }to{
+        top: -2350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li><img id="bn" src="../src/bn1.jpg" alt=""></li>
+      <li><img id="bn" src="../src/bn2.jpg" alt=""></li>
+      <li><img id="bn" src="../src/bn3.jpg" alt=""></li>
+      <li><img id="bn" src="../src/bn4.jpg" alt=""></li>
+      <li><img id="bn" src="../src/bn5.jpg" alt=""></li>
+      <li><img id="bn" src="../src/bn6.jpg" alt=""></li>
+    </ul>
+
+    <!-- 轮播图左下角 -->
+    <div class="bottomleft">
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+    </div>
+  </div>
+</body>
+
+</html>
