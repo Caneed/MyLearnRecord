@@ -16,4 +16,4 @@ ajax=异步JavaScript+XML。
 
 ### ajax工作原理
 
-![](D:\VsCodeWorkSpace\LearningRecord\前端学习记录\src\ajax原理.png)
+![](D:\VsCodeWorkSpace\LearningRecord\前端学习记录\笔记\src\ajax原理.png)
