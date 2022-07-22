@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>异步编程</title>
+</head>
+<body>
+  <p id="demo">回调函数</p>
+
+</body>
+<script>
+  var x=document.getElementById("demo")
+  function printf(){
+    x.innerHTML="回调函数的使用"
+  }
+  setTimeout(printf,3000);
+  setTimeout(function print(){
+    x.innerHTML="回调函数的简便写法";
+  },6000);
+</script>
+</html>
