@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="grandfather" id="grandfather">我是爷爷
+    <div class="father" id="father" style="background-color: yellow; width:100px;height:100px">我是爸爸
+      <div class="son" id="son">我是儿子</div>
+  </div>
+  </div>
+  <button id="empty">删除father的儿子，但不删除father</button>
+  <button id="remove">把grandfather删除，同时删除father</button>
+</body>
+<script>
+  $(document).ready(function(){
+    $("#empty").click(function(){
+      $("#father").empty();
+    })
+    $("#remove").click(function(){
+      $("#grandfather").remove();
+    })
+  })
+</script>
+</html>

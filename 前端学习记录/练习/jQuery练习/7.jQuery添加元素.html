@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <p id="add">文本</p>
+  <p id="append">文本-1</p>
+  <button onclick="createText()">点击生成多个文本</button>
+</body>
+<script>
+$(document).ready(function(){
+  $("#add").append("结尾添加的文本");
+  $("#add").prepend("开头添加的文本");
+  $("#add").after("<p>在元素之后添加新的元素</p>")
+  $("#add").before("<p>在元素之前添加新的元素</p>")
+})
+function createText(){
+    let txt1="<p>文本-2(html生成)</p>";
+    let txt2=$("<p></p>").text("文本-2(jQuery生成)");
+    let txt3=document.createElement("p");
+    txt3.innerHTML="文本-3(DOM生成)";
+    $("#append").append(txt1,txt2,txt3);
+  }
+</script>
+</html>

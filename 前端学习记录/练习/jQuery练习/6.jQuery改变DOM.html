@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <title>Document</title>
+
+</head>
+
+<body>
+  <p id="p1">改变文本</p>
+  <p id="p2">改变html<b>粗体</b></p>
+  <button id="btn1">改变文本</button>
+  <button id="btn2">改变html</button>
+  <input type="text" name="username" id="username" value="表单值">
+  <button id="btn3">改变表单中的值</button>
+  <button id="btn4">text回调</button>
+  <button id="btn5">html回调</button>
+  <button id="btn6">val回调</button>
+  <a href="www.baidu.com">百度</a>
+  <button id="attr">设置属性</button>
+</body>
+<script>
+  $(document).ready(function () {
+    $("#btn1").click(function () {
+      $("#p1").text("文本已经改变");
+    })
+    $("#btn2").click(function () {
+      $("#p2").html("<b>文本变粗</b>");
+    })
+    $("#btn3").click(function () {
+      $("#username").val("表单值的改变");
+    })
+    $("#btn4").click(function () {
+      $("#p1").text(function (i, origText) {
+        return "下标：" + i + "原先的文本：" + origText;
+      });
+    })
+    $("#btn5").click(function () {
+      $("#p2").html(function (i, origText) {
+        return "下标：" + i + "原先的html：" + origText;
+      })
+    });
+    $("#btn6").click(function(){
+      $("#username").val(function(i,origText){
+        return "下标：" + i + "原先的表单值：" + origText;
+      })
+    })
+    $("#attr").click(function(){
+      $("a").attr("href","www.google.com");
+    })
+  })
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="html">获取整个html元素<b>粗体</b></div>
+  <button id="getHTML">获取html</button>
+  <div id="text">获取text文本内容</div>
+  <button id="getText">获取text</button>
+  <form id="val" action="">
+    <input type="text" name="usrname" id="username" value="你号">
+    <button id="getVal">获取表单中的值</button>
+  </form>
+  <a href="www.baidu.com" id="attr">百度</a>
+  <button id="getAttr">获取属性</button>
+</body>
+<script>
+  $(document).ready(function(){
+    $("#getHTML").click(function(){
+      let html=$("#html").html();
+      window.alert("得到的html:"+html);
+    })
+    $("#getText").click(function(){
+      let text=$("#text").text();
+      alert("得到的Text:"+text);
+    })
+    $("#getVal").click(function(){
+      let val=$("#username").val();
+      alert("得到form表单中填入的值:"+val);
+    })
+    $("#getAttr").click(function(){
+      alert("获取到的属性:"+$("#attr").attr("href"));
+    })
+  })
+</script>
+</html>
