@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .animate {
+    background-color: aqua;
+    margin-left: 20px;
+    margin-top: 20px;
+    height: 200px;
+    width: 200px;
+  }
+  .queue{
+    background-color:blueviolet;
+    width: 100px;
+    height: 100px;
+  }
+</style>
+
+<body>
+  <div id="animate" class="animate">动画效果</div>
+  <button id="ani_btn">点击实现动画</button>
+  <button id="rea_btn">相对值实现动画</button>
+  <button id="toggle">使用预定义值实现动画</button>
+  <div id="queue" class="queue">队列使用动画</div>
+  <button id="queue_btn">点击进行队列动画</button>
+</body>
+<script>
+  $(document).ready(function () {
+    $("#ani_btn").click(function () {
+      $("#animate").animate({
+        marginLeft: '250px',
+        marginTop: '250px',
+        width: '100px',
+        height: '100px',
+        backgroundColor: 'red'
+      }, 2000, function () {
+        alert("动画效果完成");
+      })
+    })
+    $("#rea_btn").click(function () {
+      $("#animate").animate({
+        marginLeft: '+=250px',
+        marginTop: '+=250px',
+        width: '+=100px',
+        height: '+=100px',
+        backgroundColor: 'red'
+      }, 2000, function () {
+        alert("动画效果完成");
+      })
+    })
+    $("#toggle").click(function () {
+      $("#animate").animate({
+        height: 'toggle'
+      }, 2000, function () {
+        alert("预定义属性动画效果完成");
+      })
+    })
+    $("#queue_btn").click(function () {
+      let queue = $("#queue");
+      queue.animate({
+        height: '300px',
+        opacity: '0.4'
+      }, "slow");
+      queue.animate({
+        width: '300px',
+        opacity: '0.8'
+      }, "slow");
+      queue.animate({
+        height: '100px',
+        opacity: '0.4'
+      }, "slow");
+      queue.animate({
+        width: '100px',
+        opacity: '0.8'
+      }, "slow");
+    })
+  })
+</script>
+
+</html>

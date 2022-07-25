@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .container{
+    width: 1200px;
+    height: 600px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .container2{
+    width: 4800px;
+    height: 600px;
+    animation: banner 20s infinite;
+  }
+  .banner{
+    width: 1200px;
+    height: 600px;
+    float: left;
+    font-size: 0px;
+    margin: 0 auto;
+  }
+  @keyframes banner {
+    0%,10%{
+      margin-left: 0;
+    }
+    25%,35%{
+      margin-left: -1200px;
+    }
+    55%,65%{
+      margin-left: -2400px;
+    }
+    80%,90%{
+      margin-left: -3600px;
+    }
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="container2">
+      <img class="banner" src="../src/banner01.jpg" alt="">
+      <img class="banner" src="../src/banner02.jpg" alt="">
+      <img class="banner" src="../src/banner03.jpg" alt="">
+      <img class="banner" src="../src/banner01.jpg" alt="">
+    </div>
+  </div>
+</body>
+</html>

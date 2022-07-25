@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <title>Document</title>
+  <style>
+    button{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <p id="pro">显示和隐藏</p>
+  <button id="hide">隐藏</button><button id="show">显示</button>
+  <p id="timer">隐藏和显示1000ms</p>
+  <button id="t_hide">隐藏1000ms</button><button id="t_show">显示1000ms</button>
+  <p id="t_p">toggle</p>
+  <button id="toggle">toggle</button>
+</body>
+<script>
+  $(document).ready(
+    function(){
+      $("#hide").click(
+        function(){
+          $("#pro").hide();
+        });
+        $("#show").click(
+          function(){
+            $("#pro").show();
+          });
+          $("#toggle").click(function(){
+            $("#t_p").toggle(1000,function(){
+              alert("toggle()函数已完成！");
+            })
+          });
+    });
+    $(document).ready(function(){
+      $("#t_hide").click(function(){
+        $("#timer").hide(1000);
+      });
+      $("#t_show").click(function(){
+        $("#timer").show(1000,"swing",function(){
+          alert("show()函数已经完成!")
+        });
+      })
+    })
+</script>
+</html>
