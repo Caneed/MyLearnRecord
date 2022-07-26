@@ -3,4 +3,4 @@
 
 ****
 
-## 记录一些学习的日常笔记，包括HTML，CSS,JS,markdown,git,GO等
+## 记录一些学习的日常笔记，包括HTML，CSS,JS,jQuery,markdown,git,GO等
