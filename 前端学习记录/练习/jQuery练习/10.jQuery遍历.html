@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <span id="son"></span>
+  </div>
+  <div id="father">
+    <div>
+      <span id="grandson"></span>
+    </div>
+  </div>
+</body>
+<script>
+  $(document).ready(function(){
+    $("#son").parent().css({"background":"yellow","width":"100px","height":"100px"});
+    $("#son").parents().css({"background":"yellow","width":"100px","height":"100px"});
+    $("#grandson").parentsUntil("#father").css({"background":"red","width":"100px","height":"100px"});
+  })
+</script>
+</html>
