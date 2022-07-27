@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@next"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="message-handle">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">反转文本</button>
+  </div>
+  <div id="two-way-bind">
+    <p>{{message}}</p>
+    <input v-model="message"/>
+  </div>
+</body>
+<Script>
+  const MessageHandle = {
+    // 数据处理
+    data() {
+      return {
+        message: "hello,world"
+      }
+    },
+    // 方法定义
+    methods: {
+      reverseMessage() {
+      this.message = this.message
+        .split('')
+        .reverse()
+        .join('')
+    }
+    }
+  }
+  const TwoWayBind={
+    data(){
+      return{
+        message:"双向绑定"
+      }
+    }
+  }
+  //把常量通过id绑定到元素
+  Vue.createApp(MessageHandle).mount("#message-handle");
+  Vue.createApp(TwoWayBind).mount("#two-way-bind");
+</Script>
+
+</html>
