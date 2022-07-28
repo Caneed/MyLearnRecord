@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@next"></script>
+  <title>Document</title>
+</head>
+<body>
+  <span id="msg">message:{{msg}}</span>
+  <span v-once id="msg">不会改变</span>
+  <div id="demo">插入html:<span v-html="ihtml"></span></div>
+</body>
+<script>
+const msg={
+  data(){
+    return{
+      msg:'fuck u'
+    }
+  }
+}
+const html={
+  data(){
+    return{
+      ihtml:'<span style="color: red">This should be red.</span>'
+    }
+  }
+}
+Vue.createApp(html).mount("#demo")
+Vue.createApp(msg).mount("#msg")
+</script>
+</html>

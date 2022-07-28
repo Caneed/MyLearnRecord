@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p v-if="Math.random()>0.5">大于0.5</p>
+    <p v-else>小于0.5</p>
+  </div>
+  <div id="demo">
+    <p v-if="type==='A'">A</p>
+    <p v-else-if="type==='B'">B</p>
+    <p v-else-if="type==='C'">C</p>
+  </div>
+  <div id="demo2">
+    <p v-show="ok">hello world</p>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: "#app"
+  })
+  new Vue({
+    el:"#demo",
+    data:{
+      type:'A'
+    }
+  })
+  new Vue({
+    el:"#demo2",
+    data:{
+      ok:true
+    }
+  })
+</script>
+
+</html>
