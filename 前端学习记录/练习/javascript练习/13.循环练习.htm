@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
 </body>
 <script>
-  var x=1
-  for(x;x<=10;x++){
-    for(var a=0;a<=x;a++){
+  var x = 1
+  for (x; x <= 10; x++) {
+    for (var a = 0; a <= x; a++) {
       document.write('<span>*</span>')
     }
     document.write("<br>")
   }
-  var num=0;
-function isOven(x){
-if(x%2==0){
-  return true;
-}else{
-  return false;
-}
-}
-  for(i=1;i<=100;i++){
-    if(isOven(i)){
-      num+=i;
+  var num = 0;
+
+  function isOven(x) {
+    if (x % 2 == 0) {
+      return true;
+    } else {
+      return false;
     }
   }
-  console.log("1到100的偶数和:"+num)
+  for (i = 1; i <= 100; i++) {
+    if (isOven(i)) {
+      num += i;
+    }
+  }
+  console.log("1到100的偶数和:" + num)
 
-  var act=1;
-  for(act;act<=10;act++){
-    for(sub=10-act;sub>0;sub--){
+  var act = 1;
+  for (act; act <= 10; act++) {
+    for (sub = 10 - act; sub > 0; sub--) {
       document.write("&nbsp;")
     }
-    for(sup=1;sub<act;sub++){
+    for (sup = 1; sub < act; sub++) {
       document.write("*")
     }
     document.write("<br>")
   }
 </script>
+
 </html>

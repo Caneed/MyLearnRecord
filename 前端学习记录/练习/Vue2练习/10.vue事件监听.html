@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <script src="./vue.js"></script>
   <title>Document</title>
 </head>
+
 <body>
   <div id="app">
     <div>按钮被点击了{{time}}次</div>
@@ -24,21 +26,21 @@
 </body>
 <script>
   new Vue({
-    el:"#app",
-    data:{
-      time:0
+    el: "#app",
+    data: {
+      time: 0
     }
   })
-  var vm=new Vue({
-    el:"#demo",
-    data:{
-      name:"Vue.js"
+  var vm = new Vue({
+    el: "#demo",
+    data: {
+      name: "Vue.js"
     },
     // 定义方法
-    methods:{
-      hello:function(event){
-        alert("输出hello:"+this.name)
-        if(event){
+    methods: {
+      hello: function (event) {
+        alert("输出hello:" + this.name)
+        if (event) {
           // 输出当前点击元素的tag名
           console.log(event)
           alert(event.target.tagName)
@@ -50,12 +52,13 @@
   vm.hello();
 
   new Vue({
-    el:"#demo2",
-    methods:{
-      say:function(message){
-        alert("say"+message);
+    el: "#demo2",
+    methods: {
+      say: function (message) {
+        alert("say" + message);
       }
     }
   })
 </script>
+
 </html>
