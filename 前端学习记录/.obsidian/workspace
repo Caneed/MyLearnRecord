@@ -1,0 +1,142 @@
+{
+  "main": {
+    "id": "c002e12d30d1ac33",
+    "type": "split",
+    "children": [
+      {
+        "id": "ab54f98cdd7e7490",
+        "type": "leaf",
+        "state": {
+          "type": "image",
+          "state": {
+            "file": "笔记/git笔记/src/集中版本控制.png"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dd9191e250d10234",
+    "type": "split",
+    "children": [
+      {
+        "id": "e624c685f52fa97c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fed681c4f53c9650",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "8052e316bb725e8d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "380b9bf4301cee25",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "660e5cec8ee8fe20",
+    "type": "split",
+    "children": [
+      {
+        "id": "c5bcb8e276adf477",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a3573bbb35fff17d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "笔记/git笔记/src/集中版本控制.png",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "65083842220db28d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "笔记/git笔记/src/集中版本控制.png",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "800c41aea094d74d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "8f28446d9c1492d6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "笔记/git笔记/src/集中版本控制.png"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "ab54f98cdd7e7490",
+  "lastOpenFiles": [
+    "笔记/git笔记/src/分布式版本控制(git).png",
+    "笔记/git笔记/src/常用的六种命令.png",
+    "笔记/git笔记/src/本地版本控制.png",
+    "笔记/git笔记/1.版本控制.md",
+    "笔记/git笔记/3.git操作.md",
+    "笔记/git笔记/2.git配置.md",
+    "2022-08-01.md",
+    "笔记/vue2笔记/2.vue.js模板语法.md",
+    "笔记/vue2笔记/9.vue.js表单.md",
+    "笔记/SVG笔记/2.svgrect.md"
+  ]
+}
