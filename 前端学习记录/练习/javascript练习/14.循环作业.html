@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../../../lib/vue.js"></script>
+</head>
+
+<body>
+  <p>求1到1000的水仙花数</p>
+  <button onclick="flower()">点击求水仙花数</button>
+  <br>
+
+  <button onclick="ask()">询问</button><br>
+
+  <input type="number" name="" id="num">
+  <button onclick="cal()">随机输入整数</button>
+  <p id="res"></p><br>
+
+  <button onclick="cal2()">求数列和</button>
+  <br>
+  <button onclick="student()">计算学生成绩</button><br>
+  <button onclick="muti()">九九乘法表</button>
+  <button onclick="muti2()">九九乘法表</button><br>
+  <button onclick="triangle()">等腰直角三角形</button>
+</body>
+<script>
+  function sqrt(x) {
+    return x * x * x;
+  }
+
+  function flower() {
+    let a = 1000;
+    let count = 0;
+    let i = 100
+    for (i; i < a; i++) {
+      let x = i / 100
+      let y = i / 10 % 10
+      let z = i % 10
+      let cmp = sqrt(parseInt(x)) + sqrt(parseInt(y)) + sqrt(parseInt(z))
+      if (i == parseInt(cmp)) {
+        count++;
+        document.write("水仙花：" + cmp)
+      }
+    }
+    document.write("1到1000中的水仙花数为：" + count)
+  }
+
+  function ask() {
+    do {
+      var answer = prompt("今天你学习了吗？")
+    } while (answer != "yes") {
+      alert("好孩子")
+    }
+  }
+
+  function cal() {
+    let c = document.getElementById("num").value;
+    document.getElementById("res").innerHTML = "这个数各个位数的和为：" + (parseInt(c % 10) + parseInt(c / 10 % 10) + parseInt(c /
+      100))
+  }
+
+  function cal2(){
+    let a=[2,3]
+    let b=[1,2]
+    let sum=0;
+    for(i=1;i<19;i++){
+      a[i+1]=a[i]+a[i-1]
+      b[i+1]=b[i]+b[i-1]
+    }
+    for(i=0;i<20;i++){
+      sum+=a[i]/b[i]
+    }
+    window.alert("数列和："+sum)
+  }
+
+  function student(){
+    let a=prompt("输入学生人数:")
+    let b=[],sum=0
+    for(i=0;i<a;i++){
+      b[i]=prompt("成绩:")
+      sum+=parseInt(b[i])
+    }
+    alert("总成绩："+sum)
+  }
+
+  function muti(){
+    for(i=1;i<10;i++){
+      for(j=1;j<10;j++){
+        let res=i*j
+        document.write("<span>"+i+"*"+j+"="+res+"&ensp;</span>")
+      }
+      document.write("<br>")
+    }
+    document.write("<button onclick='back()'>返回</button>")
+  }
+  function muti2(){
+    let i=1,j=1;
+    while(i<10){
+      while(j<10){
+        let res=i*j
+        document.write("<span>"+i+"*"+j+"="+res+"&ensp;</span>")
+        j++
+      }
+      document.write("<br>")
+      j=1
+      i++;
+    }
+    document.write("<button onclick='back()'>返回</button>")
+  }
+   function back(){
+    window.location.reload()
+   }
+
+   function triangle(){
+    for(var i=0;i<4;i++)
+        {
+            var s="";
+            for(var j=0;j<3-i;j++)
+            {
+                s+=" ";
+            }
+            for(var k=0;k<2*i+1;k++)
+            {
+                s+="*";
+            }
+            console.log(s);
+        }
+   }
+</script>
+
+</html>
