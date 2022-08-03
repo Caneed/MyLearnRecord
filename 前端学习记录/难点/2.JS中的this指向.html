@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  //显式绑定
+//   function fn1 () {
+//     console.log(this)
+// }
+// function fn2 () {
+//     'use strict'
+//     console.log(this)
+// }
+// fn1() // window
+// fn2() // undefined
+
+// var num = 1
+// var foo = {
+//     num: 10,
+//     fn: function() {
+//        console.log(this)
+//        console.log(this.num)
+//     }
+// }
+// var fn1 = foo.fn
+// fn1()//window , 1 
+
+//隐式绑定
+// var a = 'hello'
+
+// var obj = {
+//     a: 'world',
+//     fn: function() {
+//         console.log(this.a)
+//     }
+// }
+
+// obj.fn()
+
+// const obj1 = {
+//     text: 1,
+//     fn: function() {
+//         return this.text
+//     }
+// }
+// const obj2 = {
+//     text: 2,
+//     fn: function() {
+//         return obj1.fn()
+//     }
+// }
+// const obj3 = {
+//     text: 3,
+//     fn: function() {
+//         var fn = obj1.fn
+//         return fn()
+//     }
+// }
+// console.log(obj1.fn())
+// console.log(obj2.fn())
+// console.log(obj3.fn())
+
+//显示绑定
+// var a = 'hello'
+
+// function fn() {
+//     console.log(this.a)
+// }
+
+// fn.call(null)   
+
+// const foo = {
+//     name: 'hello',
+//     logName: function() {
+//         console.log(this.name)
+//     }
+// }
+// const bar = {
+//     name: 'world'
+// }
+// console.log(foo.logName.call(bar))
+
+// let a = {}
+// let fn = function () { 
+//   console.log(this) 
+// }
+// fn.bind().bind(a)() 
+
+//new 绑定
+
+// function Person(name,age){
+//   this.name = name;
+//   this.age = age;
+//   this.say = function(){
+//     console.log(this.name + ":" + this.age);
+//   }
+// }
+// var person = new Person("CUGGZ",18);
+// console.log(person.name); // CUGGZ
+// console.log(person.age);  // 18
+// person.say(); // CUGGZ:18
+
+
+//this优先级
+// function foo (a) {
+//     console.log(this.a)
+// }
+// const obj1 = {
+//     a: 1,
+//     foo: foo
+// }
+// const obj2 = {
+//     a: 2,
+//     foo: foo
+// }
+// obj1.foo.call(obj2)
+// obj2.foo.call(obj1)
+
+// function foo (a) {
+//     this.a = a
+// }
+// const obj1 = {}
+// var bar = foo.bind(obj1)
+// bar(2)
+// console.log(obj1.a)//2
+
+//特殊的this指向
+
+// const foo = {  
+//     fn: function () {  
+//         setTimeout(function() {  
+//             console.log(this)
+//         })
+//     }  
+// }  
+// console.log(foo.fn())
+// // window
+
+// const foo = {  
+//     fn: function () {  
+//         setTimeout(() => {  
+//             console.log(this)
+//         })
+//     }  
+// } 
+// console.log(foo.fn())
+// // {fn: ƒ}
+
+// function a() {
+//   return () => {
+//     return () => {
+//       console.log(this)
+//     }
+//   }
+// }
+// console.log(a()()())
+
+
+// var obj = {
+//   arr: [1]
+// }
+// obj.arr.forEach(function() {
+//   console.log(this)
+// }) 
+
+
+// var name = 'hello'
+// var obj = {
+//   name: 'world',
+//   sayHello: function() {
+//     console.log(this.name)
+//   },
+//   hello: function() {
+//     (function(cb) {
+//       cb()
+//     })(this.sayHello)
+//   }
+// }
+// obj.hello() // hello
+
+var name = 'hello'
+var obj = {
+  name: 'world',
+  hello: function() {
+    setTimeout(function() {
+      console.log(this.name)
+    })
+  }
+}
+obj.hello() // hello
+</script>
+</html>
