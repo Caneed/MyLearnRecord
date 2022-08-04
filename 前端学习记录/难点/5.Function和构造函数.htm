@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+//   //Function
+//   var f = function () {
+//   console.log('this is f function');
+// }
+// // 函数也是一个对象
+// console.log(f instanceof Object); // true
+// // 函数是Function类型的对象
+// console.log(f instanceof Function); // true
+
+
+// //使用Function构造函数创建函数
+// // 无参的函数
+// var fun = new Function('console.log("这是一个函数")')
+// fun() // 这是一个函数
+// // 带一个参数的函数
+// var fun = new Function('a', 'console.log("这个函数带一个参数：" + a)')
+// fun(100) // 这个函数带一个参数：100
+// // 带两个参数的函数
+// var fun = new Function(
+//   'a, b',
+//   'console.log("这是带两个参数的函数，分别是" + a + "和" + b);',
+// )
+// fun(100, 200) // 这是带两个参数的函数，分别是100和200
+
+
+// //Function和Object
+// console.log(Function instanceof Function) //true
+// console.log(Function instanceof Object) //true
+// console.log(Object instanceof Object) //true
+// console.log(Object instanceof Function) //true
+
+// //构造函数
+// // 创建 一碗周
+// function Person(name, age, sex) {
+//   this.name = name
+//   this.age = age
+//   this.sex = sex
+//   this.print = function () {
+//     console.log(name + '今年' + age + '岁 性别' + sex)
+//   }
+// }
+// var z = new Person('一碗周', 18, '男')
+// // 判断是否为 Person 构造函数的对象
+// console.log(z.constructor === Person)
+
+// //length属性
+// // 定义两个空函数
+// function fun(a, b, c, d) {}
+
+// function fn() {}
+
+// // 测试 length 属性
+// console.log(fun.length) // 4
+// console.log(fn.length) // 0
+
+// //apply()方法
+// // 定义一个函数
+// function fn(a) {
+//   console.log('this is ' + a)
+//   console.log(a)
+// }
+// fn.apply(null, ['函数']) // this is 函数
+
+// // 上面的调用方式等同于下面这种方式
+// fn('函数') // this is 函数
+
+// //call()方法
+// function fn(a) {
+//   console.log('this is ' + a)
+// }
+// fn.call(null, '函数') // this is 函数
+
+// // 上面的调用方式等同于下面这种方式
+// fn('函数') // this is 函数
+
+
+// //bind()方法
+// // 定义一个函数
+// var fun = function (a, b) {
+//   console.log('第一个参数的值为：' + a + '第二个参数的值为：' + b)
+// }
+// // 调用 fun()
+// fun(10, 20) // 第一个参数的值为：10第二个参数的值为：20
+// // 创建绑定函数
+// var fn = fun.bind(null, 100, 200) // 有参数默认值的功能
+// // 调用新创建的函数，不写实参
+// fn() // 第一个参数的值为：100第二个参数的值为：200
+
+
+//arguments对象
+/*
+ * arguments 对象是一个存在于函数体中的特殊对象。
+ * arguments 对象是一个类数组对象
+ * arguments 对象对应传递给函数的实参
+ */
+// 定义一个函数
+// var fun = function () {
+//   console.log(arguments)
+//   // arguments.callee  指向参数所属的当前执行的函数。
+//   //如果给这个属性加一个括号则表示调用。因为 arguments.callee === fun 的结果为 true
+//   console.log(arguments.callee)//如果没有()返回的是这个函数体
+//   // arguments.length  传递给函数的参数数量。
+//   console.log(arguments.length)
+// }
+// fun(1, 2, 3, 4, 5) 
+</script>
+</html>

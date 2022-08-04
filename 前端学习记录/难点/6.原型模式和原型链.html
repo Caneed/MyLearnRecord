@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+  //引用类型具有自由扩展属性
+//   const obj = {}
+// const arr = []
+// const fn = function () {}
+
+// obj.a = 1
+// arr.a = 1
+// fn.a = 1
+
+// console.log(obj.a) // 1
+// console.log(arr.a) // 1
+// console.log(fn.a) // 1
+
+// //引用类型都有一个隐式原型__proto__
+// const obj = {};
+// const arr = [];
+// const fn = function() {}
+
+// console.log('obj.__proto__', obj.__proto__);
+// console.log('arr.__proto__', arr.__proto__);
+// console.log('fn.__proto__', fn.__proto__);
+
+//隐式原型指向构造函数的显式原型prototype
+// const obj = {};
+// const arr = [];
+// const fn = function() {}
+
+// obj.__proto__ == Object.prototype // true
+// arr.__proto__ === Array.prototype // true
+// fn.__proto__ == Function.prototype // true
+// console.log(obj.__proto__ == Object.prototype)
+
+// //当在找对象中没有的属性时，会去它的隐式原型__proto__,也即是它构造函数的显示原型prototype中去找
+// const obj={a:1}
+// obj.toString
+// console.log(obj.toString)
+
+// //原型链
+// function Person(name) {
+//   this.name = name
+//   return this // 其实这行可以不写，默认返回 this 对象
+// }
+
+// var nick = new Person("nick")
+// nick.toString
+// console.log(nick.toString)
+// console.log(Person.prototype.__proto__===Object.prototype)
+// // ƒ toString() { [native code] }
+
+
+//练习
+function fun() {
+        this.a = 0
+        this.b = function () {
+          console.log(this.a)
+        }
+      }
+
+      fun.prototype = {
+        name: 'yyy',
+        b: function () {
+          this.a = 20
+          console.log(this.a)
+        },
+        c: function () {
+          this.a = 30
+          console.log(this.a)
+        }
+      }
+
+      var my_fun = new fun()
+      console.log(my_fun.a)
+      my_fun.b()
+      my_fun.c()
+      console.log(my_fun.a)
+      my_fun.toString()
+      //0 0 30 30 
+</script>
+</html>
