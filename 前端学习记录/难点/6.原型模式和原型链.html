@@ -187,18 +187,18 @@
 
 
    //第一题
-        // var a = 11;
-        // function test2() {
-        //     this.a = 22;
-        //     let b = () => {
-        //         console.log(this.a)
-        //     }
-        //     b();
-        // }
-        // var x = new test2(); 
-        // console.log(a)//11
-        // test2()  //11,22
-        // console.log(a)//22
+        var a = 11;
+        function test2() {
+            this.a = 22;
+            let b = () => {
+                console.log(this.a)
+            }
+            b();
+        }
+        var x = new test2(); 
+        console.log(a)//22
+        test2()  //11,22
+        console.log(a)//22
     
 
 
