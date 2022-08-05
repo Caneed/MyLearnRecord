@@ -62,31 +62,173 @@
 
 
 //练习
-function fun() {
-        this.a = 0
-        this.b = function () {
-          console.log(this.a)
-        }
-      }
+// function fun() {
+//         this.a = 0
+//         this.b = function () {
+//           console.log(this.a)
+//         }
+//       }
 
-      fun.prototype = {
-        name: 'yyy',
-        b: function () {
-          this.a = 20
-          console.log(this.a)
-        },
-        c: function () {
-          this.a = 30
-          console.log(this.a)
-        }
-      }
+//       fun.prototype = {
+//         name: 'yyy',
+//         b: function () {
+//           this.a = 20
+//           console.log(this.a)
+//         },
+//         c: function () {
+//           this.a = 30
+//           console.log(this.a)
+//         }
+//       }
 
-      var my_fun = new fun()
-      console.log(my_fun.a)
-      my_fun.b()
-      my_fun.c()
-      console.log(my_fun.a)
-      my_fun.toString()
-      //0 0 30 30 
+//       var my_fun = new fun()
+//       console.log(my_fun.a)
+//       my_fun.b()
+//       my_fun.c()
+//       console.log(my_fun.a)
+//       my_fun.toString()
+//       //0 0 30 30 
+
+
+  // 第一题
+        // var z = 10;
+        // function foo() {
+        //     console.log(z)
+        // }
+
+        // (function () {
+            
+        //     function fun(){
+        //         console.log(z)
+        //     }
+        //     fun()
+            
+        // })()  //10
+    
+
+
+        //第二题
+        // var test = (function (i) {
+        //     return  function () {
+        //          console.log(i += 2);
+        //      }
+        // })(2)
+
+        // test();//4
+        // test();//6
+        // test = (function (i) {
+        //     return  function () {
+        //          console.log(i += 2);
+        //      }
+        // })(2)
+        // test()//4
+
+  
+
+      
+
+        //第三题
+        // function fun(i){
+        //     i+=10
+        //     return i
+        // }
+
+        // let i = 10
+        // let sum = fun(i)
+        // console.log(i)//10
+        // console.log(sum)//20
+
+        // function fn(obj){
+        //     obj.sex = '女'
+        // }
+        // var obj = new Object()
+        // obj.sex = '男'
+        // fn(obj)
+        // console.log(obj.sex)//女
+    
+
+
+        //第四题
+        // var getName
+
+        // function getName() {
+        //     console.log(5)
+        // }
+
+        // function Foo() {
+    
+        //     getName = function () {
+        //         console.log(1)
+        //     }
+
+        //     return this
+        // }
+
+        // Foo.getName = function () {
+        //     console.log(2)
+        // }
+
+        // Foo.prototype.getName = function () {
+        //     console.log(3);
+        // }
+
+        //  getName = function () {
+        //     console.log(4);
+        // }
+
+        // Foo.getName();//2
+        // getName();//4
+        // Foo().getName();//1
+        // getName();//1
+        // Foo.getName();//2
+        // new Foo().getName();//3   
+        // new Foo().getName();//3
+
+
+
+   //第一题
+        // var a = 11;
+        // function test2() {
+        //     this.a = 22;
+        //     let b = () => {
+        //         console.log(this.a)
+        //     }
+        //     b();
+        // }
+        // var x = new test2(); 
+        // console.log(a)//11
+        // test2()  //11,22
+        // console.log(a)//22
+    
+
+
+
+
+
+
+        //第二题
+        // f = function () {
+        //     return true;
+        // };
+        // // g = function () {
+        // //     return false;
+        // // };
+        // (function () {
+
+        //     function g() {
+        //             return true;
+        //         }
+        //     console.log([]==![])//true
+        //     console.log(g() && [] == ![])//true
+        //     if (g() && [] == ![]) {
+        //         console.log(66)//66
+        //         f = function f() {
+        //             return false;
+        //         };
+        //     }
+        // })();
+        // console.log(f()); //false
+
+    
 </script>
 </html>
