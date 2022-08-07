@@ -94,3 +94,57 @@ console.log(arr);
 ```
 
 其中`b-a`是降序排列`a-b`为升序排列
+
+### 关于get和set方法
+
+下面程序的输出为抛出异常
+
+```
+class Phone{
+  constructor(price){
+    this.price = price;
+  }
+  get price(){
+    return 999;
+  }
+}
+var p = new Phone(888);
+console.log(p.price);
+//Uncaught TypeError: Cannot set property price of #<Phone> which has only a getter
+```
+
+如果类中只有`get`方法但是没有`set`方法，那么默认这个类中的属性为只读，这时如果强行改变这个属性就会抛出异常
+
+解决方法：
+
+1.不要在`constructor`中设置值.
+
+2.给类中添加一个`set()`方法
+
+```
+    class Phone {
+      constructor() {
+      }
+      get price() {
+        return 999;
+      }
+    }
+    var p = new Phone(888);
+    console.log(p.price);//999
+```
+
+```
+    class Phone {
+      constructor() {
+      }
+      get price() {
+        return 999;
+      }
+      set price(item){
+        this.price=item
+      }
+    }
+    var p = new Phone(888);
+    console.log(p.price);//999
+```
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // let name = "zhangsan";
+    // name.substr();
+    // console.log(name); // 输出：zhangsan
+    // let age = "firstblood";
+    // age.toUpperCase();
+    // console.log(age); // 输出：firstblood
+
+    // let user = "zhangsan";
+    // user.age = 18;
+    // user.method = function () {
+    //   console.log("12345");
+    // };
+    // console.log(user.age); // 输出：undefined
+    // console.log(user.method); // 输出：undefined
+
+    // let ab = "zhangsan";
+    // let bc = null;
+    // let cd = undefined;
+    // console.log(ab.toString()); // 输出：zhangsan
+    // // console.log(bc.toString()); // error 报错
+    // // console.log(cd.toString()); // error 报错
+    // console.log(String(ab)); // 输出：zhangsan
+    // console.log(String(bc)); // 输出：null
+    // console.log(String(cd)); // 输出：undefined
+
+    // var a = true;
+    // var str = a + "";
+    // console.log(str);
+    // let b={
+    //   s:1
+    // }
+    // var str2=a+b
+    // console.log(str2)
+
+    // var a=1.222.px
+    // console.log(parseFloat(a))
+    // var a = "12.3px";
+    // console.log(parseInt(a)); // 12
+    // console.log(parseFloat(a)); // 12.3
+    // let b = "abc2.3";
+    // console.log(parseInt(b)); //NAN
+    // console.log(parseFloat(b)); //NAN
+    // let c="1.2.3.4"
+    // console.log(parseFloat(c))//1.2
+
+    // var str = "123";
+    // var num = str - 1;
+    // console.log(num); // 122
+
+    // typeof "seymoe"; // 'string'
+    // typeof true; // 'boolean'
+    // typeof 10; // 'number'
+    // typeof Symbol(); // 'symbol'
+    // typeof null; // 'object' 无法判定是否为 null
+    // typeof undefined; // 'undefined'
+
+    // typeof {}; // 'object'
+    // typeof []; // 'object'
+    // typeof (() => {}); // 'function'
+
+    // var arr = [];
+    // Object.prototype.toString.call(arr) == "[object Array]"; //true
+
+    // var func = function () {};
+    // console.log(Object.prototype.toString.call(func) == "[object Function]"); //true
+
+    // var a = 1;
+    // console.log(Object.prototype.toString.call(a)=="[object Number]");//true
+
+    var aa = [1, 2];
+    console.log(aa.constructor === Array); //true
+    console.log(aa.constructor === RegExp); //false
+    console.log((1).constructor === Number); //true
+    var reg = /^$/;
+    console.log(reg.constructor === RegExp); //true
+    console.log(reg.constructor === Object); //false
+  </script>
+</html>
