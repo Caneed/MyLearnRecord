@@ -1,230 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-<script>
-  // 静态作用域
-//   let x = 10;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 静态作用域
+    //   let x = 10;
 
-// function f() {
-//   return x;
-// }
+    // function f() {
+    //   return x;
+    // }
 
-// function g() {
-//   let x = 20;
-//   return f();
-// }
+    // function g() {
+    //   let x = 20;
+    //   return f();
+    // }
 
-// console.log(g());  // 10
+    // console.log(g());  // 10
 
-//作用域的遮蔽效应
-// var a = 1;
-// function foo() {
-//   var a = 2;
-//   console.log(a); // 2
-// }
-// foo();
+    //作用域的遮蔽效应
+    // var a = 1;
+    // function foo() {
+    //   var a = 2;
+    //   console.log(a); // 2
+    // }
+    // foo();
 
-//直接通过window全局对象访问全局标识符
-// var a = 1;
-// function foo() {
-//   var a = 2;
-//   console.log(window.a); // 1
-// }
-// foo();
+    //直接通过window全局对象访问全局标识符
+    // var a = 1;
+    // function foo() {
+    //   var a = 2;
+    //   console.log(window.a); // 1
+    // }
+    // foo();
 
+    //动态作用域
+    // var a = 1;
+    // function foo() {
+    //   console.log(a);
+    // }
 
-//动态作用域
-// var a = 1;
-// function foo() {
-//   console.log(a);
-// }
+    // function foo2() {
+    //   var a = 2;
+    //   foo();
+    // }
 
-// function foo2() {
-//   var a = 2;
-//   foo();
-// }
+    // foo2(); // 1
 
-// foo2(); // 1
+    //变量声明提前
+    // var x = 1;
+    // function f() {
+    //   console.log(x);
+    //   var x = 2;
+    // }
 
-//变量声明提前
-// var x = 1;
-// function f() {
-//   console.log(x);
-//   var x = 2;
-// }
+    // f();//undefined
+    // 等价于
+    // var x = 1;
+    // function f() {
+    //   var x
+    //   console.log(x);
+    //   x = 2;
+    // }
 
-// f();//undefined
-// 等价于
-// var x = 1;
-// function f() {
-//   var x
-//   console.log(x);
-//   x = 2;
-// }
+    // f();
 
-// f();
+    //函数声明提前
+    // function f() {
+    //   x();
 
-//函数声明提前
-// function f() {
-//   x();
-  
-//   function x() {
-//     console.log(1);
-//   }
-// }
+    //   function x() {
+    //     console.log(1);
+    //   }
+    // }
 
-// f();//1
+    // f();//1
 
-//函数表达式无法提前
-// function f() {
-//   x();
-  
-//   var x = function() {
-//     console.log(1);
-//   }
-// }
+    //函数表达式无法提前
+    // function f() {
+    //   x();
 
-// f();
+    //   var x = function() {
+    //     console.log(1);
+    //   }
+    // }
 
-//两种声明提前的优先级
-// var x=1
-// function x(){}
-// console.log(typeof x)//number
+    // f();
 
-//块级作用域
-// function f() {
-//   let y = 1;
-  
-//   if(true) {
-//     var x = 2;
-//     let y = 2;
-//   }
-  
-//   console.log(x);   // 2
-//   console.log(y);   // 1
-// }
+    //两种声明提前的优先级
+    // var x=1
+    // function x(){}
+    // console.log(typeof x)//number
 
-// f();
-//不允许重复声明
-// var x=1
-// let x=2
+    //块级作用域
+    // function f() {
+    //   let y = 1;
 
-//使用var声明时不会报错
-// var x=1
-// var x=2
-// console.log(x)
+    //   if(true) {
+    //     var x = 2;
+    //     let y = 2;
+    //   }
 
-//let和const声明的变量不一定就不会变量提升
-// var x =1;
-// if(true) {
-//   console.log(x);
-  
-//    let x = 2;
-// }
+    //   console.log(x);   // 2
+    //   console.log(y);   // 1
+    // }
 
-//循环中的应用
-// for(var i = 0; i < 3; i++) {
-//   setTimeout(() => {
-//     console.log(i)
-//   })//3,3,3
-// }
+    // f();
+    //不允许重复声明
+    // var x=1
+    // let x=2
 
-//自执行函数实现期望的效果
-// for(var i=0;i<3;i++){
-//   (function(i){
-//     setTimeout(()=>{
-//       console.log(i)
-//     })
-//   })(i)//0,1,2
-// }
+    //使用var声明时不会报错
+    // var x=1
+    // var x=2
+    // console.log(x)
 
-//把var换成let实现期望的效果
-// for(let i=0;i<3;i++){
-//   setTimeout(()=>{
-//     console.log(i)
-//   })
-// }
+    //let和const声明的变量不一定就不会变量提升
+    // var x =1;
+    // if(true) {
+    //   console.log(x);
 
-//用于for..in和for...of循环
-// let obj = {
-//   x: 1,
-//   y: 2,
-//   z: 3
-// }
+    //    let x = 2;
+    // }
 
-// for(let k in obj){
-//   setTimeout(() => {
-//     console.log(obj[k])
-//   })
-// }
+    //循环中的应用
+    // for(var i = 0; i < 3; i++) {
+    //   setTimeout(() => {
+    //     console.log(i)
+    //   })//3,3,3
+    // }
 
-//使用const时会出错
-// for(const i=0;i<3;i++){
-//   setTimeout(()=>{
-//     console.log(i)
-//   })//0,error
-// }
+    //自执行函数实现期望的效果
+    // for(var i=0;i<3;i++){
+    //   (function(i){
+    //     setTimeout(()=>{
+    //       console.log(i)
+    //     })
+    //   })(i)//0,1,2
+    // }
 
-//在for..in和for..of中可以正常使用const
-// let obj = {
-//   x: 1,
-//   y: 2,
-//   z: 3
-// }
+    //把var换成let实现期望的效果
+    // for(let i=0;i<3;i++){
+    //   setTimeout(()=>{
+    //     console.log(i)
+    //   })
+    // }
 
-// for(const k in obj){
-//   setTimeout(() => {
-//     console.log(obj[k])
-//   })
-// }
+    //用于for..in和for...of循环
+    // let obj = {
+    //   x: 1,
+    //   y: 2,
+    //   z: 3
+    // }
 
-//let不会影响全局对象
-// var JSON = 'hello';
+    // for(let k in obj){
+    //   setTimeout(() => {
+    //     console.log(obj[k])
+    //   })
+    // }
 
-// console.log(window.JSON);   // JSON被覆盖了，输出'json'
+    //使用const时会出错
+    // for(const i=0;i<3;i++){
+    //   setTimeout(()=>{
+    //     console.log(i)
+    //   })//0,error
+    // }
 
-// let JSON="hello"
-// console.log(window.JSON)//JSON{...}
+    //在for..in和for..of中可以正常使用const
+    // let obj = {
+    //   x: 1,
+    //   y: 2,
+    //   z: 3
+    // }
 
+    // for(const k in obj){
+    //   setTimeout(() => {
+    //     console.log(obj[k])
+    //   })
+    // }
 
-//作用域链
-// let x = 1;
+    //let不会影响全局对象
+    // var JSON = 'hello';
 
-// function f() {
-//   function f1() {
-//     console.log(x);
-//   }
-  
-//   f1();
-// }
+    // console.log(window.JSON);   // JSON被覆盖了，输出'json'
 
-// f();
+    // let JSON="hello"
+    // console.log(window.JSON)//JSON{...}
 
-//try...catch延长作用域链
-// let x = 1;
-// try {
-//   x = x + y;
-// } catch(e) {
-//   console.log(e);
-// }
+    //作用域链
+    // let x = 1;
 
-//with延长作用域链
-// function f(obj, x) {
-//   with(obj) {
-//     console.log(x);  // 1
-//   }
-  
-//   console.log(x);   // 2
-// }
+    // function f() {
+    //   function f1() {
+    //     console.log(x);
+    //   }
 
-// f({x: 1}, 2);
-</script>
+    //   f1();
+    // }
+
+    // f();
+
+    //try...catch延长作用域链
+    // let x = 1;
+    // try {
+    //   x = x + y;
+    // } catch(e) {
+    //   console.log(e);
+    // }
+
+    //with延长作用域链
+    // function f(obj, x) {
+    //   with(obj) {
+    //     console.log(x);  // 1
+    //   }
+
+    //   console.log(x);   // 2
+    // }
+
+    // f({x: 1}, 2);
+
+    //第一题
+    // var a = 11;
+    // function test2() {
+    //   this.a = 22;
+    //   let b = () => {
+    //     console.log(this);
+    //     console.log(this.a);
+    //   };
+    //   b();
+    //   // return b
+    // }
+    // var x = new test2();
+    // console.log(x);
+    // x();
+    // test2();
+    // console.log(a);
+    // test2()
+    // console.log(a)
+
+    var uname = "window";
+    var object = {
+      uname: "object",
+      fun: function () {
+        console.log(this.uname);
+        return function () {
+          console.log(this.uname);
+        };
+      },
+    };
+    object.fun()();
+  </script>
 </html>

@@ -1,29 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <p id="template"></p>
-  <p id="introduce"></p>
-</body>
-<script>
-  let text='hello i am "jonny"';
-  let name='dedsec';
-  let sex='man';
-  document.getElementById("template").innerHTML=text;
-  let introduce='hello my name is ${name},i am a ${sex}';
-  document.getElementById("introduce").innerHTML=introduce;
-  console.log(introduce);
-  console.log('${name}');
-  var obj1={
-    a:100
-  } 
-  var obj2=obj1;
-  obj1.a+=200;
-  console.log(obj1.a,obj2.a)
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="template"></p>
+    <p id="introduce"></p>
+  </body>
+  <script>
+    // let text='hello i am "jonny"';
+    // let name='dedsec';
+    // let sex='man';
+    // document.getElementById("template").innerHTML=text;
+    // let introduce='hello my name is ${name},i am a ${sex}';
+    // document.getElementById("introduce").innerHTML=introduce;
+    // console.log(introduce);
+    // console.log('${name}');
+    // var obj1={
+    //   a:100
+    // }
+    // var obj2=obj1;
+    // obj1.a+=200;
+    // console.log(obj1.a,obj2.a)
+
+    // // 字符串常用API
+    // var str="fuck u"
+    // //返回索引的字符
+    // console.log(str.charAt(1))//u
+    // //默认索引为0
+    // console.log(str.charAt())//f
+    // //返回索引的ASCII值
+    // console.log(str.charCodeAt(2))//99
+    // //查找子串，查找到则返回子串第一个字符在原字符串的索引，未找到返回-1
+    // console.log(str.indexOf("fuck"))//0
+    // console.log(str.indexOf("aaa"))//-1
+    // //从最后往前查找子串
+    // console.log(str.lastIndexOf("fuck"))//0
+    // console.log(str.lastIndexOf("aaa"))//-1
+    // // 包含字符串，是返回true，否返回false
+    // console.log(str.includes("fuck"))//true
+    // console.log(str.includes("aaa"))//false
+    // //判断是否以此开头
+    // console.log(str.startsWith("fuck"))//true
+    // console.log(str.startsWith("cack"))//false
+    // //判断是否以此结尾
+    // console.log(str.endsWith("u"))//true
+    // console.log(str.endsWith("a"))//false
+
+    // //字符串拼接
+    // var str="hello"
+    // var str2="world"
+    // console.log(str.concat(str2))
+
+    // //字符串切割
+    // var str="fuck u and others"
+    // console.log(str.split(" "))//["fuck","u","and","others"]
+    // console.log(str.split(" ",2))//["fuck","u"]
+    // //字符串截取,区间[startIndex,endIndex)
+    // console.log(str.slice(0,3))//fuc
+    // console.log(str.substring(0,3))//fuc
+
+    // //大小写转换
+    // var a="hello"
+    // console.log(a.toUpperCase())
+    // console.log(a.toLocaleUpperCase())//HELLO
+    // var b="HELLO"
+    // console.log(b.toLowerCase())//hello
+    // console.log(b.toLocaleLowerCase())//hello
+
+    // //去除空白字符，比如空格，tab
+    // var str="       hahahahhahaha       "
+    // console.log(str.trim())//hahahahahaha
+
+    // /* 第一题：要求将以下str1字符串处理后变成str2的格式
+    //     需求：让单词中的首字母大写，其余字母小写！
+    //     str1: LoReM IPsUm DOLOR sIt amet coNsECtetuR Adipisicing ElIt.
+    //     str2:  Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
+    //  */
+    // var str1 = "LoReM IPsUm DOLOR sIt amet coNsECtetuR Adipisicing ElIt.";
+    // var str2 = str1.split(" ");
+    // var str3 = "";
+    // for (i in str2) {
+    //   let lower = str2[i].toLowerCase();
+    //   let upper = lower[0].toUpperCase();
+    //   let full = upper + lower.slice(1, 20);
+    //   str3 = str3 + full + " ";
+    // }
+    // console.log(str3);
+    // /*
+    //         第二题：字符串去重
+    //         原字符串：'asdasdfghhiko'
+
+    //         */
+    // var x = "asdasdfghhiko";
+    // var y = [];
+    // var z = "";
+    // for (i in x) {
+    //   while (!y.includes(x[i])) {
+    //     y.push(x[i]);
+    //   }
+    // }
+    // for (i in y) {
+    //   z += y[i];
+    // }
+    // console.log(z);
+    // /*
+    //         第三题：字符串反序
+    //         原字符串： 'abcdefgokokqqq'
+    //         反序为：'qqqkokogfedcba'
+    //     */
+    //    var arr = 'abcdefgokokqqq'
+    //    var rev=[]
+    //    var arr2=''
+    //    var j=0
+    //    for(i in arr){
+    //     rev[j]=arr[i]
+    //     j++
+    //    }
+    //    for(i in rev){
+    //     arr2+=rev[i]
+    //    }
+    //    console.log(arr2)
+
+    /* 
+            第四题：自己实现一个 字符串的split方法
+        
+        
+        */
+
+    function mySplit(arr, sign) {
+      var array = [];
+      var j = 0;
+      var temp=''
+      for (i in arr) {
+        if (arr[i] != sign) {
+          temp =temp+arr[i];
+        } else if (arr[i] == sign) {
+          array[j] = temp;
+          j++;
+          temp=''
+        }
+      }
+      array.push(temp)
+      console.log(array);
+    }
+
+    var a = "hello i am your father";
+    var b="nihao,woshi,ni,baba"
+    mySplit(a, " ");
+    mySplit(b,',')
+  </script>
 </html>

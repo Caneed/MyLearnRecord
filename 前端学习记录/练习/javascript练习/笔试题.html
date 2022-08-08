@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //第一题
+        // var name = 'window'
+        // var person1 = {
+        //     name: 'person1',
+        //     show1: function () {
+        //         console.log(this.name)
+        //     },
+        //     show2: () => console.log(this.name),
+        //     show3: function () { 
+        //         return function () {
+        //             console.log(this)
+        //         }
+        //     },
+        //     show4: function () {
+        //         return () => console.log(this.name)
+        //     }
+        // }
+        // var person2 = { name: 'person2' }
+        // person1.show1()  //person1
+        // person1.show1.call(person2)  //person2
+        // person1.show2() //window
+        // person1.show2.call(person2)   //window
+        // person1.show3()() //window
+
+        // person1.show3().call(person2)  //person2 
+
+
+        // person1.show3.call(person2)()  //window
+
+
+        // person1.show4()() //person1
+        // person1.show4().call(person2) //person1 
+        // person1.show4.call(person2)() //person2
+        
+
+
+
+
+
+
+
+
+
+        //第二题
+        // function fun(n, o) {
+        //     console.log(o)
+        //     return {
+        //         fun: function (m) {
+        //             return fun(m, n)
+        //         }
+        //     };
+        // }
+        // var a = fun(0)
+        // a.fun(1)
+        // a.fun(2)
+        // a.fun(3)
+        // var b = fun(0).fun(1).fun(2).fun(3)
+        // var c = fun(0).fun(1)
+        // c.fun(2)
+        // c.fun(3)
+        
+
+
+
+
+        //第四题
+        // var myObject = {
+        //     foo: "bar",
+        //     func: function () {
+        //         var self = this;
+        //         console.log(this.foo);  //bar
+        //         console.log(self.foo);  //bar
+        //         (()=>{
+        //             console.log(this.foo); //bar
+        //             console.log(self.foo); //bar
+        //         })()
+        //     }
+        // };
+        // myObject.func();
+
+       
+
+
+
+        //第五题
+        console.log(a) //undefined
+        var name = '林一'
+        function fn() {
+            console.log(name)
+            var name = 12
+            console.log(this.name);
+        }
+        var obj = {
+            name: '林二',
+            prop: {
+                getName: function() {
+                    return this.name
+                }
+            }
+        }
+        fn() //undefined，林一
+        console.log(name)  //林一
+        console.log(obj.prop.getName)  //getName
+        var a = obj.prop.getName
+        console.log(a()) //林一
+       
+
+
+       
+
+
+
+    </script>
+</body>
+
+</html>
