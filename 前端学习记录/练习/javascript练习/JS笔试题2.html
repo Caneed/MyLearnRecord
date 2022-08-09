@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //第一题(25分  第一个答案10分 第二个答案15分)
+        // var length = 7;
+        // function f1() {
+        //     console.log(this.length);
+        // };
+        // var obj = {
+        //     a: 10,
+        //     f2: function (f1) {
+        //         f1();//7
+        //         arguments[0]();//2
+        //     }
+        // }
+        // obj.f2(f1, 1)
+       
+
+
+
+        // //第二题（25分  第一个答案5分 第二个6分 第三个答案7分  第四个答案7分
+        // var num = 20;   
+        // var obj = {   
+        //     num: 30,
+        //     fn: (function (num) {
+        //         var num = 20      
+        //         this.num *= 3;   
+        //         num += 15;        
+        //         var num = 45;     
+        //         return function () {
+        //             this.num *= 4;   
+        //             num += 20;     
+        //             console.log(num);
+        //         }
+        //     })(num)
+        // };
+
+      
+
+        // var fn = obj.fn(); //65
+        // obj.fn();//85
+        // console.log(window.num, obj.num); //60 480
+
+
+
+
+        // // 第三题（25分  每个答案2.5分）
+        // var name = 'window'
+
+        // var obj1 = {
+        //     name: '呱呱呱',
+        //     fn1: function () {
+        //         console.log(this.name)
+        //     },
+        //     fn2: () => console.log(this.name),
+        //     fn3: function () {
+        //         return function () {
+        //             console.log(this.name)
+        //         }
+        //     },
+        //     fn4: function () {
+        //         return () => console.log(this.name)
+        //     }
+        // }
+        // var obj2 = {
+        //     name: '哈哈哈'
+        // };
+
+        // obj1.fn1();//ggg
+        // obj1.fn1.call(obj2);//hhh
+
+        // obj1.fn2();//window
+        // obj1.fn2.call(obj2);//window
+
+        // obj1.fn3()();//window
+        // obj1.fn3().call(obj2);//hhh
+
+        // obj1.fn3.call(obj2)();//window
+
+
+
+
+        // obj1.fn4()();//ggg
+
+
+
+        // obj1.fn4().call(obj2);//ggg
+        // obj1.fn4.call(obj2)();//hhh
+
+
+
+        // // 第四题（25分，前10个2分，最后一个5分）
+
+        var name = 'window'
+
+        function Person(name) {
+            this.name = name;
+            this.fn1 = function () {
+                console.log(this.name);
+            };
+            this.fn2 = () => console.log(this.name);
+            this.fn3 = function () {
+                return function () {
+                    console.log(this.name)
+                };
+            };
+            this.fn4 = function () {
+                return () => console.log(this.name);
+            };
+        };
+
+        var obj1 = new Person('呱呱呱');
+        console.dir(obj1);  //person
+        var obj2 = new Person('哈哈哈');
+        obj1.fn1();//ggg
+        obj1.fn1.call(obj2);//hhh
+        obj1.fn2();//ggg
+        obj1.fn2.call(obj2);//ggg
+        obj1.fn3()();//win
+        obj1.fn3().call(obj2);//hhh
+        obj1.fn3.call(obj2)();//win
+        obj1.fn4()();//ggg
+        obj1.fn4().call(obj2);//ggg
+        obj1.fn4.call(obj2)();//hhh
+
+    </script>
+</body>
+
+</html>

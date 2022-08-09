@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script src="../../../lib/lodash.core.min.js"></script>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/mapping.fp.min.js"></script> -->
+  <script>
+    //array和object实现浅拷贝
+
+    //slice()方法适用于一维数组
+    // var a=[1,2,3]
+    // var b=a.slice()
+    // console.log(b)//[1,2,3]
+    // console.log(a)//[1,2,3]
+    // b[0]=4
+    // console.log(b)//[4,2,3]
+    // console.log(a)//[1,2,3]
+
+    // //slice()方法不使用于二维数组
+    // var a=[1,2,[1,2]]
+    // var b=a.slice()
+    // b[2][1]=3
+    // console.log(b)//[1,2,[1,3]]
+    // console.log(a)//[1,2,[1,3]]
+
+    // //object.assign()
+    // var a = { x: 11, y: 12 };
+    // var b=Object.assign({},a)
+    // console.log(a)//{x:11,y:12}
+    // console.log(b)//{x:11,y:12}
+    // b.x=20
+    // console.log(a)//{x:11,y:12}
+    // console.log(b)//{x:20,y:12}
+
+    // //Object.assign()不能适用于二维对象
+    // var a={
+    //   x:11,
+    //   y:{
+    //     z:20
+    //   }
+    // }
+    // var b=Object.assign({},a)
+    // b.y.z=30
+    // console.log(a)//a:{x:11,y:{z:30}}
+    // console.log(b)//a:{x:11,y:{z:30}}
+
+    //深浅拷贝的差别
+    // var a = { b: { c: {} } };
+    // var a2 = shallowClone(a);
+    // console.log(a2.b.c === a.b.c);//true
+    // var a3 = deepClone(a);
+    // console.log(a3.b.c===a.b.c)//false
+
+    //lodash库的-.clone方法
+    // var a={x:1,
+    //   y:{
+    //     z:3
+    //   }
+    // }
+    // var b=_.clone(a)
+    // console.log(b.y.z===a.y.z)//true
+
+    //展开运算符...
+    // var a={
+    //   x:1,
+    //   y:{
+    //     z:2
+    //   }
+    // }
+    // var b={...a}
+    // console.log(b.y.z===a.y.z)//true
+
+    // //concat,slice()
+    // let a=[1,2,3,{
+    //   name:'hello'
+    // }]
+    // let b=a.concat()
+    // let c=a.slice()
+    // b[3].name='world'
+    // c[3].name='world4'
+    // console.log(a)//a[3].name='world'  a[3].name=world4
+
+    //深拷贝
+    //JSON.parse(JSON.stringify())
+    // let a=[1,2,3,{
+    //   name:'lew'
+    // }]
+    // let b=JSON.parse(JSON.stringify(a))
+    // b[3].name='chi'
+    // console.log(a)//a[1,2,3,{name:'lew'}]
+    // console.log(b)//a[1,2,3,{name:'chi'}]
+
+    // //JSON.parse(JSON.stringify())处理不了函数和正则
+    // let a=[1,2,3,function fun(){}]
+    // let b=JSON.parse(JSON.stringify(a))
+    // console.log(b)//[1,2,3,null]
+
+    // //cloneDeep方法
+    // let a = [1, 2, 3];
+    // let b = _.cloneDeep(a);
+    // console.log(b);
+
+    
+  </script>
+</html>
