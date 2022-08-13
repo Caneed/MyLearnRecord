@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // //Object.keys Object.values Object.entires()//原型对象方法(静态方法)
+    // let obj = {
+    //   a: 11,
+    //   b: 12,
+    //   c: 13,
+    // };
+    // console.log(Object.keys(obj));//Array(3)[a:1,b:2,c:3]
+    // console.log(Object.values(obj))//Array(3)[1,2,3]
+    // console.log(Object.entries(obj))//Array(2)['a',1]Array(2)['b',2]Array(2)['c',3]
+
+    // //实例对象方法
+    // let obj={
+    //   a:1,
+    //   b:3,
+    //   c:function(){
+    //     return
+    //   }
+    // }
+    // //valueOf()
+    // console.log(obj.valueOf()===obj)//true
+    // //toString()
+    // console.log(obj.toString())//[object Object]
+    // console.log(JSON.stringify(obj))
+    // console.log(JSON.stringify({}))
+
+    // //hasOwnProperty() 判断是否有此属性
+    // console.log(obj.hasOwnProperty('b'))//true
+    // console.log(obj.hasOwnProperty('c'))//false
+
+    // //in
+    // console.log('a' in obj)//true
+    // console.log('toString' in obj)//true
+    // console.log('c' in obj)//false
+
+    // //isPrototypeOf() //判断原型
+    // console.log(Object.prototype.isPrototypeOf(obj))//true
+
+    // //propertyIsEnumerable //判断是否可枚举
+    // console.log(obj.propertyIsEnumerable('a'))//true
+    // console.log(obj.propertyIsEnumerable('c'))//true
+    // console.log(obj.propertyIsEnumerable('toString'))//false
+
+    // function fun()
+    // {
+    //   return
+    // }
+    // const reg=/[abc]d/
+    // console.log(fun)
+    // console.log(reg)
+  </script>
+</html>

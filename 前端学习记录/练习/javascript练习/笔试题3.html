@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // //第一题
+      //   function addCount() {
+      //     var count = 0;
+      //     return function () {
+      //       count += 1;
+      //       console.log(count);
+      //     };
+      //   }
+      //   var fun1 = addCount();
+      //   var fun2 = addCount();
+      //   fun1();
+      //   fun1();
+      //   fun1();
+      //   fun2();
+      //   fun2();
+      //   //1，2，3，1，2
+
+      //   //第二题
+      //   function fun() {
+      //       this.a = 0
+      //       this.b = function () {
+      //           alert(this.a)
+      //       }
+      //   }
+
+      //   fun.prototype = {
+      //       b: function () {
+      //           this.a = 20
+      //           alert(this.a)
+      //       },
+      //       c: function () {
+      //           this.a = 30
+      //           alert(this.a)
+      //       }
+      //   }
+
+      //   var my_fun = new fun()
+
+      //   my_fun.b()//0
+      //   my_fun.c()//30
+      //   console.log(my_fun.a)//30
+
+      //第三题
+
+      // var num = 10;
+      // var obj = {
+      //   num: 20,
+      // };
+
+      // obj.fn = (function (num) {
+      //   this.num = num * 3;
+      //   num++;
+      //   return function (n) {
+      //     this.num += n;
+      //     num++;
+      //     console.log(num);
+      //   };
+      // })(obj.num);
+      // var fn = obj.fn;
+      // fn(5); //22
+      // obj.fn(10); //23
+      // console.log(num, obj.num); //30 65
+
+      // //第四题
+      //   var ary = [1, 2, 3, 4]
+      //   function fn(i) {
+      //       return function (n) {
+      //           console.log(n + (i++))
+      //       }
+      //   }
+
+      //   var f = fn(10)
+      //   f(20)//30
+      //   fn(20)(40)//60
+      //   fn(30)(40)//70
+      //   f(30)
+      //   console.log(i)//41
+
+      // console.log({}+'b'>{}+'a')
+    </script>
+  </body>
+</html>
