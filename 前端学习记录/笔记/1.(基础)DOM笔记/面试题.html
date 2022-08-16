@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+//         // 面试题一
+//         function A(name) {
+//             if (name) {
+
+//                 this.name = "Kate"
+//             }
+//         }
+
+//         function B(name) {
+//             console.log(name);  
+//             this.name = name;
+//         }
+
+//         function C(name) {
+//             this.name = name || "Jack";
+//         }
+
+
+//         A.prototype.name = "tom";
+//         B.prototype.name = "tom";
+//         C.prototype.name = "tom";
+// //undefined
+// //tom,undefined,jack
+//         console.log(new A().name + new B().name+new C().name);
+    
+
+
+
+
+
+
+
+
+        // // 面试题二
+        // var number = 2;
+
+        // function getNumber() {
+        //     return this.number;
+        // }
+
+        // function getNumber2() {
+        //     var number;
+        //     function getNumber() {
+        //         console.log("d " + this.number);
+        //         return this.number;
+        //     }
+        //     console.log(this); 
+        //     console.log(number);
+        //     number = 4;
+        //     console.log(window.number);
+        //     console.log("a " + number);
+        //     console.log("b " + number);
+        //     number = number * 2;
+        //     console.log("c " + number);
+        //     getNumber();
+        // }
+
+        // getNumber2();//window(),undefined,2,a4,b4,c8,d2
+
+
+
+        // console.log(number); //2
+
+        // console.log("e " + getNumber2());//window{},undefined,2,a4,b4,c8,d2
+        // //e ,undefined
+        // console.log("f " + getNumber());//f2
+
+
+
+        // // 面试题三
+        // name = "win";
+
+        // function getName() {
+        //     console.log("11 " + this);
+        //     console.log("1 " + this.name);
+        // }
+
+        // function a() {
+        //     console.log("22 " + this);
+        //     this.name = "a";
+        //     console.log("2 " + this.name);
+
+        //     getName();
+
+        //     function getName() {
+        //         console.log("33 " + this);
+        //         console.log("3 " + this.name);
+        //         return this.name;
+        //     }
+
+        // }
+
+        // getName();//11,window{},1,win
+        // a();//22,win,2,a,33,win,3,a
+        // getName();//11,win,1,a
+
+
+
+        // // 面试题四
+        // function add(a) {
+        //     console.log(this);
+        //     console.log(a);
+        // }
+
+        // var myObject = {};
+        // myObject.haha = function() {
+        //     console.log(this);
+        //     var that = this;
+        //     var helper = function() {
+        //         add(this);
+        //     }
+        //     helper();
+        // }
+        // myObject.haha();//myObj{},win,win{}
+    </script>
+</body>
+
+</html>

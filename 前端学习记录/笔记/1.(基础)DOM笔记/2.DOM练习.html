@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      background-color: red;
+      width: 200px;
+      height: 200px;
+      margin: 30px auto;
+      display: flex;
+    }
+    .box2 {
+      width: 200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;  
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <div class="box" id="box"></div>
+    <div class="box2">
+      <button onclick="start()">开始</button>
+      <button onclick="stop()">停止</button>
+    </div>
+  </body>
+  <script>
+    var x = document.getElementById("box").style.backgroundColor
+    var flag=true;
+    function start(){
+      flag=setInterval(
+        function color(){
+          var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+          x.style.backgroundColor='rgb('+r+','+g+','+b+')'
+        },200)
+    }
+    function stop(){
+      clearInterval(flag)
+    }
+
+  </script>
+</html>

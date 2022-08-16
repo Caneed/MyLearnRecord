@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+//   var obj=JSON.parse('{"name":"张三","age":30,"sex":"男"}')
+//   console.log(typeof obj)//object
+
+//   var text = '{ "name":"Runoob", "initDate":"2013-12-14", "site":""}';
+//   // var obj=JSON.parse(text)
+//   // obj.initDate=new Date(obj.initDate)
+//   // console.log(obj.initDate)//Sat Dec 14 2013 08:00:00 GMT+0800 (中国标准时间)
+//   var obj=JSON.parse(text,function(key,value){
+//     if (key == "initDate") {
+//         return new Date(value);
+//     } else {
+//         return value;
+// }
+//   })
+// console.log(obj.initDate)//Sat Dec 14 2013 08:00:00 GMT+0800 (中国标准时间)
+
+var text = '{ "name":"Runoob", "alexa":"function () {return 10000;}", "site":""}';
+var obj = JSON.parse(text);
+obj.alexa = eval("(" + obj.alexa + ")");//(function(){return 10000;})
+ 
+console.log(obj.alexa())//10000
+
+</script>
+</html>

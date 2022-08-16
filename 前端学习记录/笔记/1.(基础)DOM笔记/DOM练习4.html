@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .bigger {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .middle {
+      display: flex;
+      flex-direction: row;
+      width: 300px;
+    }
+    .smaller {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <div id="bigger" class="bigger">
+      <div id="middle" class="middle">
+        <div id="smaller" class="smaller"></div>
+        <div id="smaller" class="smaller"></div>
+        <div id="smaller" class="smaller"></div>
+      </div>
+      <div id="middle" class="middle">
+        <div id="smaller" class="smaller"></div>
+        <div id="smaller" class="smaller"></div>
+        <div id="smaller" class="smaller"></div>
+      </div>
+      <div id="middle" class="middle">
+        <div id="smaller" class="smaller"></div>
+        <div id="smaller" class="smaller"></div>
+        <div id="smaller" class="smaller"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var middles = document.querySelectorAll("#middle");
+    var bigger = document.getElementById("bigger");
+    for (const i of middles) {
+      i.addEventListener("click", function () {
+        for(const j of middles){
+          j.style.backgroundColor='white'
+        }
+          i.style.backgroundColor = "red";
+      });
+    }
+  </script>
+</html>

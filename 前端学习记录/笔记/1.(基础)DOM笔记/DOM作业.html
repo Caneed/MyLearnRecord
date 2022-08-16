@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .biggie{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+  }
+  .middle{
+    display: flex;
+    flex-direction: column;
+  }
+  .small{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #e1e1e1;
+  }
+</style>
+<body>
+<img src="../src/open.png" alt="" srcset="" id="eye">  
+
+<div class="biggie" id="biggie">
+  <div class="middle" id="middle">
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+  </div>
+
+  <div class="middle" id="middle">
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+  </div>
+
+  <div class="middle" id="middle">
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+  </div>
+
+  <div class="middle" id="middle">
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+    <div class="small" id="small"></div>
+  </div>
+</div>
+
+</body>
+<script>
+  let eye=document.getElementById('eye')
+  eye.addEventListener('click',function(){
+    if(eye.getAttribute('src')=='../src/open.png'){
+      eye.setAttribute('src','../src/close.png')
+    }
+    else{
+      eye.setAttribute('src','../src/open.png')
+    }
+  })
+
+  var middles = document.querySelectorAll("#middle");
+    for (const i of middles) {
+      i.addEventListener("click", function () {
+        for(const j of middles){
+          j.style.backgroundColor='white'
+        }
+          i.style.backgroundColor = "red";
+      });
+    }
+</script>
+</html>

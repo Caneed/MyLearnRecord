@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      margin-top: 400px;
+      background-color: red;
+    }
+    .box2{
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      margin-top: 200px;
+      background-color: red;
+    }
+    .function{
+      width: 200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box"></div>
+  <div class="function">
+    <button class="big" id="big">变大</button>
+    <button class="restore" id="restore">复原</button>
+  </div>
+</body>
+
+<script>
+  var box=document.getElementById("box")
+  var big=document.getElementById("big")
+  var restore=document.getElementById("restore")
+  big.onclick=function (){
+    box.className='box2'
+  }
+  restore.onclick=function(){
+    box.className='box'
+  }
+</script>
+</html>

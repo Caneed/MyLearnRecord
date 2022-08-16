@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //   var sites = [
+    //     { "name":"json" , "url":"" },
+    //     { "name":"google" , "url":"www.google.com" },
+    //     { "name":"微博" , "url":"www.weibo.com" }
+    // ];
+    // console.log(sites[1].name)//google
+
+    // var x={ "name":"json", "alexa":10000, "site":null }
+    // // console.log(x.name)//json
+    // // console.log(x["name"])//json
+    // for( i in x){
+    //   console.log(i)//name,alexa,site
+    // }
+    // for(i in x){
+    //   console.log(x[i])//json,10000,null
+    // }
+
+    // var x={
+    //   "name":"张三",
+    //   "weight":{
+    //     "w1":200,
+    //     "w2":300
+    //   }
+    // }
+    // console.log(x.weight.w1)//200
+    // console.log(x.weight["w1"])//200
+    // x.weight.w1=1000
+    // console.log(x.weight.w1)//1000
+    // x.weight['w1']=2000
+    // console.log(x.weight['w1'])//2000
+
+    // delete x.weight.w1
+    // console.log(x.weight.w1)//undefined
+    // delete x.weight['w2']
+    // console.log(x.weight['w2'])//undefined
+
+    var json = {
+      name: "网站",
+      num: 3,
+      sites: ["Google", "Runoob", "Taobao"],
+    };
+    // console.log(json.sites[1])//Runoob
+    for( i in json){
+      console.log(i)//name,num,sites
+      console.log(json[i])//网站，3，['google','Runoob','TaoBao']
+    }
+  </script>
+</html>
