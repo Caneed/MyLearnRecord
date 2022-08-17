@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="count"></div>
+  </body>
+  <script>
+    let div = document.getElementById("count");
+    let endDate = new Date("2022-8-19 18:00");
+    let count = setInterval(function () {
+      let date = new Date();
+      let val = endDate - date;
+      let day=parseInt(val/86400000)
+      let hour=parseInt((val%86400000)/3600000)
+      let min=parseInt(((val%86400000)%3600000)/60000)
+      let mil=parseInt((((val%86400000)%3600000)%60000)/1000)
+      div.innerText = "距离周末还剩"+day+'天'+hour+'小时'+min+'分钟'+mil+'秒';
+    }, 1000);
+
+  </script>
+</html>

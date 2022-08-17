@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .login {
+        margin: 50px auto;
+        background-color: aquamarine;
+        width: 300px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 20px;
+      }
+      .dataArea {
+        margin: 30px auto;
+      }
+      .dataSet tr th {
+        padding: 20px;
+        border: 1px solid #e1e1e1;
+        width: 50px;
+      }
+      .dataSet tr {
+        margin: 0;
+      }
+      .dataSet tr td {
+        padding: 20px;
+        border: 1px solid #e1e1e1;
+        width: 50px;
+      }
+      .dataForm{
+        margin: 20px auto;
+      }
+      .dataForm input {
+        margin: 10px auto;
+        border-radius: 5px;
+      }
+      table{
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login" id="login">
+      <form action="" id="dataForm" class="dataForm">
+        姓名：<input type="text" name="name" value="张三" /><br />
+        性别：<input type="text" name="sex" value="男" /><br />
+        年龄：<input type="number" name="age" value="56" /><br />
+        民族：<input type="text" name="nation" value="汉" /><br />
+      </form>
+      <button onclick="submit()" type="submit">提交</button>
+      <button onclick="reset()">重置</button>
+    </div>
+
+    <div class="dataArea" id="dataArea">
+      <table>
+        <tbody id="dataSet" class="dataSet">
+          <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>民族</th>
+            <th>操作</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script>
+    let dataCollection = document.getElementById("dataForm");
+    let dataSet = document.getElementById("dataSet");
+    let nodes = [];
+    let i = 0;
+    let stu = {
+      name: "",
+      age: 0,
+      sex: "",
+      nation: "",
+    };
+    let changeStu = {
+      name: "",
+      age: 0,
+      sex: "",
+      nation: "",
+    };
+    function submit() {
+      let name = dataCollection["name"].value;
+      let sex = dataCollection["sex"].value;
+      let age = dataCollection["age"].value;
+      let nation = dataCollection["nation"].value;
+      if (!(name || sex || age || nation)) {
+        alert("都是必填项！");
+      } else if (sex !== "男" && sex !== "女") {
+        alert("性别只能为男或女");
+      } else if (isNaN(age)) {
+        alert("年龄为数字！");
+      } else {
+        let node = document.createElement("tr");
+        node.id = "node";
+        node.innerHTML =
+          "<td>" +
+          name +
+          "</td>" +
+          "<td>" +
+          age +
+          "</td>" +
+          "<td>" +
+          sex +
+          "</td>" +
+          "<td>" +
+          nation +
+          "</td>" +
+          '<td><button onclick="onDelete(this)">删除</button><button onclick="onChange(this)">修改</button></td>';
+        dataSet.append(node);
+        nodes.push(node);
+        alert("添加成功！");
+        i++;
+      }
+    }
+
+    function onDelete(e) {
+      let row = e.parentElement.parentElement;
+      row.remove();
+    }
+
+    function onChange(e) {
+      let row = e.parentElement.parentElement;
+      let arr = row.childNodes;
+      stu.name = arr[0].innerText;
+      stu.age = arr[1].innerText;
+      stu.sex = arr[2].innerText;
+      stu.nation = arr[3].innerText;
+
+      row.innerHTML =
+        '<td><input type="text" value="' +
+        stu.name +
+        '"></td>' +
+        '<td><input type="text" value="' +
+        stu.age +
+        '"></td>' +
+        '<td><input type="text" value="' +
+        stu.sex +
+        '"></td>' +
+        '<td><input type="text" value="' +
+        stu.nation +
+        '"></td>' +
+        '<td><button onclick="onConfirm(this)">确定</button><button onclick="onCancel(this)">取消</button></td>';
+    }
+
+    function onConfirm(e) {
+      let row = e.parentElement.parentElement;
+      let arr = row.childNodes;
+      changeStu.name = arr[0].firstChild.value;
+      changeStu.age = arr[1].firstChild.value;
+      changeStu.sex = arr[2].firstChild.value;
+      changeStu.nation = arr[3].firstChild.value;
+      row.innerHTML =
+        "<td>" +
+        changeStu.name +
+        "</td>" +
+        "<td>" +
+        changeStu.age +
+        "</td>" +
+        "<td>" +
+        changeStu.sex +
+        "</td>" +
+        "<td>" +
+        changeStu.nation +
+        "</td>" +
+        '<td><button onclick="onDelete(this)">删除</button><button onclick="onChange(this)">修改</button></td>';
+      alert("修改完成");
+    }
+
+    function onCancel(e) {
+      let row = e.parentElement.parentElement;
+      row.innerHTML = row.innerHTML =
+        "<td>" +
+        stu.name +
+        "</td>" +
+        "<td>" +
+        stu.age +
+        "</td>" +
+        "<td>" +
+        stu.sex +
+        "</td>" +
+        "<td>" +
+        stu.nation +
+        "</td>" +
+        '<td><button onclick="onDelete(this)">删除</button><button onclick="onChange(this)">修改</button></td>';
+      alert("取消修改");
+    }
+
+    function reset() {
+      let datas = document.querySelectorAll("#dataForm input");
+      for (let i in datas) {
+        datas[i].value = "";
+      }
+    }
+  </script>
+</html>
