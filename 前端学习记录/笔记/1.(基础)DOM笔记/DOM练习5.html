@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="area" class="area">100</div>
+    <div>
+      <button class="plus" id="plus" data-fun="plus">+</button
+      ><button class="min" id="min" data-fun="min">-</button>
+    </div>
+  </body>
+  <script>
+    let btns = document.querySelectorAll("button");
+    let area = document.getElementById("area");
+    function onChange() {
+      let num = parseInt(area.innerText);
+      if(this.dataset.fun=='plus'){
+        num++
+      }else{
+        num--
+      }
+      area.innerText=num
+    }
+    btns[0].onclick = onChange;
+    btns[1].onclick = onChange;
+  </script>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // //回调地狱
+    // setTimeout(function () {
+    //   //第一层
+    //   console.log(111);
+    //   setTimeout(function () {
+    //     //第二程
+    //     console.log(222);
+    //     setTimeout(function () {
+    //       //第三层
+    //       console.log(333);
+    //     }, 1000);
+    //   }, 2000);
+    // }, 3000);
+
+    // Promise的声明
+    // new Promise((resolve,reject)=>{})
+
+    // // Promise类定义
+    // new Promise(
+    //   //构造函数，传入executor
+    //   constructor(executor){
+    //     //成功
+    //     let resolve=()=>{}
+    //     //失败
+    //     let reject=()=>{}
+    //     //立即执行
+    //     executor(resolve,reject)
+    //   }
+    // )
+
+    // //promise的三种状态
+    // //成功时转换状态从pending到fulfilled,接收结果参数value
+    // new Promise((resolve, rejected) => {
+    //   resolve(value);
+    // });
+    // //失败时转换状态从pending到rejected,接收原因参数reason
+    // new Promise((resolve, rejected) => {
+    //   rejected(reason);
+    // });
+    // //其中状态和参数都不可以改变
+    // //如果executor报错的话直接状态变为rejected
+
+    // //promise的完整类实现
+    // class Promise {
+    //   //构造函数
+    //   constructor(executor) {
+    //     //初始化状态为pending
+    //     this.status = "pending";
+    //     //成功的值和失败的原因定义为undefined
+    //     this.value = undefined;
+    //     this.reason = undefined;
+
+    //     //成功的返回
+    //     let resolve = (value) => {
+    //       if (this.status == "pending") {
+    //         //如果此时的状态为等待，就改变成成功状态fulfilled
+    //         this.status == "fulfilled";
+    //         //存储传入value的值
+    //         this.value = value;
+    //       }
+    //     };
+
+    //     //失败的返回
+    //     let reject = (reason) => {
+    //       if (this.status == "pending") {
+    //         //如果此时的状态为等待状态，则改变状态为失败
+    //         this.status = "rejected";
+    //         //失败的值reason存储传入的reason
+    //         this.reason = reason;
+    //       }
+    //     };
+
+    //     //如果构造函数报错。直接返回rejected
+    //     try {
+    //       executor(resolve, reject);
+    //     } catch (err) {
+    //       reject(err); //直接把捕获到的错误传入reject
+    //     }
+    //   }
+
+    //   then(onFulfilled, onRejected) {
+    //     if (this.status == "fulfilled") {
+    //       //如果当前状态为fulfilled,调用onFulfilled传入value
+    //       onFulfilled(this.value);
+    //     } else if (this.status == "rejected") {
+    //       //如果当前状态为rejected,调用onRejected传入reason
+    //       onRejected(this.reason);
+    //     }
+    //   }
+    // }
+
+    // //多个then
+    // let promise = new Promise();
+    // p.then();
+    // p.then();
+
+    //promise使用两个数组存放成功和失败的结果
+    class Promise {
+      //构造函数
+      constructor(executor) {
+        this.status = "pending"; //rejected:失败,fulfilled:成功
+        this.value = undefined; //value:成功的值
+        this.reason = undefined; //reason:失败的原因(值)
+        //成功存放的数组
+        this.onResolveCallbackArr = [];
+        //失败存放的数组
+        this.onRejectCallbackArr = [];
+        let resolve = (value) => {
+          if (this.status == "pending") {
+            this.pending = "fulfilled";
+            this.value = value;
+            //resolve执行时调用成功的数组
+            this.onResolveCallbackArr.forEach((fn) => fn());
+          }
+        };
+
+        let reject = (reason) => {
+          if (this.status == "pending") {
+            this.status = "rejected";
+            this.reason = reason;
+            //reject执行时调用失败的数组
+            this.onRejectCallbackArr.forEach((fn) => fn());
+          }
+        };
+
+        try {
+          executor(resolve, reject);
+        } catch (err) {
+          reject(err);
+        }
+      }
+      then(onFulfilled, onRejected) {
+        if (this.status == "fulfilled") {
+          onFulfilled(this.value);
+        } else if (this.status == "rejected") {
+          onRejected(this.reason);
+        } else if (this.status == "pending") {
+          //状态为pending时，onFulfilled传入成功的数组
+          this.onResolveCallbackArr.push(() => {
+            onFulfilled(this.value);
+          });
+          // onRejected传入到失败数组
+          this.onRejectedCallbacks.push(() => {
+            onRejected(this.reason);
+          });
+        }
+      }
+    }
+  </script>
+</html>

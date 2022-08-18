@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .form {
+        background-color: rgb(195, 251, 195);
+        margin: 0 auto;
+        text-align: center;
+        width: 400px;
+      }
+
+      .form input {
+        margin: 35px 0;
+      }
+
+      table {
+        margin: 0 auto;
+      }
+
+      th {
+        padding: 12px 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form">
+      <form action="javascript:;">
+        <label for="name">姓名</label>
+        <input type="text" name="name" /><br />
+        <label for="sex">性别</label>
+        <input type="text" name="sex" /><br />
+        <label for="nation">民族</label>
+        <input type="text" name="nation" /><br />
+        <label for="major">专业</label>
+        <input type="text" name="major" /><br />
+        <input id="submit" type="submit" />
+        <input type="reset" />
+      </form>
+    </div>
+    <table border="1">
+      <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>民族</th>
+        <th>专业</th>
+        <th>操作</th>
+      </tr>
+    </table>
+    <script>
+      // 思路：
+      /*
+              1、获取提交按钮、获取表单元素、
+
+
+          */
+
+      // 修改以及保存的函数
+      function update_save() {
+       
+        // 获取当前tr中所有的子元素节点
+        let msgs = this.parentNode.parentNode.children
+
+        // 判断按钮被点击的次数，单数为修改操作，双数为保存操作
+        if (flag) {
+            // 修改按钮的内容为 保存
+          this.innerHTML = '保存'
+
+        //   遍历当前tr节点中的前4个td子元素
+          for (let i = 0; i < 4; i++) {
+            // console.log(msgs[i].innerHTML)
+
+            // 修改每一个td中的内容，将之前的文本内容替换为 input节点并且显示之前的文本内容
+            msgs[i].innerHTML = `
+                      <input type="text" value='${msgs[i].innerHTML}'>
+                      `
+          }
+          flag = !flag
+        } else {
+          this.innerHTML = '修改'
+          for (let i = 0; i < 4; i++) {
+            msgs[i].innerHTML = `${msgs[i].firstElementChild.value}`
+          }
+          flag = !flag
+        }
+      }
+
+      //   删除tr代码
+      function tr_delete() {
+        this.parentNode.parentNode.remove()
+      }
+
+
+
+      // 1、获取提交按钮、获取表单元素、获取table元素
+      let submit = document.querySelector('#submit')
+      let form = document.querySelector('form')
+      let table = document.querySelector('table')
+       // 修改按钮点击判断状态值！
+      let flag = true
+
+
+
+      // 2、为提交按钮绑定事件
+      submit.onclick = function () {
+        // 创建表单对象
+        let formdata = new FormData(form)
+
+        // 创建新的tr元素节点
+        let tr = document.createElement('tr')
+
+        // 创建修改_保存按钮
+        let update = document.createElement('button')
+
+        // 创建删除按钮
+        let del = document.createElement('button')
+
+        
+
+
+        // 更改修改按钮的文本内容为修改
+        update.innerHTML = '修改'
+
+        // 为修改按钮绑定事件，并指定事件处理函数
+        update.onclick = update_save
+
+        // 命名删除按钮
+        del.innerHTML = '删除'
+
+        // 为删除按钮绑定事件，并指定事件处理函数
+        del.onclick = tr_delete
+
+        // 提前创建好该tr元素中所需要的td节点，用于显示表单中的数据
+        for (let i = 0; i < 4; i++) {
+        // 创建td
+          let td = document.createElement('td')
+        //   修改td的内容
+          td.innerHTML = [...formdata.values()][i]
+
+        //   将td添加到tr中
+          tr.append(td)
+        }
+
+
+        // 创建一个td节点，用于存放两个操作按钮
+        let td = document.createElement('td')
+        // 把两个按钮节点添加到td节点中
+        td.append(update, del)
+        // 将操作的td节点添加到tr中
+        tr.append(td)
+
+        // 最后将整理好的tr，添加到table中
+        table.append(tr)
+      }
+    </script>
+  </body>
+</html>
