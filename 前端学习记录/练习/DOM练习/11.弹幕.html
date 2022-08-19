@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .screen {
+      background-color: aquamarine;
+      width: 100%;
+      height: 600px;
+    }
+    .control {
+      background-color: bisque;
+      width: 100%;
+      height: 100px;
+    }
+    @keyframes cheats {
+      0%{left: }
+      25%{background: blue;}
+      50%{background: red;}
+      100%{background: white;}
+    }
+  </style>
+  <body>
+    <div class="screen" id="screen"></div>
+    <div class="control" id="control">
+      <input type="text" name="" id="cheat" class="cheat" />
+      <button class="send" id="send">发送</button>
+    </div>
+  </body>
+  <script>
+    let screen = document.getElementById("screen");
+    let btn = document.getElementById("send");
+    let input = document.getElementById("cheat");
+
+    btn.addEventListener("click", function () {
+      let fly = document.createElement("div");
+      fly.innerText = input.value;
+      let content = input.value;
+      fly.style.position='relative'
+      fly.style.fontSize = "16px";
+      let screenWidth=getComputedStyle(document.body).width.split('p')[0]
+      fly.style.top = Math.floor(Math.random() * (400 + 1))+'px';
+      fly.style.left=parseInt(screenWidth)+(content.length*16)+'px'
+      screen.appendChild(fly);
+      let flies=[]
+      flies=document.querySelectorAll('.screen div')
+      flies.forEach(element => {
+        let clock=setInterval(function(){
+          let distance=element.style.left
+          element.style.left=distance.split('p')[0]-1+'px'
+          if(element.style.left.split('p')[0]<=(-(content.length*16)))
+          clearInterval(clock)
+        },1)
+      });
+    });
+  </script>
+</html>

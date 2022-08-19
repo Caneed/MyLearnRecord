@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father{
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+    .son{
+      width: 100px;
+      height: 100px;
+      background-color: rebeccapurple;
+    }
+  </style>
+</head>
+<body>
+  <div class="father" id="father"><div class="son" id="son"></div></div>
+
+  <button id="btn" type="submit">提交</button>
+  <a href="javascript:void(0)">链接</a>
+  <a href="#">链接</a>
+</body>
+<script>
+  let father=document.getElementById('father')
+  let son=document.getElementById('son')
+  let body=document.body
+  // father.addEventListener('click',function(e){
+  //   console.log('father')
+  // })
+  // son.addEventListener('click',function(e){
+  //   e.stopPropagation()
+  //   console.log('son')
+  // })
+  // body.addEventListener('click',function(e){
+  //   e.stopPropagation()
+  //   console.log('body')
+  // })
+  // father.addEventListener('blur',function(){
+  //   console.log('blur')
+  // },true)
+  //son,father,body
+  //使用addEventListener('event',func,boolean(default=false))开启事件捕获
+
+  //🚫事件冒泡 e.stopPropagation()
+  
+  //默认事件的阻止 e.preventDefault()
+  let btn=document.getElementById('btn')
+  btn.addEventListener('click',function(e){
+    e.preventDefault()
+    console.log('btn')
+  })
+</script>
+</html>

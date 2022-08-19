@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .box{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+  }
+</style>
+<body>
+  <div class="box" id="box">
+  </div>
+  <input type="text" id="key">
+</body>
+<script>
+  let box=document.getElementById('box')
+  box.addEventListener('click',function(e){
+    console.log(e)//pointEvent{...}
+    console.log(e.screenX,e.screenY)//相对于屏幕的坐标
+    console.log(e.offsetX,e.offsetY)//相对于此元素的坐标
+    console.log(e.clientX,e.clientY)//相对于视窗(浏览器)的坐标
+    console.log(e.srcElement)//点击的元素
+  })
+  
+  let key=document.getElementById('key')
+  key.addEventListener('keydown',function(e){
+    console.log(e)
+  })
+</script>
+</html>

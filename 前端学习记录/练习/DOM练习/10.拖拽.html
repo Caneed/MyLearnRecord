@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        margin: 45px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box" class="box"></div>
+  </body>
+  <script>
+    let box = document.getElementById("box");
+    let sign;
+    box.addEventListener("mousedown", function (e) {
+      sign = true;
+      let left = getComputedStyle(box).marginLeft;
+      let top = getComputedStyle(box).marginTop;
+      box.addEventListener("mousemove", function (res) {
+        if (sign == true) {
+          box.style.marginLeft =
+            parseInt(left.split("p")[0]) + (res.clientX - e.clientX) + "px";
+          box.style.marginTop =
+            parseInt(top.split("p")[0]) + (res.clientY - e.clientY) + "px";
+          console.log(res.clientX - e.clientX);
+        }
+      });
+    });
+    box.addEventListener("mouseup", function () {
+      sign = false;
+    });
+  </script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .box{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+  }
+</style>
+<body>
+  <div class="box" id="box"></div>
+</body>
+<script>
+  let box=document.getElementById('box')
+  console.log(box.clientHeight)
+  console.log(box.clientWidth)//100 100
+  
+  //可见框大小,包括margin,padding
+  console.log(box.offsetHeight)
+  console.log(box.offsetWidth)//100 100
+
+  //获取元素的相对定位的偏移量
+  console.log(box.offsetLeft)
+  console.log(box.offsetTop)//351 8
+
+  //获取元素实际高度和宽度,包括滚动区域
+  console.log(box.scrollHeight)
+  console.log(box.scrollWidth)//100 100
+
+  //获取当前滚动条滚动距离
+  console.log(box.scrollTop)
+  console.log(box.scrollLeft)
+</script>
+</html>
