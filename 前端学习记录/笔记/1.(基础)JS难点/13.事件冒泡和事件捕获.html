@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .father {
+      background-color: blue;
+      width: 300px;
+      height: 300px;
+    }
+    .son {
+      background-color: aquamarine;
+      width: 200px;
+      height: 200px;
+    }
+    .baby {
+      background-color: rebeccapurple;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+  <body>
+    <div id="father" class="father">
+      <div id="son" class="son">
+        <div id="baby" class="baby"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let father = document.getElementById("father");
+    let son = document.getElementById("son");
+    let baby = document.getElementById("baby");
+
+    // //事件冒泡
+    // father.addEventListener("click", function () {
+    //   console.log("冒泡father");
+    // });
+    // son.addEventListener("click", function () {
+    //   console.log("冒泡son");
+    // });
+    // baby.addEventListener("click", function () {
+    //   console.log("冒泡baby");
+    // });
+
+    // //事件捕获
+    // father.addEventListener(
+    //   "click",
+    //   function () {
+    //     console.log("捕获father");
+    //   },
+    //   true
+    // );
+    // son.addEventListener(
+    //   "click",
+    //   function () {
+    //     console.log("捕获son");
+    //   },
+    //   true
+    // );
+    // baby.addEventListener(
+    //   "click",
+    //   function () {
+    //     console.log("捕获baby");
+    //   },
+    //   true
+    // );
+
+
+    //事件代理
+    father.addEventListener('click',function(e){
+      console.log(`捕获${e.target.className}`)
+    },true)
+    father.addEventListener('click',function(e){
+      console.log(`冒泡${e.target.className}`)
+    })
+  </script>
+</html>

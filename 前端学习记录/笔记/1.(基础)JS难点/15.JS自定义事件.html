@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="customE">custom()自定义事件</button>
+  <button id="customEv">customEvent()自定义事件</button>
+</body>
+<script>
+  //使用custom()来自定义事件
+  let customE=document.getElementById('customE')
+  let sendMsg=new Event('sendMsg',{
+    bubbles:true,
+    cancelable:true,
+    composed:true
+  })//自定义一个事件
+  customE.addEventListener('sendMsg',(event)=>{
+    console.log('监听custom()自定义事件')
+  })
+  //派发事件
+  customE.dispatchEvent(sendMsg)
+
+  //使用customEvent()来自定义事件
+  let customEv=document.getElementById('customEv')
+  let alertMsg=new CustomEvent('alertMsg',{
+    detail:{},
+    bubbles:true,
+    composed:true,
+    cancelable:true
+  })
+  customEv.addEventListener('alertMsg',()=>{
+    alert('监听customEvent()事件')
+  })
+  customEv.dispatchEvent(alertMsg)
+</script>
+</html>
