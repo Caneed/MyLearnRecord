@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .triangle{
+      border-left: 100px solid #000;
+      border-right: 100px solid #000;
+      border-top: 50px solid #000;
+      border-bottom: 50px solid #000;
+      display: inline-block;
+    }
+    .box .row:nth-child(1) div:nth-child(1){
+      border-top-color: #fff;
+      border-bottom-color: red;
+      border-left-color: #fff;
+      border-right-color: red;
+      background-color: blue;
+    }
+    .box .row:nth-child(1) div:nth-child(2){
+      border-top-color: green;
+      border-bottom-color: #fff;
+      border-left-color: green;
+      border-right-color: #fff;
+      transform-origin: 50px 50px;
+      transform: rotate(270deg);
+    }
+    .box .row:nth-child(2) div:nth-child(1){
+      border-top-color: skyblue;
+      border-bottom-color: #fff;
+      border-left-color: skyblue;
+      border-right-color: #fff;
+      transform-origin: 100px 100px;
+      transform: rotate(90deg);
+    }
+    .box .row:nth-child(2) div:nth-child(2){
+      border-top-color: blue;
+      border-bottom-color: #fff;
+      border-left-color: blue;
+      border-right-color: #fff;
+    }
+    .box{
+      margin: 200px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 400px;
+      height: 200px;
+      flex-wrap: wrap;
+    }
+    .row{
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+    <div class="row">
+      <div class="triangle"></div>
+      <div class="triangle"></div>
+    </div>
+
+    <div class="row">
+      <div class="triangle"></div>
+      <div class="triangle"></div>
+    </div>
+
+  </div>
+
+</body>
+</html>
