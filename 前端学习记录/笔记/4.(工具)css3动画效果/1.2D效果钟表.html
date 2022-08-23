@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .watch {
+        width: 440px;
+        height: 440px;
+        border: 10px solid gray;
+        border-radius: 50%;
+        background-color: #000;
+        margin: 0 auto;
+        position: relative;
+      }
+      .hour,
+      .min,
+      .sec {
+        position: absolute;
+        margin: 0 auto;
+        transform-origin: bottom;
+        transform: rotate(0deg);
+      }
+      .hour {
+        width: 20px;
+        height: 120px;
+        left: 210px;
+        top: 100px;
+        background-color: #575757;
+      }
+      .min {
+        width: 16px;
+        height: 150px;
+        top: 70px;
+        left: 212px;
+        background-color: #fff;
+      }
+      .sec {
+        width: 10px;
+        height: 170px;
+        top: 50px;
+        left: 215px;
+        background-color: #f00;
+      }
+      .min::before,
+      .sec::before,
+      .hour::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px;
+        position: absolute;
+        top: -20px;
+        left: calc(50%-5px);
+        border-color: transparent transparent #575757 transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="watch">
+      <div class="hour"></div>
+      <div class="min"></div>
+      <div class="sec"></div>
+    </div>
+  </body>
+  <script>
+    let watch = document.querySelector(".watch");
+    let needles = [];
+    for (let i = 0; i < 60; i++) {
+      let needle = document.createElement("span");
+      let dot = document.createElement("span");
+      needle.appendChild(dot);
+      needle.style = `width: 220px; height: 1px;background-color: transparent; display: inline-block; border-radius: 50%; position: absolute; top: 220px; left: 220px; transform-origin: left center;`;
+      dot.style = `width: 10px;height: 10px;border-radius: 50%;right: 1px;background-color: #fff;position: absolute; top:-5px;`;
+      dot.className = "dot";
+      needle.style.transform = `rotate(${0 + 6 * i}deg)`;
+      watch.appendChild(needle);
+      needles.push(needle);
+      if (i % 5 == 0) {
+        dot.style = `width: 20px;height: 10px;right: 1px;background-color: #f00;position: absolute; top:-5px; border-radius:30%`;
+      }
+    }
+    let hour = document.querySelector(".hour");
+    let min = document.querySelector(".min");
+    let sec = document.querySelector(".sec");
+    function counter() {
+      let hourNow = new Date().getHours();
+      hour.style.transform = `rotate(${Math.abs(hourNow - 12) * 30}deg)`;
+      let minNow = new Date().getMinutes();
+      min.style.transform = `rotate(${minNow * 6}deg)`;
+      let secNow = new Date().getSeconds();
+      sec.style.transform = `rotate(${secNow * 6}deg)`;
+    }
+    counter();
+    setInterval(() => {
+      counter();
+    }, 1000);
+  </script>
+</html>

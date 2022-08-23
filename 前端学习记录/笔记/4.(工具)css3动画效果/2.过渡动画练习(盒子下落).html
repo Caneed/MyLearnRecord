@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .boxes {
+      display: flex;
+    }
+  </style>
+  <body>
+    <div class="boxes"></div>
+  </body>
+  <script>
+    let boxes=document.querySelector('.boxes')
+    let boxCollection=[]
+    for (let i = 0; i < 20; i++) {
+      let box = document.createElement("div");
+      boxes.appendChild(box)
+      boxCollection.push(box)
+      box.style = ` width: 30px;height: 30px;background-color: rgb(187, 45, 189);margin: 10px;transform: translateY(0px);transition: all 2s linear ${i+0.1}s;`;
+    }
+    document.addEventListener('click',()=>{
+      for(i in boxCollection){
+        boxCollection[i].style.transform=`translateY(200px)`
+      }
+    })
+  </script>
+</html>

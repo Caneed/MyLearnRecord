@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .test {
+      width: 100px;
+      height: 100px;
+      background-color: aquamarine;
+    }
+  </style>
+  <body>
+    <div class="test"></div>
+  </body>
+  <script>
+    const test = document.querySelector(".test");
+    let i = 0;
+
+    //动画函数实现
+    // let requestId;
+    // function animation() {
+    //   test.style.marginLeft = `${i}px`;
+    //   requestId = requestAnimationFrame(animation);
+    //   console.log(requestId);
+    //   i++;
+    //   if (i > 200) {
+    //     cancelAnimationFrame(requestId);
+    //   }
+    // }
+    // window.requestAnimationFrame(animation);
+
+    //使用setTimeout来模仿动画函数
+    let requestId;
+    function animation() {
+      test.style.marginLeft = `${i}px`;
+      // 执行间隔设置为 0，来模仿 requestAnimationFrame
+      timerId = setTimeout(animation, 0);
+      i++;
+      if (i > 200) {
+        clearTimeout(timerId);
+      }
+    }
+    animation();
+  </script>
+</html>
