@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .bottom {
+      width: 100px;
+      height: 100px;
+      background-color: #f00;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: 30px;
+      left: 30px;
+    }
+    .middle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgb(0, 255, 98);
+      margin: auto;
+      display: flex;
+      justify-content: center;
+    }
+    .top {
+      width: 10px;
+      height: 100px;
+      background-color: rgb(255, 0, 179);
+      position: relative;
+      top: 25px;
+      transform-origin: top;
+    }
+    .battleFlied {
+      width: 1000px;
+      height: 500px;
+      border: 10px solid rgb(0, 0, 0);
+      background-color: #0ff;
+      display: absolute;
+      overflow: hidden;
+    }
+  </style>
+  <body>
+    <div class="battleFlied">
+      <div class="bottom">
+        <div class="middle">
+          <div class="top"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let tank = document.querySelector(".bottom");
+    let cannon = document.querySelector(".top");
+    let battleFlied = document.querySelector(".battleFlied");
+    let position = [30, 30];
+    document.addEventListener("keydown", (e) => {
+      const keyName = e.key;
+      //向上走
+      if (keyName === "w" && tank.style.top != `0px`) {
+        tank.style.top = `${position[1] - 5}px`;
+        position[1] -= 5;
+        cannon.style.transform = `rotate(180deg)`;
+      }
+      //下
+      else if (keyName === "s" && tank.style.top != `400px`) {
+        tank.style.top = `${position[1] + 5}px`;
+        position[1] += 5;
+        cannon.style.transform = `rotate(0deg)`;
+      }
+      //左移
+      else if (keyName === "a" && tank.style.left != `0px`) {
+        tank.style.left = `${position[0] - 5}px`;
+        position[0] -= 5;
+        cannon.style.transform = `rotate(90deg)`;
+      }
+      //右移
+      else if (keyName === "d" && tank.style.left != `900px`) {
+        tank.style.left = `${position[0] + 5}px`;
+        position[0] += 5;
+        cannon.style.transform = `rotate(-90deg)`;
+      }
+      //射击
+      else if (keyName === " ") {
+        let bullet = document.createElement("span");
+        cannon.appendChild(bullet);
+        bullet.style = `width: 10px; height: 10px; background-color: rgb(255, 255, 0); display: inline-block; bottom:-10px; position:absolute;`;
+        let distance = -10;
+        setInterval(() => {
+          distance -= 20;
+          bullet.style.bottom = `${distance}px`;
+        }, 200);
+      }
+    });
+  </script>
+</html>
