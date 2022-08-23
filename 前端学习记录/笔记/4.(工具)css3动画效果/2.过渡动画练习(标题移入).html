@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .container{
+    width: 100%;
+    position: relative;
+  }
+  .container h1{
+    top: 10px;
+    position: absolute;
+    transform: translateX(-130px);
+    transition: all 3s cubic-bezier(0.52,-0.12, 1, 0.75);
+  }
+  .container h3{
+    top: 100px;
+    position: absolute;
+    right: -100px;
+  }
+  .btn{
+    position: absolute;
+    top: 300px;
+  }
+</style>
+<body>
+  <div class="container">
+  <h1>主标题</h1>
+  <h3>副标题</h3>
+  </div>
+  <button class="btn">移入</button>
+</body>
+<script>
+  let btn=document.querySelector('.btn')
+  let h1=document.querySelector('h1')
+  let h3=document.querySelector('h3')
+  btn.addEventListener('click',()=>{
+    h1.style.transform=`translateX(500px)`
+    h3.style.right=`calc(55%)`
+    h3.style.transition=`all 3s cubic-bezier(0.52,-0.12, 1, 0.75) 3s`
+  })
+</script>
+</html>

@@ -35,5 +35,19 @@
         box.classList.remove('active')
       }
     })
+    //动画结束事件
+    box.addEventListener('transitionend',()=>{
+      btn.disabled=false
+      console.log('动画事件结束')
+    })
+    //动画开始事件
+    box.addEventListener('transitionstart',()=>{
+      btn.disabled=true
+      console.log('动画事件开始')
+    })
+    //动画播放事件
+    box.addEventListener('transitionrun',()=>{
+      console.log('动画播放')
+    })
   </script>
 </html>

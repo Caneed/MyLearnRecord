@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      background-color: #ff0;
+      transform: translate(-100px, 200px);
+      transition: all 1s linear;
+      margin-left: 200px;
+    }
+  </style>
+  <body>
+    <div class="box"></div>
+    <button class="btn">走</button>
+  </body>
+  <script>
+    let btn = document.querySelector(".btn");
+    let box = document.querySelector(".box");
+    let height = 200;
+    let width = 100;
+    let dir = -1;
+    let trans;
+    function moveDown() {
+      height += 50;
+      width += 50;
+    }
+    function moveUp() {
+      height -= 50;
+      width -= 50;
+    }
+    btn.addEventListener("click", () => {
+      let argv=height
+      trans = setInterval(() => {
+        dir = dir * -1;
+        if (argv==200) {
+          moveDown();
+          box.style.transform = `translate(${width * dir}px,${height}px)`;
+          if (height == 350) {
+            clearInterval(trans);
+            console.log("取消");
+          }
+        }else if(argv==350){
+        moveUp();
+          box.style.transform = `translate(${width * dir}px,${height}px)`;
+          if (height == 200) {
+            clearInterval(trans);
+            console.log("取消");
+          }
+      }
+      }, 333);
+      box.addEventListener('transitionrun',()=>{
+        btn.disabled=true
+      })
+      box.addEventListener('transitionend',()=>{
+        btn.disabled=false
+      })
+    });
+  </script>
+</html>
