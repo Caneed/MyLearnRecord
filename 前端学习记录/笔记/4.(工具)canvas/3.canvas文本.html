@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas{
+      border: 1px solid #e1e1e1;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="400px" height="400px"></canvas>
+</body>
+<script>
+  let canvas=document.querySelector('canvas')
+  let con=canvas.getContext('2d')
+
+  //文本
+  con.font='40px 宋体'
+  con.strokeStyle='#f00'
+  con.strokeText('hello',10,50)
+</script>
+</html>

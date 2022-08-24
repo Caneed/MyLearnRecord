@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: #292829;
+      overflow: hidden;
+    }
+    .firstPic {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: calc(50% - 50px);
+      top: calc(50% - 50px);
+    }
+    .bkg {
+      background-color: #ffd200;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .bkg.active {
+      animation: start 2s linear forwards;
+      overflow: hidden;
+    }
+    @keyframes start {
+      from {
+        width: 0px;
+        height: 0px;
+      }
+      to {
+        width: 2000px;
+        height: 2000px;
+      }
+    }
+    .plane{
+      position: absolute;
+      left: 2000px;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .span{
+      position: absolute;
+      left: 2000px;
+      top: 50%;
+      margin-left: -293px;
+      margin-top: 7px;
+      transform: rotate(0deg);
+    }
+    .plane.active{
+      animation: moveInPlane 2s linear 1s forwards,
+      floatPlane 3s linear infinite 3s;
+    }
+    .span.active{
+      animation:  moveInPlane 2s linear 1s forwards,
+      floatPlane 3s linear infinite 3s;
+    }
+    @keyframes moveInPlane {
+      from{
+        left: 2000px;
+        top: 50%;
+      }to{
+        left: 50%;
+      top: 50%;
+      }
+    }
+    @keyframes floatPlane {
+      0%{
+        left: 50%;
+        top: 50%;
+      }25%{
+        left: 53%;
+        top: 53%;
+      }50%{
+        left: 50%;
+        top: 50%;
+      }75%{
+        left: 47%;
+        top: 47%;
+      }100%{
+        left: 50%;
+        top: 50%;
+      }
+    }
+  </style>
+  <img>
+    <div class="bkg"></div>
+    <img src="./src/loading-Home.gif" alt="" class="firstPic" />
+
+    <img src="./src/plane.svg" alt="" class="plane">
+    <img src="./src/propeller.svg" alt="" class="span"></img>
+  </body>
+  <script>
+    let firstPic = document.querySelector(".firstPic");
+    let bkg = document.querySelector(".bkg");
+    let plane= document.querySelector('.plane')
+    let span=document.querySelector('.span')
+    let x=0
+    setInterval(()=>{
+      span.style.transform=`rotate(${x+=30}deg)`
+    },100)
+    firstPic.addEventListener("click", () => {
+      bkg.classList.add('active')
+      plane.classList.add('active')
+      span.classList.add('active')
+      firstPic.style.display=`none`
+    })
+  </script>
+</html>

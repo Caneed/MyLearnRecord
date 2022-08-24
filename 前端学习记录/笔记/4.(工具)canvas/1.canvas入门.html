@@ -1,29 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<style>
-  .printer{
-    border: 1px solid #e1e1e1;
-  }
-</style>
-<body>
-  <canvas class="printer" width="300px" height="300px">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .printer {
+      border: 1px solid #e1e1e1;
+    }
+    .canva {
+      border: 1px solid #e1e1e1;
+    }
+  </style>
+  <body>
+    <!-- 画布 -->
+    <canvas class="printer" width="300" height="300"> </canvas>
+    <canvas class="canva" width="400" height="420"></canvas>
+  </body>
+  <script>
+    let ptr = document.querySelector(".printer");
+    let con = ptr.getContext("2d");
 
-  </canvas>
-</body>
-<script>
-  let ptr=document.querySelector('.printer')
-  let con=ptr.getContext('2d')
-  con.moveTo(100,100)//绘制起点
-  con.lineTo(200,200)//绘制终点
-  con.stroke()//连接起点和终点
+    //直线
+    con.moveTo(100, 100); //绘制起点
+    con.lineTo(200, 200); //绘制终点
+    //修改直线的宽度，颜色
+    con.lineWidth = 3;
+    con.strokeStyle = "#f00";
+    // 修改直线两端样式
+    con.lineCap = "round"; // 默认: butt; 圆形: round; 方形: square
+    con.stroke(); //连接起点和终点
 
-  console.log(ptr.width)//300
-  console.log(ptr.height)//300
-</script>
+    con.beginPath();
+    con.moveTo(50, 20);
+    con.lineTo(150, 20);
+    con.strokeStyle = "pink"; //后面的线段不会影响前面的线段
+    con.stroke();
+
+    //新画布
+    let pub = document.querySelector(".canva");
+    let can = pub.getContext("2d");
+
+    // 折线
+    can.beginPath();
+    can.lineWidth = 4;
+    can.strokeStyle = "blue";
+    can.moveTo(30, 30);
+    can.lineTo(100, 100);
+    can.lineTo(150, 100);
+    can.lineTo(200, 200);
+    can.stroke();
+
+    //矩形
+    //折现绘制矩形
+    // can.beginPath()
+    // can.lineWidth=5
+    // can.strokeStyle='#f00'
+    // can.moveTo(100,300)
+    // can.lineTo(300,300)
+    // can.lineTo(300,400)
+    // can.lineTo(100,400)
+    // can.closePath()//闭合线段,或者使用can.lineTo(起始位置),推荐使用closePath()
+    // can.stroke()
+
+    //使用strokeRect()绘制矩形
+    // can.beginPath()
+    // can.strokeStyle='blue'
+    // can.fillStyle='pink'
+    // can.lineWidth=3
+    // can.fillRect(100,300,200,100)//绘制矩形并进行填充颜色，默认为黑色，可以使用fillStyle进行更改
+    // // can.strokeRect(100,300,200,100)//起点的x,y,宽，高
+
+    // //两个方法同时使用(fillRect()和strokeRect())
+    // can.beginPath()
+    // can.strokeStyle='#f00'
+    // can.strokeRect(100,300,200,100)
+    // can.fillStyle='#00f'
+    // can.fillRect(100,300,200,100)
+
+    //rect()绘制矩形
+    can.beginPath();
+    can.strokeStyle = "red";
+    can.fillStyle = "pink";
+    can.rect(100, 300, 200, 100);
+    can.stroke();
+    can.fill()
+    can.clearRect(150,350,50,50)//清空指定区域的矩形,x,y,width,height
+    // 要清空的区域：从画布左上角开始，直到画布的宽和画布的高为止。
+    // can.clearRect(0,0,400,400)//清除画布
+  </script>
 </html>

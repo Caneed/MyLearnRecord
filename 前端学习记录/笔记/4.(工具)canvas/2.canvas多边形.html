@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid #e1e1e1;
+    }
+  </style>
+  <body>
+    <canvas width="1000px" height="500px"></canvas>
+  </body>
+  <script>
+    let canvas = document.querySelector("canvas");
+    let con = canvas.getContext("2d");
+
+    //三角型制作
+    con.beginPath(); //新路径生成
+    con.lineWidth = 4;
+    con.strokeStyle = "blue";
+    con.moveTo(10, 10);
+    con.lineTo(50, 10);
+    con.lineTo(50, 50);
+    con.closePath();
+    con.stroke();
+
+    //菱形制作
+    con.beginPath();
+    con.lineWidth = 5;
+    con.strokeStyle = "#f00";
+    con.lineJoin = "round";
+    con.moveTo(120, 20);
+    con.lineTo(100, 50);
+    con.lineTo(120, 80);
+    con.lineTo(140, 50);
+    con.closePath();
+    con.stroke();
+
+    //圆形制作
+    con.beginPath();
+    con.lineWidth = 3;
+    con.strokeStyle = `#00f`;
+    con.arc(500, 200, 180, (0 * Math.PI) / 180, (360 * Math.PI) / 180, false);
+    con.closePath();
+    con.stroke();
+
+    //半圆制作
+    con.beginPath();
+    con.lineWidth = 3;
+    con.strokeStyle = `#f00`;
+    con.arc(500, 200, 180, (0 * Math.PI) / 180, (180 * Math.PI) / 180, false);
+    con.closePath();
+    con.stroke();
+
+    //上方半圆制作
+    con.beginPath();
+    con.lineWidth = 3;
+    con.strokeStyle = `#f00`;
+    con.arc(500, 200, 180, (0 * Math.PI) / 180, (180 * Math.PI) / 180, true);
+    con.closePath();
+    con.stroke();
+
+    //arc()弧线
+    con.beginPath();
+    con.lineWidth = 3;
+    con.strokeStyle = `#f00`;
+    con.arc(200, 400, 180, (0 * Math.PI) / 180, (30 * Math.PI) / 180, false);
+    con.stroke();
+
+    //arcTo()弧线
+    con.moveTo(40, 40);
+    con.arcTo(120, 40, 120, 120, 80); //切线交点的x,y;结束点的横纵坐标;半径
+
+    con.stroke();
+
+    // //虚线属性
+    // cxt.setLineDash([10]); // 只传1个参数，实线与空白都是 10px
+    // cxt.setLineDash([10, 20]); // 2个参数，此时，实线是 10px, 空白 20px
+    // cxt.setLineDash([10, 20, 5]); // 传3个以上的参数，此例：10px实线，20px空白，5px实线，10px空白，20px实线，5px空白 ……
+  </script>
+</html>
