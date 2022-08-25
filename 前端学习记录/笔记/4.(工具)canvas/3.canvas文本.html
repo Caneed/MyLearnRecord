@@ -21,6 +21,9 @@
   //文本
   con.font='40px 宋体'
   con.strokeStyle='#f00'
+  con.textAlign='start'
+  con.fillText('hello',20,60)
   con.strokeText('hello',10,50)
+  console.log(con.measureText('hello').width)//100
 </script>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  canvas{
+    border: 1px solid #e1e1e1;
+  }
+  .img{
+    display: none;
+    height: 200px;
+    width: 300px;
+  }
+</style>
+<body>
+  <canvas width="800px" height="500"></canvas>
+  <img src="../4.(工具)css3动画效果/src/plane.svg" alt="" srcset="" class="img">
+</body>
+<script>
+  let canvas=document.querySelector('canvas')
+  let con=canvas.getContext('2d')
+  
+
+  // //JS在canvas上渲染图片
+  // //创建图像
+  // const image=new Image()
+  // //初始化路径
+  // image.src='../4.(工具)css3动画效果/src/loading-Home.gif'
+  // //加载图片
+  // image.onload=()=>{
+  //   //在画布上加载图像
+  //   con.drawImage(image,30,30)
+  // }
+
+  //DOM在canvas上渲染图片
+  let image=document.querySelector('.img')
+  // con.drawImage(image,30,30)
+
+  // //设置图片
+  // con.drawImage(image,30,30,200,200)
+
+  // //截取图片
+  // con.drawImage(image,40,40,100,100,30,30,200,300)
+</script>
+</html>
