@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="../../../../lib/jquery-3.6.0.js"></script>
+  <style>
+    .dots{
+      display: flex;
+      margin: 10px;
+      flex-direction: row;
+    }
+    .dots div{
+      background-color: #6f7273;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 5px;
+      transition: all 1.5s linear;
+    }
+    img{
+      width: 200px;
+      height: 400px;
+    }
+  </style>
+  <body>
+    <img src="img/1-1.png" alt="" />
+    <div class="dots">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+  <script>
+    let $img=$('img')
+    let $dots=$('.dots div')
+    let imgs=[]
+    for(let i=0;i<7;i++){
+      imgs[i]=`img/${i+1}-${i+1}.png`
+    }
+    $dots.each((i,e)=>{
+      $($dots[i]).on('click',()=>{
+        $dots.each((j,ev)=>{
+          $($dots[j]).css({'background-color': '#6f7273'})
+        })
+        $($dots[i]).css({'background-color': '#db9208'})
+        console.log(imgs[i])
+        $($img).attr('src',imgs[i])
+      })
+    })
+  </script>
+</html>

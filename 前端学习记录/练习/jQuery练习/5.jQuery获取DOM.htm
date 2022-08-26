@@ -18,6 +18,13 @@
   </form>
   <a href="www.baidu.com" id="attr">百度</a>
   <button id="getAttr">获取属性</button>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 </body>
 <script>
   $(document).ready(function(){
@@ -36,6 +43,13 @@
     $("#getAttr").click(function(){
       alert("获取到的属性:"+$("#attr").attr("href"));
     })
+
+    //获取li
+    let $lies=$('ul li')
+    console.log($lies)//arr[li*5]
+    //获取lies的索引
+    console.log($lies.eq(3))
+    console.log($lies[3])//li
   })
 </script>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../../lib/jquery-3.6.0.js"></script>
+  </head>
+  <style>
+    .colors {
+      display: flex;
+      flex-direction: row;
+    }
+    .colors button {
+      margin: 10px;
+    }
+    .boxes {
+      display: flex;
+      flex-direction: row;
+    }
+    .boxes div {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border: 1px solid #e1e1e1;
+    }
+  </style>
+  <body>
+    <div class="colors">
+      <button>蓝色</button>
+      <button>红色</button>
+      <button>绿色</button>
+      <button>黄色</button>
+    </div>
+    <div class="boxes">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function () {
+      let color = "";
+      let $btns = $(".colors button");
+      $btns.each((i, e) => {
+        let rbg = "";
+        if (i == 0) {
+          rgb = "blue";
+          $($btns[i]).attr("rgb", rgb);
+        } else if (i == 1) {
+          rgb = "red";
+          $($btns[i]).attr("rgb", rgb);
+        } else if (i == 2) {
+          rgb = "green";
+          $($btns[i]).attr("rgb", rgb);
+        } else if (i == 3) {
+          rgb = "yellow";
+          $($btns[i]).attr("rgb", rgb);
+        }
+        $($btns[i]).on("click", (e) => {
+          color=$($btns[i]).attr("rgb")
+          console.log(color);
+        });
+      });
+      let $blocks=$('.boxes div');
+      $blocks.each((i,e)=>{
+        $($blocks[i]).on('click',()=>{
+          $($blocks[i]).css({'background-color':color})
+        })
+      })
+    });
+  </script>
+</html>
