@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container,
+    .sub-container {
+      border-radius: 50%;
+    }
+    .container {
+      width: 500px;
+      height: 500px;
+      background-color: #a1814f;
+      position: relative;
+      top: calc(50% - 250px);
+      left: calc(50% - 250px);
+    }
+    .sub-container {
+      width: 200px;
+      height: 200px;
+      background-color: #a1814f;
+      position: absolute;
+      top: calc(50% - 100px);
+      left: calc(50% - 100px);
+    }
+    .sub-container span {
+      display: inline-block;
+      font-size: 32px;
+      color: #fff;
+      text-align: center;
+      margin: auto auto;
+      position: absolute;
+      top: 30%;
+    }
+    .sub-container::before {
+      content: "";
+      border-style: solid;
+      border-width: 30px;
+      position: absolute;
+      top: -50px;
+      left: calc(50% - 30px);
+      border-color: transparent transparent #a1814f transparent;
+    }
+    .rewards {
+      width: 480px;
+      height: 480px;
+      background-color: #3c3a50;
+      position: relative;
+      top: calc(50% - 240px);
+      left: calc(50% - 240px);
+      border-radius: 50%;
+      opacity: 0.8;
+      transform: rotate(0deg);
+      transition: all 3s ease-in-out;
+    }
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="rewards">
+        <span></span>
+      </div>
+      <div class="sub-container">
+        <span>开始抽奖start!</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    let rewards = document.querySelector(".rewards");
+    let start=document.querySelector('.sub-container')
+    for (let i = 0; i < 6; i++) {
+      let span = document.createElement("span");
+      span.style = `border: 1px solid #a1814f;
+      display: inline-block;
+      height: 480px;
+      position: absolute;
+      left: calc(50% - 1px);
+      top: 0px;
+      transform: rotate(${0 + i * 30}deg)`;
+      rewards.appendChild(span);
+    }
+
+    let arr=[]
+    for (let i = 0; i < 12; i++) {
+      let div = document.createElement("div");
+      div.style = ` width: 40px;
+      height: 40px;
+      color: #a1814f;
+      position: absolute;
+      left: calc(50% - 20px);
+      top: 30px;
+      transform-origin: 20px 210px;
+      transform: rotate(${15 + i * 30}deg);`;
+      if(i%3==0){
+        div.innerHTML = `<img src="./src/cry.png" alt="">`;
+      }else{
+        div.innerText = `${5 + i * 20}元话费`;
+      }
+      arr.push(div)
+      rewards.appendChild(div);
+    }
+    start.addEventListener('click',()=>{
+      let degree=Math.round(Math.random()*360+1440)
+      rewards.style.transform=`rotate(${-degree}deg)`
+      console.log(degree)
+      let flag=(((degree)%360)/30)
+      setTimeout(()=>{
+        alert(arr[parseInt(flag)].innerHTML)
+        rewards.style.transform=`rotate(0deg)`
+      },3000)
+      
+    })
+    
+    
+  </script>
+</html>
