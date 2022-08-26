@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../lib/three.js"></script>
+    <!-- <script src="../../../node_modules/cube.js"></script> -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    	const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			const cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			function animate() {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+  </script>
+  <!-- <script>
+    //创建场景
+    const scene = new THREE.Scene();
+
+    //相机设置
+    // 参数：fov，宽高比，近截面和远截面，这两个参数影响不大
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.z=5
+    //渲染器的创建
+    //构造渲染器
+    const renderer = new THREE.WebGLRenderer();
+    //渲染器的宽高设置
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    //将渲染器加入到浏览器中
+    document.body.appendChild(renderer.domElement);
+    // renderer.render(scene, camera);
+
+    //创建长宽高都为100的立方体
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+    //创建材质，属性设置透明度和颜色
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x00ff00
+    });
+
+    //网格模型创建，将几何体和材质传入
+    const mesh = new THREE.Mesh(geometry, material);
+
+    //把网格模型放到场景中
+    scene.add(mesh);
+
+    function animate() {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+    // 场景设置
+    // //点光源
+    // //点光源初始化，(光强)
+    // let light = new THREE.Light(0xffff00);
+    // //点光源位置
+    // light.position.set(100, 100, 100);
+    // //场景添加点光源
+    // scene.add(light);
+
+    // //环境光
+    // let ambition = new THREE.AmbientLight(0x444444);
+    // //场景添加环境光
+    // scene.add(ambition);
+
+    // //渲染场景，让立方体动起来
+    // function animation() {
+    //   //动画函数
+    //   requestAnimationFrame(animation);
+    //   //立方体实时转动
+    //   // geometry.rotation.x += 0.01;
+    //   // geometry.rotation.y += 0.01;
+    //   //每次调用时都进行实时渲染(刷新)
+    //   render.render(scene, camera);
+    // }
+    // animation();
+  </script> -->
+</html>
