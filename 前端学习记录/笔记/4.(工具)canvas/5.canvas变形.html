@@ -17,7 +17,7 @@
 </style>
 <body>
   <canvas height="500px" width="800px"></canvas>
-  <canvas height="500px" width="800px" class="canva"></canvas>
+  <canvas height="500px" width="500px" class="canva"></canvas>
 </body>
 <script>
   let canvas=document.querySelector('canvas')
@@ -37,7 +37,6 @@
   con.fillStyle='#0f0'
   con.translate(100,-100)//向右移动100.向上移动100
   con.fillRect(300,150,100,100)
-  // con.save()
 
   con.restore()
   con.rotate((Math.PI*2)/12)//旋转60度
@@ -46,9 +45,17 @@
   //第二块画布
   let canva=document.querySelector('.canva')
   let print=canva.getContext('2d')
+  print.save()//保存画布的初始状态
 
-  function draw(){
-    save()
-  }
+  print.translate(250,250)//圆点位移
+  print.beginPath()
+  print.fillStyle='#0f0'
+  print.rotate((Math.PI*2)/6)
+  print.fillRect(-25,-25,50,50)
+
+  print.restore()//恢复初始态
+  print.font='36px 宋体'
+  print.scale(2,2)
+  print.fillText('hello',50,50)
 </script>
 </html>
