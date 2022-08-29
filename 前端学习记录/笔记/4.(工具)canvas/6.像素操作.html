@@ -6,30 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      .container{
+        display: flex;
+        flex-direction: row;
+      }
       canvas {
+        margin: 10px;
         border: 1px solid #e1e1e1;
-        display: inline-block;
       }
       .hoverDiv,.clickDiv{
-        display: inline-block;
         width: 100px;
         height: 500px;
         border: 1px solid #e1e1e1;
+        color: #fff;
       }
     </style>
   </head>
   <body>
-    <canvas height="500px" width="500px"></canvas>
-    <div class="hoverDiv">图片当前颜色RGB:</div>
-    <div class="clickDiv">图片点击颜色RGB:</div>
+    <div class="container">
+      <canvas height="500px" width="800"></canvas>
+      <div class="hoverDiv">图片当前颜色RGB:
+        <div class="hoverColor"></div>
+      </div>
+      <div class="clickDiv">图片点击颜色RGB:</div>
+    </div>
   </body>
   <script>
     let img = new Image();
-    img.src = "../../../src/rain.jpg";
+    img.src = "../../../src/命脉.png";
     let canvas = document.querySelector("canvas");
     let con = canvas.getContext("2d");
+    let hoverDiv=document.querySelector('.hoverDiv')
+    let clickDiv=document.querySelector('.clickDiv')
+    //  //创建自己的像素对象
+    //  let myImageData=con.createImageData(0,0,100,100)
+    // //将创建的像素对象填充到画布
+    // con.putImageData(myImageData,100,100)
+    //渲染图像
     img.onload=() => {
-      con.drawImage(img,0,0,300,300)
+      con.drawImage(img,0,0,800,500)
     };
+    
+    //鼠标移入事件
+    canvas.addEventListener('mousemove',e=>{
+      //获取当前像素位置(鼠标移入的位置)
+      let x=e.offsetX
+      let y=e.offsetY
+      let pixel=con.getImageData(x,y,1,1)//获取鼠标移入位置的一像素对象,并存到pixel变量
+      //设置显示的位置
+      hoverDiv.style.background=`rgba(${pixel.data[0]}, ${pixel.data[1]}, ${pixel.data[2]}, 1)`
+      hoverDiv.textContent=`rgba(${pixel.data[0]}, ${pixel.data[1]}, ${pixel.data[2]}, 1)`
+    })
+
+    canvas.addEventListener('click',e=>{
+        //获取当前像素位置(鼠标点击的位置)
+        let x=e.offsetX
+      let y=e.offsetY
+      let pixel=con.getImageData(x,y,1,1)//获取鼠标点击位置的一像素对象,并存到pixel变量
+      //设置显示的位置
+      clickDiv.style.background=`rgba(${pixel.data[0]}, ${pixel.data[1]}, ${pixel.data[2]}, 1)`
+      clickDiv.textContent=`rgba(${pixel.data[0]}, ${pixel.data[1]}, ${pixel.data[2]}, 1)`
+    })
+    
   </script>
 </html>
