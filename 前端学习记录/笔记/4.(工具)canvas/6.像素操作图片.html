@@ -12,9 +12,22 @@
   </style>
 </head>
 <body>
-  <canvas width="500px" height="500px"></canvas>
+  <canvas width="800px" height="1000px"></canvas>
 </body>
 <script>
-  
+  let canvas=document.querySelector('canvas')
+  let ctx=canvas.getContext('2d')
+
+  let img=new Image
+  img.src='../../../src/命脉.png'
+  //图片填充
+  img.onload=()=>{
+    ctx.drawImage(img,0,0,800,500)
+
+      //用像素提取图像
+   let myImageData=ctx.getImageData(0,0,800,500)
+   //将提取到的图像放到画布
+  ctx.putImageData(myImageData,0,500,400,250,400,250)
+  }
 </script>
 </html>
