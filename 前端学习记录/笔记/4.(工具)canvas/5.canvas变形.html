@@ -11,12 +11,13 @@
     margin: 0;
     padding: 0;
   }
-  canvas{
+  canvas,.canva{
     border: 1px solid #e1e1e1;
   }
 </style>
 <body>
   <canvas height="500px" width="800px"></canvas>
+  <canvas height="500px" width="800px" class="canva"></canvas>
 </body>
 <script>
   let canvas=document.querySelector('canvas')
@@ -26,19 +27,28 @@
   con.beginPath()
   con.fillStyle='#f00'
   //画一个高宽为200的矩形，并在画布中间呈现
-  con.fillRect(300,150,200,200)
-  con.fill()
+  con.fillRect(300,150,100,100)
   con.save()//保存当前状态,默认状态
+
 
   //加载上一次的状态
   con.restore()
   //在上一次状态中改变了位置和颜色
   con.fillStyle='#0f0'
   con.translate(100,-100)//向右移动100.向上移动100
-  con.fillRect(300,150,200,200)
+  con.fillRect(300,150,100,100)
+  // con.save()
 
   con.restore()
-  con.rotate((Math.PI*2)/9)//旋转60度
-  con.fillRect(300,150,200,200)
+  con.rotate((Math.PI*2)/12)//旋转60度
+  con.fillRect(300,150,100,100)
+
+  //第二块画布
+  let canva=document.querySelector('.canva')
+  let print=canva.getContext('2d')
+
+  function draw(){
+    save()
+  }
 </script>
 </html>
