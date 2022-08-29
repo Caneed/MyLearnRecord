@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../../lib/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <form action="" onsubmit="return false">
+      <label for="">姓名<input type="text" value="" name="name"/></label><br>
+      <label for="">
+        <input type="radio" name="sex" value="male"/>男
+        <input type="radio" name="sex" value="female"/>女
+        <input type="radio" name="sex" value="other"/>其他
+      </label><br>
+      <label for="">爱好<br>
+        <input value="football" name="hobbies" id="" type="checkbox">踢足球</input>
+        <input value="badminton" name="hobbies" id="" type="checkbox">羽毛球</input>
+        <input value="basketball" name="hobbies" id="" type="checkbox">打篮球</input>
+      </label>
+      <label for="">班级
+        <select name="selection">
+          <option value="1">1班级</option>
+          <option value="2">2班级</option>
+          <option value="3">3班级</option>
+          <option value="4">4班级</option>
+        </select>
+      </label><br>
+
+      <label for="">
+        <textarea name="describe" id="" cols="30" rows="10"></textarea>
+      </label>
+      <button onsubmit="javascript:void(0)">提交</button>
+    </form>
+  </body>
+
+  <script>
+    $(document).ready(function(){
+      let $name=$('input[name=name]')
+      let $sex=$('input[name=sex]')
+      let $hobbies=$('input[name=hobbies]')
+      let $class=$('select[name=selection]')
+      let $text=$('textarea[name=describe]')
+      let $btn=$('button')
+       $($btn).click(()=>{
+        //读取输入框的值
+        console.log($name.val())
+
+        //读取被选到的单选框
+        $($sex).each((i,e)=>{
+          if(e.checked)
+          console.log($(e).val())
+        })
+
+        let hobbies=[]
+        //读取选取到的多选框
+        $($hobbies).each((i,e)=>{
+          if(e.checked){
+            hobbies.push($(e).val())
+          }
+        })
+        console.log(hobbies)
+
+        //读取下拉框的值
+        console.log($($class).val())
+
+        //读取文本域的值
+        console.log($($text).val())
+       })
+    })
+  </script>
+</html>
