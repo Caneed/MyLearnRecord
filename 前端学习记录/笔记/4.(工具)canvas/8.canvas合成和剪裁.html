@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #e1e1e1;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas width="800px" height="500"></canvas>
+  </body>
+  <script>
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    ctx.save();
+    //透明度合成
+    // ctx.fillStyle = "#000";
+    // ctx.globalAlpha = 0.2;
+    // for (i = 0; i < 7; i++) {
+    //   ctx.beginPath();
+    //   ctx.arc(250, 250, 10 + 10 * i, 0, Math.PI * 2, true);
+    //   ctx.fill();
+    // }
+    // ctx.restore();
+    
+    //全局合成
+    // ctx.globalCompositeOperation=type
+    /* type值
+ * source-atop         新图形只在与现有画布内容重叠的地方绘制
+ * source-in           新图形只在新图形和目标画布重叠的地方绘制。其他的都是透明的。
+ * source-out          在不与现有画布内容重叠的地方绘制新图形。
+ * source-over 默认     这是默认设置，并在现有画布上下文之上绘制新图形。
+ * destination-atop    现有的画布只保留与新图形重叠的部分，新的图形是在画布内容后面绘制的
+ * destination-in      现有的画布内容保持在新图形和现有画布内容重叠的位置。其他的都是透明的
+ * destination-out     现有内容保持在新图形不重叠的地方。
+ * destination-over    在现有的画布内容后面绘制新的图形。
+ * lighter             两个重叠图形的颜色是通过颜色值相加来确定的。
+ * copy                只显示新图形。
+ * xor				   图像中，那些重叠和正常绘制之外的其他地方是透明的
+ * ...
+ * */
+
+//  ctx.fillStyle='#f0f'
+//  ctx.fillRect(0,0,300,300)
+ 
+//  ctx.beginPath()
+//  ctx.globalAlpha=0.7
+//  ctx.fillStyle = 'green';
+//  //所有的全局合成方式
+// //  ctx.globalCompositeOperation="source-atop"
+// //  ctx.globalCompositeOperation="source-in"
+// //  ctx.globalCompositeOperation="source-out"
+// //  ctx.globalCompositeOperation="source-over"
+// //  ctx.globalCompositeOperation="destination-atop"
+// //  ctx.globalCompositeOperation="destination-in"
+// //  ctx.globalCompositeOperation="destination-out"
+// //  ctx.globalCompositeOperation="destination-over"
+// // ctx.globalCompositeOperation="xor"
+// // ctx.globalCompositeOperation="lighter"
+// // ctx.globalCompositeOperation="copy"
+
+//  ctx.arc(300,300,100,0,Math.PI*2)
+//  ctx.fill()
+
+ctx.fillStyle='blue'
+ctx.arc(300,300,200,0,Math.PI*2,true)
+ctx.fill()
+ctx.clip()
+
+ctx.fillStyle='red'
+ctx.fillRect(300,300,200,200)
+
+  </script>
+</html>
