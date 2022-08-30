@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid #e1e1e1;
+    }
+  </style>
+  <body>
+    <canvas width="800" height="1000"></canvas>
+  </body>
+  <script>
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    let [width, height] = [canvas.width, canvas.height];
+    console.log(width, height);
+    const size = 20; //马赛克色块尺寸
+    let img = new Image();
+    img.src = "../../../src/命脉.png";
+
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, 800, 500);
+
+      let imageDt = ctx.getImageData(0, 0, 800, 500);
+
+      //行列遍历像素
+      for (let y = 0; y < 500; y += size) {
+        for (let x = 0; x < 800; x += size) {
+          const i = (y * 800 + x) * 4;
+          const [r, g, b] = [
+            imageDt.data[i],
+            imageDt.data[i + 1],
+            imageDt.data[i + 2],
+          ];
+          ctx.fillStyle = `RGB(${r},${g},${b})`;
+          ctx.fillRect(x, y, size, size);
+        }
+      }
+    };
+  </script>
+</html>
