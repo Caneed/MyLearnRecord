@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid #e1e1e1;
+    }
+  </style>
+  <body>
+    <canvas height="600" width="600"></canvas>
+  </body>
+  <script>
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    const [width, height] = [canvas.width, canvas.height];
+
+    //钟表类创建
+    class clock {
+      //类成员x,y,r,bkg
+      //构造函数
+      constructor(x, y, r, bkg) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.bkg = bkg;
+      }
+
+      //渲染
+      render(ctx, date) {
+        //清除画布
+        ctx.clearRect(-width/2,-height/2, 1000, 1000);
+        //创建表盘
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = `${this.bkg}`;
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+        ctx.fill();
+        const deg = Math.PI / 180;
+        ctx.save()
+        ctx.translate(width / 2, height / 2); //将旋转中心从左上角到圆心
+
+        for (let i = 0; i < 60; i++) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.rotate(6 * i * deg); //旋转角度
+          ctx.lineCap = "round";
+          if (i % 5 == 0) {
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = `#f00`;
+            ctx.moveTo(0, height / 2 - 5);
+            ctx.lineTo(0, height / 2 - 50);
+          } else {
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = `#fff`;
+            ctx.moveTo(0, height / 2 - 5);
+            ctx.lineTo(0, height / 2 - 25);
+          }
+          ctx.stroke();
+          ctx.closePath();
+          ctx.restore();
+        }
+
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+        //渲染转盘，时针分针秒针
+        ctx.fillStyle = "#000";
+        ctx.arc(0, 0, 50, 0, 360 * deg);
+        ctx.fill();
+
+        //时针
+        ctx.save()
+        ctx.rotate((hour % 12) * 30 * deg-180*deg);
+        ctx.fillStyle = "#74b68a";
+        ctx.fillRect(-5, 0, 10, 150);
+        ctx.restore();
+
+        //分针
+        ctx.save()
+        ctx.rotate(min * 6 * deg-180*deg);
+        ctx.fillStyle = "red";
+        ctx.fillRect(-5, 0, 10, 200);
+        ctx.restore();
+
+        //秒针
+        ctx.save()
+        ctx.rotate(sec * 6 * deg-180*deg);
+        ctx.fillStyle = "#34373f";
+        ctx.fillRect(-5, 0, 10, 250);
+      }
+    }
+
+    const watch = new clock(width / 2, height / 2, width / 2, "#a6a385");
+
+    setInterval(() => {
+      let date = new Date();
+      watch.render(ctx, date);
+    }, 1000);
+    // watch.render(ctx,new Date())
+  </script>
+</html>
