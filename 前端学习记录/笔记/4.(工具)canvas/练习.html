@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #e1e1e1;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas width="800px" height="500px"></canvas>
+  </body>
+  <script>
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.fillStyle = "#b6b6b6";
+    ctx.fillRect(0, 0, 350, 40);
+
+    ctx.beginPath();
+    ctx.fillStyle = "#676767";
+    ctx.fillRect(0, 40, 250, 150);
+
+    ctx.beginPath();
+    ctx.fillStyle = "#b6b6b6";
+    ctx.fillRect(0, 190, 100, 150);
+
+    ctx.beginPath();
+    ctx.fillStyle = "#ec831f";
+    ctx.fillRect(50, 190, 50, 100);
+
+    ctx.beginPath();
+    ctx.fillStyle = "#000";
+    ctx.fillRect(500, 0, 200, 450);
+
+    ctx.beginPath();
+    ctx.fillStyle = "#f2f202";
+    ctx.fillRect(525, 50, 50, 50);
+    ctx.save();
+
+    for (let i = 0; i < 7; i++) {
+      let x = 0;
+      let y = 100;
+      if(i==3){
+        x=100
+        y=0
+      }
+      if(i>3){
+        y=-100
+      }
+      ctx.restore();
+      ctx.translate(x, y);
+      ctx.fillRect(525, 50, 50, 50);
+      ctx.save();
+    }
+  </script>
+</html>
