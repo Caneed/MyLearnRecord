@@ -7,10 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <video width="1000"
-      src="/WebDownload/毒枭：墨西哥 第三季第02集.mp4"
-      controls poster="../src/close.png"
+    <video width="500"
+      src="./video/oceans.mp4"
+      controls poster="./img/1.png"
+      autoplay
+      muted
     ></video>
-    <audio src="/music/许嵩 - 医生.mp3" autoplay controls></audio>
+    <audio src="./audio/a4.mp3" autoplay controls></audio>
+
+    <picture>
+      <source srcset="./img/1.png" media="(min-width: 800px)">
+      <source srcset="./img/2.png" media="(min-width: 600px)">
+      <img width="500" src="./img/desktop.png">
+    </picture>
   </body>
 </html>
