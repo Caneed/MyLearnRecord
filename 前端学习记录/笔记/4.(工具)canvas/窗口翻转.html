@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #e1e1e1;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas height="500" width="500"></canvas>
+    <button class="btn">反转</button>
+  </body>
+  <script>
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    const [width, height] = [canvas.width, canvas.height];
+
+    class box {
+      constructor(x, y, w, h, v) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.v = v;
+      }
+      render(ctx) {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillRect(this.x, this.y, this.w, this.h);
+      }
+    }
+
+    let b = new box(100, 100, 100, 100, 10);
+    b.render(ctx);
+    let btn = document.querySelector(".btn");
+    btn.addEventListener("click", () => {
+      setInterval(() => {
+        if (!((b.x >= width - b.x) || (b.y >= height - b.y))) {
+          b.x += b.v;
+          b.y += b.v;
+          b.render(ctx);
+        }
+      }, 100);
+    });
+  </script>
+</html>
