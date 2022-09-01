@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./animate.css">
+    <link rel="stylesheet" href="./animate.min.css">
   </head>
   <style>
     div {
       font-size: 64px;
       color: aquamarine;
+    }
+    /* 自定义动画 */
+    div:nth-child(3) {
+      animation-duration: 10s !important;
     }
   </style>
   <body>
@@ -26,5 +30,24 @@
 
     <!-- 重复 -->
     <div class="animate__animated animate__bounce animate__repeat-2">Example</div>
+
+    <!-- JS使用 -->
+    <div class="jsuseage">Example</div>
+
+    <!-- 多个动画叠加 -->
+    <div class="animate__animated animate__backInLeft">
+      <div class="animate__animated animate__backInDown">Example</div>
+    </div>
   </body>
+  <script>
+    let el=document.querySelector('.jsuseage')
+    el.classList.add('animate__animated' ,'animate__bounce' ,'animate__repeat-2')
+
+    // 动画结束的回调
+    el.addEventListener('animationend',()=>{
+      el.classList.remove('animate__animated' ,'animate__bounce' ,'animate__repeat-2')
+    })
+    // 动画时间的改变
+    // el.style.setProperty('--animate-duration','5s')
+  </script>
 </html>
