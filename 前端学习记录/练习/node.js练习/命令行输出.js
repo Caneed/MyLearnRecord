@@ -58,6 +58,18 @@
 //输出着色
 // console.log('\x1b[33m%s\x1b[0m', '你好')
 //使用chalk着色
-import {chalk} from 'chalk'
+// const chalk = require('chalk')
+// console.log(chalk.yellow('你好'))
 
-console.log(chalk.yellow('你好'))
+// //进度条创建
+// const ProgressBar = require('progress')
+
+// const bar = new ProgressBar(':bar', { total: 10 })
+// const timer = setInterval(() => {
+//   bar.tick()
+//   if (bar.complete) {
+//     clearInterval(timer)
+//   }
+// }, 10000)
+
+
