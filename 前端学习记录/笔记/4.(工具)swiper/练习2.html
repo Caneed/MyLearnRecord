@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./swiper-bundle.js"></script>
+    <link rel="stylesheet" href="./swiper-bundle.css" />
+    <link
+      rel="stylesheet"
+      href="../4.(工具)css3动画效果/animateCss/animate.min.css"
+    />
+  </head>
+  <style>
+    .swiper {
+      width: 400px;
+      height: 600px;
+      margin: 50px auto;
+      padding: 30px;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: transparent;
+      background-color: rgba(0, 0, 0, 0) !important;
+      width: 40px;
+      position: absolute;
+      right: 10px;
+    }
+    .swiper-button-prev {
+      position: absolute;
+      left: 410px;
+      top: 170px;
+    }
+    .swiper-button-prev button,
+    .swiper-button-next button {
+      margin: 0 auto;
+    }
+    .swiper-pagination {
+      bottom: 400px;
+      right: 20px;
+      left: auto;
+      width: 40px;
+    }
+    .slide-container {
+      width: 350px;
+      height: 500px;
+      background-color: #cccdff;
+    }
+    .page1-bg {
+      width: 350px;
+      height: 500px;
+      margin: 0;
+      padding: 0;
+    }
+    .round1 {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      top: 50px;
+      left: 35px;
+    }
+    .round2 {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      bottom: 300px;
+      right: 70px;
+    }
+    .round3 {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      bottom: 150px;
+      right: 30px;
+    }
+    .sub-bg {
+      width: 240px;
+      height: 191px;
+      position: absolute;
+      top: 65px;
+      left: 57px;
+    }
+    .page1-logo {
+      width: 169px;
+      height: 191px;
+      position: absolute;
+      top: 60px;
+      left: 100px;
+    }
+    .hooker {
+      height: 150px;
+      width: 120px;
+      position: absolute;
+      top: 220px;
+      left: 120px;
+    }
+    .slogan {
+      height: 100px;
+      width: 30px;
+      position: absolute;
+      top: 230px;
+      left: 15px;
+    }
+    .triangle {
+      height: 60px;
+      width: 80px;
+      position: absolute;
+      top: 412px;
+      left: 15px;
+    }
+  </style>
+  <body>
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="slide-container">
+            <img src="./page1-bk.png" alt="" class="page1-bg" />
+            <img src="./round.png" alt="" class="round1" />
+            <img src="./round.png" alt="" class="round2" />
+            <img src="./round.png" alt="" class="round3" />
+            <img src="./sub-bg.png" alt="" class="sub-bg" />
+            <img src="./page1-logo.png" alt="" class="page1-logo" />
+            <img src="./hokker.png" alt="" class="hooker" />
+            <img src="./slogan.png" alt="" class="slogan" />
+            <img src="./triganle.png" alt="" class="triangle" />
+          </div>
+        </div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+      </div>
+
+      <div class="swiper-button-prev"><button>上一页</button></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"><button>下一页</button></div>
+    </div>
+  </body>
+  <script>
+    const swiper = new Swiper(".swiper", {
+      // Optional parameters
+      direction: "vertical",
+      loop: true,
+      allowTouchMove: true,
+
+      // Navigation arrows
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "custom",
+        renderCustom: function (swiper, current, total) {
+          return current + " / " + total;
+        },
+      },
+    });
+  </script>
+</html>
