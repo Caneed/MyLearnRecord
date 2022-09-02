@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+// const bar = () => console.log('bar')
+
+// const baz = () => console.log('baz')
+
+// const foo = () => {
+//   console.log('foo')
+//   bar()
+//   baz()
+// }
+
+// foo()//foo bar baz
+
+
+const bar = () => console.log('bar')
+
+const baz = () => console.log('baz')
+
+const foo = () => {
+  console.log('foo')
+  setTimeout(bar, 0)
+  new Promise((resolve, reject) =>
+    resolve('应该在 baz 之后、bar 之前')
+  ).then(resolve => console.log(resolve))
+  baz()
+}
+
+foo()//foo baz resolve bar
+</script>
+</html>
