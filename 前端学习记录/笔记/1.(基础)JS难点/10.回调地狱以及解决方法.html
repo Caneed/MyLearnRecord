@@ -104,57 +104,57 @@
     // p.then();
     // p.then();
 
-    //promise使用两个数组存放成功和失败的结果
-    class Promise {
-      //构造函数
-      constructor(executor) {
-        this.status = "pending"; //rejected:失败,fulfilled:成功
-        this.value = undefined; //value:成功的值
-        this.reason = undefined; //reason:失败的原因(值)
-        //成功存放的数组
-        this.onResolveCallbackArr = [];
-        //失败存放的数组
-        this.onRejectCallbackArr = [];
-        let resolve = (value) => {
-          if (this.status == "pending") {
-            this.pending = "fulfilled";
-            this.value = value;
-            //resolve执行时调用成功的数组
-            this.onResolveCallbackArr.forEach((fn) => fn());
-          }
-        };
+    // //promise使用两个数组存放成功和失败的结果
+    // class Promise {
+    //   //构造函数
+    //   constructor(executor) {
+    //     this.status = "pending"; //rejected:失败,fulfilled:成功
+    //     this.value = undefined; //value:成功的值
+    //     this.reason = undefined; //reason:失败的原因(值)
+    //     //成功存放的数组
+    //     this.onResolveCallbackArr = [];
+    //     //失败存放的数组
+    //     this.onRejectCallbackArr = [];
+    //     let resolve = (value) => {
+    //       if (this.status == "pending") {
+    //         this.pending = "fulfilled";
+    //         this.value = value;
+    //         //resolve执行时调用成功的数组
+    //         this.onResolveCallbackArr.forEach((fn) => fn());
+    //       }
+    //     };
 
-        let reject = (reason) => {
-          if (this.status == "pending") {
-            this.status = "rejected";
-            this.reason = reason;
-            //reject执行时调用失败的数组
-            this.onRejectCallbackArr.forEach((fn) => fn());
-          }
-        };
+    //     let reject = (reason) => {
+    //       if (this.status == "pending") {
+    //         this.status = "rejected";
+    //         this.reason = reason;
+    //         //reject执行时调用失败的数组
+    //         this.onRejectCallbackArr.forEach((fn) => fn());
+    //       }
+    //     };
 
-        try {
-          executor(resolve, reject);
-        } catch (err) {
-          reject(err);
-        }
-      }
-      then(onFulfilled, onRejected) {
-        if (this.status == "fulfilled") {
-          onFulfilled(this.value);
-        } else if (this.status == "rejected") {
-          onRejected(this.reason);
-        } else if (this.status == "pending") {
-          //状态为pending时，onFulfilled传入成功的数组
-          this.onResolveCallbackArr.push(() => {
-            onFulfilled(this.value);
-          });
-          // onRejected传入到失败数组
-          this.onRejectedCallbacks.push(() => {
-            onRejected(this.reason);
-          });
-        }
-      }
-    }
+    //     try {
+    //       executor(resolve, reject);
+    //     } catch (err) {
+    //       reject(err);
+    //     }
+    //   }
+    //   then(onFulfilled, onRejected) {
+    //     if (this.status == "fulfilled") {
+    //       onFulfilled(this.value);
+    //     } else if (this.status == "rejected") {
+    //       onRejected(this.reason);
+    //     } else if (this.status == "pending") {
+    //       //状态为pending时，onFulfilled传入成功的数组
+    //       this.onResolveCallbackArr.push(() => {
+    //         onFulfilled(this.value);
+    //       });
+    //       // onRejected传入到失败数组
+    //       this.onRejectedCallbacks.push(() => {
+    //         onRejected(this.reason);
+    //       });
+    //     }
+    //   }
+    // }
   </script>
 </html>
