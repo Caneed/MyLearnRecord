@@ -56,25 +56,25 @@
     // );
 
 
-    
-    // let a=new Promise((resolve,reject)=>{
-    //   setTimeout(()=>{
-    //     console.log('resolved!!!')
-    //     resolve(1)
-    //   },1000)
-    // })
 
-    // console.log(0)
-    // a.then(console.log)
-    // a.then(res=>{
-    //   console.log(++res)
-    // })
-    // console.log('end')
-    // let b=new Promise.reject('reject')
+    let a=new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+        console.log('resolved!!!')
+        resolve(1)
+      },1000)
+    })
 
-    // b.catch((res)=>{
-    //   setTimeout(console.log,1000,res)
-    // })
+    console.log(0)
+    a.then(console.log)
+    a.then(res=>{
+      console.log(++res)
+    })
+    console.log('end')
+    let b=Promise.reject('reject')
+
+    b.catch((res)=>{
+      setTimeout(console.log,1000,res)
+    })
 
     // //0 end 2 resolved reject
   </script>
