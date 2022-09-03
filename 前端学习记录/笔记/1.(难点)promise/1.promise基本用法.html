@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>点击抽奖</button>
+  </body>
+  <script>
+    let btn = document.querySelector("button");
+
+    function random() {
+      return Math.ceil(Math.random() * 100);
+    }
+    // btn.addEventListener("click", () => {
+    //   //基本定时器实现异步编程
+    //   setTimeout(() => {
+    //     let n = random();
+    //     if (n < 30) {
+    //       alert("中奖");
+    //     } else {
+    //       alert("没中奖");
+    //     }
+    //   }, 1000);
+
+    // promise实现异步操作的封装
+    // resolve和reject都是函数类型
+    // const p = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     let n = random();
+    //     if (n < 30) {
+    //       //成功调用resolve,调用之后将状态保留为成功
+    //       // resolve函数可以得到成功的结果
+    //       resolve(n);
+    //     } else {
+    //       //失败调用reject，调用后将状态保留为失败
+    //       // reject函数得到失败的结果
+    //       reject(n);
+    //     }
+    //   }, 1000);
+    // });
+    // // then()方法对成功和失败之后的回调进行包装
+    // p.then(
+    //   // 在then中接收resolve或者是reject传入的结果
+    //   (value) => {
+    //     // 成功的回调
+    //     alert("中奖"+value);
+    //   },
+    //   (reason) => {
+    //     // 失败的回调
+    //     alert("没中奖"+reason);
+    //   }
+    // );
+
+
+    
+    // let a=new Promise((resolve,reject)=>{
+    //   setTimeout(()=>{
+    //     console.log('resolved!!!')
+    //     resolve(1)
+    //   },1000)
+    // })
+
+    // console.log(0)
+    // a.then(console.log)
+    // a.then(res=>{
+    //   console.log(++res)
+    // })
+    // console.log('end')
+    // let b=new Promise.reject('reject')
+
+    // b.catch((res)=>{
+    //   setTimeout(console.log,1000,res)
+    // })
+
+    // //0 end 2 resolved reject
+  </script>
+</html>
