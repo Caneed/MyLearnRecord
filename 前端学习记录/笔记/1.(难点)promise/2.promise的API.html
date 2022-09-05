@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // // promise构造函数
+    // let p=new Promise((resolve,reject)=>{
+    //   reject('err')
+    // })
+
+    // // promise的then方法
+    // p.then(value=>{},reason=>{})
+
+    // // promise的catch方法
+    // p.catch(reason=>{
+    //   console.log(reason)//err
+    // })
+
+    // // promise的resolve方法
+    // let p1=Promise.resolve('hello')
+    // console.log(p1)
+    // // promise{state:fulfilled,result:'hello'}
+
+    // // resolve方法传入一个promise对象
+    // let p2=Promise.resolve(new Promise((resolve,reject)=>{
+    //   reject('err')
+    // }))
+    // console.log(p2)
+    // //p2{state:'rejected',result:'err'}
+    // // 报错
+    // //处理报错(处理失败的结果)
+    // p2.catch(reason=>{
+    //   console.log(reason)//err
+    // })
+
+    // // reject方法
+    // let p3=Promise.reject('error')
+    // console.log(p3)
+    // // p3{state:'rejected',result:'error'}
+
+    // // reject方法不管传入的是否是一个promise对象，返回的结果都是失败
+    // let p4=Promise.reject(new Promise((resolve,reject)=>{
+    //   resolve('resolved!!!')
+    // }))
+    // console.log(p4)
+    // //p4{state:'rejected',result:Promise{state:'fulfilled',result:'resolved!!!'}}
+
+    // all()方法
+    // // 成功的情况
+    // let a1=new Promise((resolve,reject)=>{
+    //   resolve("ok")
+    // })
+    // let a2=Promise.resolve('success')
+    // let a3=Promise.resolve('hello')
+    // let a4=Promise.resolve('world')
+    // const result=Promise.all([a1,a2,a3,a4])
+    // console.log(result)
+    // // Promise {<pending>}[[Prototype]]: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]: Array(4)0: "ok"1: "success"2: "hello"3: "world"length: 4[[Prototype]]: Array(0)
+
+    // // 失败的情况
+    // let a1 = new Promise((resolve, reject) => {
+    //   resolve("ok");
+    // });
+    // let a2 = Promise.resolve("success");
+    // let a3 = Promise.resolve("hello");
+    // let a4 = Promise.resolve("world");
+    // let a5 = Promise.reject("error");
+    // let a6=Promise.reject('err')
+    // const result = Promise.all([a1, a2, a3, a4, a5,a6]);
+    // console.log(result);
+    // // Promise {<pending>}
+    // // [[Prototype]]: Promise
+    // // [[PromiseState]]: "rejected"
+    // // [[PromiseResult]]: "error
+
+    // race方法
+    
+  </script>
+</html>
