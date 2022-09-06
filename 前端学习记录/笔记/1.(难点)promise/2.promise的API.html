@@ -73,12 +73,48 @@
     // let a6=Promise.reject('err')
     // const result = Promise.all([a1, a2, a3, a4, a5,a6]);
     // console.log(result);
-    // // Promise {<pending>}
+    // // Promise {pending}
     // // [[Prototype]]: Promise
     // // [[PromiseState]]: "rejected"
     // // [[PromiseResult]]: "error
 
     // race方法
-    
+    let p1 = new Promise((resolve, reject) => {
+      resolve("ok");
+    });
+    let p2 = Promise.resolve("success");
+    let p3 = Promise.resolve("resolved");
+
+    let r = Promise.race([p1, p2, p3]);
+    console.log(r);
+    // Promise[[Prototype]]: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]: "ok"
+
+    let p4 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("delay ok");
+      }, 1000);
+    });
+    let r2 = Promise.race([p4, p1, p2, p3]);
+    console.log(r2);
+    //     [[Prototype]]: Promise
+    // [[PromiseState]]: "fulfilled"
+    // [[PromiseResult]]: "ok"
+
+    let p5 = Promise.reject("failed");
+    p5.then(
+      (reason) => {
+        console.log(reason);
+      },
+      (value) => {
+        console.log(value);
+      }
+    );
+
+    let r3 = Promise.race([p5, p1, p2, p3]);
+    console.log(r3);
+
+    //     [[Prototype]]: Promise
+    // [[PromiseState]]: "rejected"
+    // [[PromiseResult]]: "failed"
   </script>
 </html>
