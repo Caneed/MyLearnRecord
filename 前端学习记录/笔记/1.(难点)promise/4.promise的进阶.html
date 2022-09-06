@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-<script>
-  // 改变promise对象的状态的方法
-  // let p=new Promise((resolve,reject)=>{
-  //   // // 第一种,调用resolve函数
-  //   // resolve('ok')//pending->fulfilled
-  //   // // 第二种,调用rejected函数
-  //   // reject('err')//pending->rejected
-  //   // 第三种,抛出错误
-  //   throw 'err'
-  // })
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 改变promise对象的状态的方法
+    // let p=new Promise((resolve,reject)=>{
+    //   // // 第一种,调用resolve函数
+    //   // resolve('ok')//pending->fulfilled
+    //   // // 第二种,调用rejected函数
+    //   // reject('err')//pending->rejected
+    //   // 第三种,抛出错误
+    //   throw 'err'
+    // })
 
-  // promise指定多个成功或者失败的回调函数
-  let p=new Promise((resolve,reject)=>{
-    resolve('ok')
-  })
-  // 指定回调
-  p.then(value=>{
-    console.log(value)
-  })
-  p.then(value=>{
-    console.log(value)
-  })
-  p.then(value=>{
-  },reason=>{
-    console.log(reason)//不会输出
-  })
-  // ok ok
-</script>
+    // promise指定多个成功或者失败的回调函数
+    let p = new Promise((resolve, reject) => {
+      resolve("ok");
+    });
+    // 指定回调
+    p.then((value) => {
+      console.log(value);
+    });
+    p.then((value) => {
+      console.log(value);
+    });
+    p.then(
+      (value) => {},
+      (reason) => {
+        console.log(reason); //不会输出
+      }
+    );
+    // ok ok
+  </script>
 </html>
