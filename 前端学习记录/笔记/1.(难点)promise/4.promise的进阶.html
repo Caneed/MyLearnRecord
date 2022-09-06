@@ -18,23 +18,94 @@
     //   throw 'err'
     // })
 
-    // promise指定多个成功或者失败的回调函数
+    // // promise指定多个成功或者失败的回调函数
+    // let p = new Promise((resolve, reject) => {
+    //   resolve("ok");
+    // });
+    // // 指定回调
+    // p.then((value) => {
+    //   console.log(value);
+    // });
+    // p.then((value) => {
+    //   console.log(value);
+    // });
+    // p.then(
+    //   (value) => {},
+    //   (reason) => {
+    //     console.log(reason); //不会输出
+    //   }
+    // );
+    // // ok ok
+
+    // promise改变状态和指定回调函数的执行顺序
+    // // 一般情况
+    // let p=new Promise((resolve,reject)=>{
+    //   resolve('ok')
+    // })
+    // p.then(value=>{
+    //   console.log(value)
+    // },reason=>{
+    //   console.log(reason)
+    // })//ok
+
+    // 构造器中调用的是一个异步
+    // let p=new Promise((resolve,reject)=>{
+    //   setTimeout(()=>{
+    //     resolve('ok')
+    //   },1000)
+    // })
+    // p.then(value=>{
+    //   console.log(value)
+    // },reason=>{
+    //   console.log(reason);
+    // })
+
+    // // 异步情况下后调用then
+    // let p=new Promise((resolve,reject)=>{
+    //   setTimeout(()=>{
+    //     resolve('ok')
+    //   },1000)
+    // })
+    // setTimeout(()=>{
+    //   p.then(value=>{
+    //   console.log(value)
+    // },reason=>{
+    //   console.log(reason);
+    // })
+    // },2000)
+
     let p = new Promise((resolve, reject) => {
       resolve("ok");
     });
-    // 指定回调
-    p.then((value) => {
-      console.log(value);
-    });
-    p.then((value) => {
-      console.log(value);
-    });
-    p.then(
-      (value) => {},
+    let res = p.then(
+      (value) => {
+        // 1.返回异常
+        // throw "err";
+        // [[PromiseState]]: "rejected"
+        // [[PromiseResult]]: "err"
+
+        // // 2.返回非promise的值
+        // return 1123;
+        // // [[PromiseState]]: "fulfilled"
+        // // [[PromiseResult]]: 1123
+
+        return new Promise((resolve, reject) => {
+          // //返回的是失败
+          // reject();
+          // // [[PromiseState]]: "rejected"
+          // // [[PromiseResult]]: undefined
+
+          // // 返回的是成功
+          // resolve();
+          // // [[PromiseState]]: "fulfilled"
+          // // [[PromiseResult]]: undefined
+        });
+      },
       (reason) => {
-        console.log(reason); //不会输出
+        console.log(reason);
       }
     );
-    // ok ok
+
+    console.log(res);
   </script>
 </html>
