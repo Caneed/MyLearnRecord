@@ -12,15 +12,20 @@
 <script>
   let arr=[1,2,3,4,5,6]
 
-  // at(index)
+  // at(index),返回传入索引值的value
   console.log(arr.at(1))//2
   console.log(arr.at(-1))//6
 
-  // concat
+  // concat,将数组进行拼接，不改变原数组
   let arr2=[7,8,9]
   console.log(arr.concat(arr2));//[1,2,3,4,5,6,7,8,9]
 
   // copyWithIn
-  console.log(arr.copyWithin(0,2))
+  console.log(arr.copyWithin(0,2,))
+
+  // entires
+  let literator=arr.entries()
+  console.log(literator)//Array literator
+  console.log(literator.next().value)
 </script>
 </html>
