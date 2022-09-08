@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .pan {
+      width: 420px;
+      height: 420px;
+      border: 10px solid gray;
+      border-radius: 50%;
+      background-color: #000;
+      position: relative;
+    }
+    .hour,.min,.second {
+      position: absolute;
+      transform-origin: bottom;
+    }
+    .hour {
+      width: 16px;
+      height: 70px;
+      top: 140px;
+      left: 202px;
+      background-color: aquamarine;
+    }
+    .min {
+      width: 10px;
+      height: 100px;
+      top: 110px;
+      left: 205px;
+      background-color: darkgreen;
+    }
+    .second {
+      width: 6px;
+      height: 130px;
+      top: 80px;
+      left: 207px;
+      background-color: #f00;
+    }
+    .point {
+      width: 4px;
+      height: 10px;
+      background-color: #fff;
+      position: absolute;
+      left: calc(50% - 2px);
+      transform: rotate(0deg);
+      transform-origin: center 210px;
+    }
+    .bigPoint {
+      height: 20px;
+      background-color: #f00;
+    }
+    </style>
+    <div class="pan">
+      <div class="hour"></div>
+      <div class="min"></div>
+      <div class="second"></div>
+      <span></span>
+    </div>
+  </body>
+  <script>
+    let hourNeedle = document.querySelector(".hour");
+    let minNeedle = document.querySelector(".min");
+    let secNeedle = document.querySelector(".second");
+    let pan = document.querySelector(".pan");
+    class Clock {
+      constructor(pan, hourNeedle, minNeedle, secNeedle) {
+        this.pan = pan;
+        this.hourNeedle = hourNeedle;
+        this.minNeedle = minNeedle;
+        this.secNeedle = secNeedle;
+      }
+
+      // 初始化表盘
+      initial() {
+        for (let i = 0; i < 60; i++) {
+          let span = document.createElement("span");
+          if (i % 5 === 0) {
+            this.pan.innerHTML+=`<div class="point bigPoint" style="transform:rotate(${i * 6}deg);"></div>`
+          } else {
+            this.pan.innerHTML+=`<div class="point" style="transform:rotate(${i * 6}deg);"></div>`
+          }
+        }
+        let hour
+        let min
+        let second
+        setInterval(() => {
+          hour=new Date().getHours()
+          min=new Date().getSeconds()
+          second=new Date().getSeconds()
+          console.log(second)
+        this.hourNeedle.style.transform=`rotate(${hour*30}deg)`
+        this.minNeedle.style.transform=`rotate(${min*6}deg)`
+        this.secNeedle.style.transform=`rotate(${min*6}deg)`
+        console.log(hourNeedle)
+      }, 1000);
+      }
+    }
+
+    const clock=new Clock(pan,hourNeedle,minNeedle,secNeedle)
+    clock.initial();
+  </script>
+</html>

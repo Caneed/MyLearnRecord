@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="javascript:void(0)">
+      <label>用户名 <input type="text" value="" class="usrInput"></label>
+      <label>密码 <input type="text" value="" class="pwdInput"></label>
+      <label>邮箱 <input type="text" value="" class="emailInput"></label>
+      <button>提交</button>
+    </form>
+  </body>
+  <script>
+    let usrInput=document.querySelector('.usrInput')
+    let pwdInput=document.querySelector('.pwdInput')
+    let emailInput=document.querySelector('.emailInput')
+    let btn=document.querySelector('button')
+
+    btn.addEventListener('click',()=>{
+
+      let usrName=usrInput.value
+      let usrtest=/^.*(?=.{6,10})(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*$/
+      if(usrtest.test(usrName)===false){
+        window.alert('用户名不规范')
+      }
+
+      let pwd=pwdInput.value
+      let pwdTest=/^[a-zA-Z]{6,}$/
+      if(pwdTest.test(pwd)===false){
+        window.alert('密码不规范')
+      }
+
+      let email=emailInput.value
+      let emailTest=/^[\s\S]+[@][\s\S]+$/
+      if(emailTest.test(email)===false){
+        window.alert('邮箱格式不规范')
+      }
+    })
+  </script>
+</html>
