@@ -28,5 +28,11 @@ function debounce(func, wait) {
 
 let input=document.querySelector('input')
 input.oninput=debounce(onInput(),1000)
+
+
+function argv(d1,d2,d3){
+  console.log(...arguments)
+}
+argv(1,2,3)
 </script>
 </html>

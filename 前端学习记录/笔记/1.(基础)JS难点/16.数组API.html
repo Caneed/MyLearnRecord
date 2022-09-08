@@ -1,31 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-<script>
-  let arr=[1,2,3,4,5,6]
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // let arr=[1,2,3,4,5,6]
 
-  // at(index),返回传入索引值的value
-  console.log(arr.at(1))//2
-  console.log(arr.at(-1))//6
+    // // at(index),返回传入索引值的value
+    // console.log(arr.at(1))//2
+    // console.log(arr.at(-1))//6
 
-  // concat,将数组进行拼接，不改变原数组
-  let arr2=[7,8,9]
-  console.log(arr.concat(arr2));//[1,2,3,4,5,6,7,8,9]
+    // // concat,将数组进行拼接，不改变原数组
+    // let arr1=[1,2,3]
+    // let arr2=[7,8,9]
+    // let arr3=arr1.concat(arr2)
+    // console.log(arr1,arr2,arr3)
+    // // [1,2,3],[7,8,9],[1,2,3,7,8,9]
 
-  // copyWithIn
-  console.log(arr.copyWithin(0,2,))
+    // // copyWithIn()
+    // console.log([1,2,3,4,5].copyWithin(2,3,4))//1,2,4,4,5
 
-  // entires
-  let literator=arr.entries()
-  console.log(literator)//Array literator
-  console.log(literator.next().value)
-</script>
+    // entires()
+    // Iterator对象
+    // let arr = [1, 2, 3, 4, 5];
+    // let iter = arr.entries();
+    // console.log(iter);
+    //   Array Iterator {}
+    // [[Prototype]]: Array Iterator
+    // next: ƒ next()
+
+    // //next方法
+    // console.log(iter.next())
+    // // {value: Array(2), done: false}
+    // // done: false
+    // // value: Array(2)
+    // // 0: 0
+    // // 1: 1
+    // // length: 2
+
+    // //用next遍历数组
+    // let arr = [1, 2, 3, 4, 5];
+    // let tem = [];
+    // let iter = arr.entries();
+    // for (let i = 0; i < arr.length + 1; i++) {
+    //   // 长度要比数组的长度要长一个值，因为在done为true时要进行判断
+    //   let behind = iter.next();
+    //   if (behind.done !== true) {
+    //     tem[i] = behind.value;
+    //   }
+    // }
+    // console.log(tem);
+    // //         0: (2) [0, 1]
+    // //         1: (2) [1, 2]
+    // //         2: (2) [2, 3]
+    // //         3: (2) [3, 4]
+    // //         4: (2) [4, 5]
+
+    // // every()方法
+    // console.log([1,2,3,4,5].every(value=>value<5))//false
+    // console.log([2,3,4,5,5].every(value=>value>1))//true
+
+    // //filter()方法
+    // let filter=[1,2,3,4,5]
+    // let result=[]
+    // result=filter.filter(value=>value>2)//返回大于2的数组的集合
+    // console.log(result)//[3,4,5]
+
+    // // find()
+    // let arr=[1,2,3,4,5]
+    // console.log(arr.find(value=>value>2))//3
+
+    // findIndex()
+    let arr = [2, 3, 4];
+    console.log(arr.findIndex((value) => value > 2)); //1
+  </script>
 </html>
