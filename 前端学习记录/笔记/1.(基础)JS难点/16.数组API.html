@@ -116,8 +116,15 @@
     // console.log(arr.includes(3)); //true
     // console.log(arr.includes(4)); //false
 
-    // indexOf()
-    console.log([1, 2, 3, 4, 5].indexOf(5)); //4
-    console.log([1, 2, 3, 4, 5].indexOf(6)); //-1
+    // // indexOf()
+    // console.log([1, 2, 3, 4, 5].indexOf(5)); //4
+    // console.log([1, 2, 3, 4, 5].indexOf(6)); //-1
+
+    //isArray()
+    console.log(Array.isArray([1, 2, 3])); //true
+    console.log(Array.isArray(1)); //false
+
+    // Array.prototype也是一个数组
+    console.log(Array.isArray(Array.prototype))//true
   </script>
 </html>
