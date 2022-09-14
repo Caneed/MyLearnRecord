@@ -118,5 +118,55 @@
     // },reason=>{
     //   console.log(reason)
     // }) 
+
+
+    // // then()方法的链式使用
+    // let p=new Promise((resolve,reject)=>{
+    //   resolve('ok')
+    // })
+    // p.then(value=>{
+    //   return new Promise((resolve,reject)=>{
+    //     resolve('success')
+    //   })
+    // }).then(value=>{
+    //   console.log(value)
+    // })
+    // //success
+
+    // // then()方法的异常穿透
+    // let p=new Promise((resolve,reject)=>{
+    //   resolve('ok')
+    //   // reject('err')
+    // })
+    // p.then(value=>{
+    //   console.log(111)
+    // }).then(value=>{
+    //   throw 'err'
+    // }).then(value=>{
+    //   console.log(333)
+    // }).catch(reason=>{
+    //   console.log(reason)
+    // })
+    // // 成功时执行的结果为111,222,333
+    // // 失败时的结果为err
+
+
+    // then()方法链式调用的中断
+    
+    // then()方法的异常穿透
+    let p=new Promise((resolve,reject)=>{
+      resolve('ok')
+    })
+    p.then(value=>{
+      console.log(111)
+      return new Promise(()=>{})
+    }).then(value=>{
+      throw 'err'
+    }).then(value=>{
+      console.log(333)
+    }).catch(reason=>{
+      console.log(reason)
+    })
+    //111
   </script>
 </html>
