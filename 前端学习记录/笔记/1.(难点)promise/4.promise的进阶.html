@@ -151,22 +151,29 @@
     // // 失败时的结果为err
 
 
-    // then()方法链式调用的中断
+    // // then()方法链式调用的中断
     
-    // then()方法的异常穿透
+    // // then()方法的异常穿透
+    // let p=new Promise((resolve,reject)=>{
+    //   resolve('ok')
+    // })
+    // p.then(value=>{
+    //   console.log(111)
+    //   return new Promise(()=>{})
+    // }).then(value=>{
+    //   throw 'err'
+    // }).then(value=>{
+    //   console.log(333)
+    // }).catch(reason=>{
+    //   console.log(reason)
+    // })
+    // //111
+
     let p=new Promise((resolve,reject)=>{
-      resolve('ok')
+      setTimeout(()=>{
+        throw 'err'
+      },1000)
     })
-    p.then(value=>{
-      console.log(111)
-      return new Promise(()=>{})
-    }).then(value=>{
-      throw 'err'
-    }).then(value=>{
-      console.log(333)
-    }).catch(reason=>{
-      console.log(reason)
-    })
-    //111
+    console.log(p)
   </script>
 </html>

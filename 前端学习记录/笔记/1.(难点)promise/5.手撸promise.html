@@ -60,43 +60,94 @@
 
     // then()方法的添加
     Promise.prototype.then = function (onResolved, onRejected) {
-      // 根据条件来指定回调
-      if (this.promiseState === "resolved") {
-        // 指定回调并将结果传入
-        onResolved(this.promiseResult);
+      // 保存this
+      const _this = this;
+      // 判断回调函数的参数是否是方法
+      if(typeof onRejected !== 'function'){
+        onRejected=reason=>{
+          throw reason
+        }
       }
-      if (this.promiseState === "rejected") {
-        // 指定回调并将结果传入
-        onRejected(this.promiseResult);
+      if(typeof onResolved!=='function'){
+        onResolved=value=>value
+        // 相当于onResolved(value)=>{return value}
       }
-      // 在异步执行promise时因为状态没有发生改变所以无法指定上面的两个回调，所以要在状态为pending时进行判断
-      if (this.promiseState === "pending") {
-        // 将两个回调函数保存到实例对象上，在异步操作结束之后再执行
-        // callbacks作为数组每次指定回调时都将回调进行保存
-        this.callbacks.push({
-          onRejected: onRejected,
-          onResolved: onResolved,
-        });
+      // 封装判断的函数
+      function callback(type) {
+        try {
+          // 指定回调并将结果传入,用参数接收在下面进行判断
+          let result = type(_this.promiseResult);
+          if (result instanceof Promise) {
+            result.then(
+              (v) => {
+                resolve(v);
+              },
+              (r) => {
+                reject(r);
+              }
+            );
+          } else {
+            // 如果不是promise对象则直接调用resolve()
+            resolve(result);
+          }
+        } catch (e) {
+          reject(e);
+        }
       }
+      // then()方法的返回结果为一个promise对象
+      return new Promise((resolve, reject) => {
+        // 根据条件来指定回调,成功的结果回调
+        if (this.promiseState === "resolved") {
+          callback(onResolved);
+        }
+        // 失败的结果回调
+        if (this.promiseState === "rejected") {
+          callback(onRejected);
+        }
+        // 在异步执行promise时因为状态没有发生改变所以无法指定上面的两个回调，所以要在状态为pending时进行判断
+        if (this.promiseState === "pending") {
+          // 将两个回调函数保存到实例对象上，在异步操作结束之后再执行
+          // callbacks作为数组每次指定回调时都将回调进行保存
+          this.callbacks.push({
+            onRejected: function () {
+              callback(onRejected);
+            },
+            onResolved: function () {
+              callback(onResolved);
+            },
+          });
+        }
+      }); 
     };
+    // catch方法的添加
+    Promise.prototype.catch=function(onRejected){
+      // catch方法可以直接返回then方法，将onResolve位置的参数传入undefined
+      return this.then(undefined,onRejected)
+    }
 
+    // // resolve方法的封装
+    // Promise.resolve=function(value){
+    //   // 返回promise对象
+    //   return new Promise((resolve,reject)=>{
+    //     // 判断传入的值是否为promise对象
+    //     if(value instanceof Promise){
+
+    //     }
+    //   })
+    // }
     // 测试
-    let p = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve("ok");
-      }, 1000);
-    });
-    console.log(p);
-
-    p.then(value=>{
-      console.log(value)
-    },reason=>{
-      console.log(reason)
+    // let p = Promise.resolve('ok')
+    let p=new Promise((resolve,reject)=>{
+      resolve('ok')
     })
     p.then(value=>{
-      alert(value)
-    },reason=>{
-      alert(reason)
+      console.log(111)
+    }).then(value=>{
+      console.log(222)
+    }).then(value=>{
+      console.log(333)
+    }).catch(reason=>{
+      console.log(reason)
     })
   </script>
 </html>
