@@ -1,7 +1,29 @@
+.mom {
+  width: 200px;
+  height: 300px;
+  background-color: #f00;
+  border: 1px solid #e1e1e1;
+}
+
 .box {
   width: 32px;
   height: 32px;
   background-color: #f00;
+}
+
+.container ul li {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  height: 100px;
+  border: 1px solid #e1e1e1;
+}
+
+.son {
+  width: 100px;
+  height: 200px;
+  background-color: violet;
+  border: 1px solid #e1e1e1;
 }
 
 /*# sourceMappingURL=index.css.map */

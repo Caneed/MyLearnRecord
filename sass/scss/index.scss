@@ -1,4 +1,6 @@
 
+@use './other';
+
 $color:#f00;
 $size:32px;
 
@@ -6,4 +8,26 @@ $size:32px;
 width: $size;
 height: $size;
 background-color: $color;
+}
+
+.container{
+  ul{
+    li{
+      display: inline-block;
+      width: calc((30px / 30px)*50px);
+      height: 100px - 50px;
+      height: calc((50px * 20px)/10px);
+      border: 1px solid #e1e1e1;
+    }
+  }
+}
+
+%father{
+  width: 100px;
+  height: 200px;
+  background-color: violet;
+  border: 1px solid #e1e1e1;
+}
+.son{
+  @extend %father
 }
