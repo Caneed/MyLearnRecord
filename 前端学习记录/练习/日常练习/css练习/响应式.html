@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      background-color: #f00;
+      position: relative;
+    } 
+    .container::before {
+      content: '';
+      padding-bottom: 75%;
+      display: block;
+    }
+    .container img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .box {
+      width: 18.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="../../src/おしおしお202209110.png">
+  </div>
+
+  <div class="box">
+    <div class="container">
+      <img src="../../src/おしおしお202209110.png">
+    </div>
+  </div>
+</body>
+<script>
+  const html=document.querySelector('html')
+  window.addEventListener('load',()=>{
+    let size=innerWidth/(600/16)
+  html.style.fontSize=`${size}px`
+  })
+  window.addEventListener('resize',()=>{
+    let size=innerWidth/(600/16)
+  html.style.fontSize=`${size}px`
+  })
+</script>
+</html>
