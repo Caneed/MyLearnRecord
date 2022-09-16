@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    (function (ROOT) {
+      function car(brand) {
+        this.brand = brand;
+      }
+      function truck(brand) {
+        this.brand = brand;
+      }
+      function tank(brand) {
+        this.brand = brand;
+      }
+      // 工厂
+      function factory(type, brand) {
+        switch (type) {
+          case "car":
+            return new car(brand);
+          case "truck":
+            return new truck(brand);
+          case "tank":
+            return new tank(brand);
+        }
+      }
+      ROOT.factory=factory
+    })(window);
+
+    console.log(factory('car','bmw'))
+    console.log(factory('truck','丰田'))
+    console.log(factory('tank','虎式'))
+  </script>
+</html>
