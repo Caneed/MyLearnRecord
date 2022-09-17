@@ -94,32 +94,47 @@
     // let d=new Car(4,5)
     // console.log(c.__proto__===d.__proto__)//true
 
-    // 原型对象添加方法
+    // // 原型对象添加方法
+    // class Car{
+    // }
+
+    // let a=new Car()
+    // let b=new Car()
+    // a.__proto__.run=function(){
+    //   console.log('run');
+    // }
+    // a.run()//run
+    // b.run()//run
+
+    // Car.prototype.beep=function(){
+    //   console.log('beep');
+    // }
+    // a.beep()//beep
+    // b.beep()//beep
+
+    // let pro=Object.getPrototypeOf(b)
+    // console.log(pro===Car.prototype)//true
+    // console.log(pro===b.__proto__)//true
+    // pro.beep()//beep
+    // pro.turn=function(){
+    //   console.log('turn')
+    // }
+    // a.turn()//turn
+    // b.turn()//turn
+
+    // getter和setter
     class Car{
+      constructor(){}
+      a
+      get prop(){
+        return this.a
+      }
+      set prop(a){
+        this.a=a
+      }
     }
-
-    let a=new Car()
-    let b=new Car()
-    a.__proto__.run=function(){
-      console.log('run');
-    }
-    a.run()//run
-    b.run()//run
-
-    Car.prototype.beep=function(){
-      console.log('beep');
-    }
-    a.beep()//beep
-    b.beep()//beep
-
-    let pro=Object.getPrototypeOf(b)
-    console.log(pro===Car.prototype)//true
-    console.log(pro===b.__proto__)//true
-    pro.beep()//beep
-    pro.turn=function(){
-      console.log('turn')
-    }
-    a.turn()//turn
-    b.turn()//turn
+    let car=new Car()
+    car.prop=3
+    console.log(car.prop)//3
   </script>
 </html>
