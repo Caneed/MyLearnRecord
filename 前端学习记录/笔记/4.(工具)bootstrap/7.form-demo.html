@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../../lib/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../../../lib/bootstrap.css" />
+  </head>
+  <style>
+    embed {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+  <body>
+    <form class="row justify-content-center">
+      <div
+        class="card col-auto align-items-center"
+        style="width: 300px; border: none"
+      >
+        <embed src="./bot-logo.svg" type="" class="mb-2" />
+        <h2 class="mb-2">Please Sign In</h2>
+        <input
+          type="text"
+          class="input form-control"
+          placeholder="Email address"
+          style="border-radius: 0"
+        />
+        <input
+          type="text"
+          class="input form-control mb-3"
+          placeholder="password"
+          style="border-radius: 0"
+        />
+        <div class="row row-cols-auto mb-2">
+          <input
+            class="form-check-input row-cols-3"
+            type="checkbox"
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label row-cols-3" for="flexCheckDefault">
+            remember me
+          </label>
+        </div>
+        <button type="button" class="btn btn-primary col-12" style="border-radius: 0">Sign in</button>
+      </div>
+    </form>
+  </body>
+</html>
