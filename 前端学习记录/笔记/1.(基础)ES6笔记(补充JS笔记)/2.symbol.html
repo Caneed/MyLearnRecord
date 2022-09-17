@@ -65,16 +65,16 @@
   // console.log(obj[a])//hello
 
   // // symbol作为属性名遍历对象
-  let a=Symbol('123')
-  let obj={
-    b:'world',
-    [a]:'hello',
-    c:'damn'
-  }
-  for(i in obj){
-    console.log(i,obj[i])//b world c damn
-  }
-  console.log(JSON.stringify(obj))//{"b":"world","c":"damn"}
+  // let a=Symbol('123')
+  // let obj={
+  //   b:'world',
+  //   [a]:'hello',
+  //   c:'damn'
+  // }
+  // for(i in obj){
+  //   console.log(i,obj[i])//b world c damn
+  // }
+  // console.log(JSON.stringify(obj))//{"b":"world","c":"damn"}
   // console.log(Object.keys(obj))//['b', 'c']
   // console.log(Object.getOwnPropertyNames(obj))//['b', 'c']
   // console.log(Object.getOwnPropertySymbols(obj))//[Symbol(123)]

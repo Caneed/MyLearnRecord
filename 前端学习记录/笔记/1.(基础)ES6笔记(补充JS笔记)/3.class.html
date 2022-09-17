@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // let Truck={
+    //   crack(){},
+    //   beep(){},
+    //   run(){}
+    // }
+    // // 基本类
+    // class Car {
+    //   constructor(x, y) {
+    //     this.x = x;
+    //     this.y = y;
+    //   }
+    //   run() {
+    //     console.log('run');
+    //   }
+    // }
+    // console.log(Car === Car.prototype.constructor); //true
+    // console.log(typeof Car); //function
+    // let a=new Car()
+    // a.run()//run
+
+    // Object.assign(Car.prototype,{
+    //   beep(){
+    //     console.log('beep');
+    //   },
+    //   transform(){
+    //     console.log('汽车人，变形')
+    //   }
+    // })
+    // let b=new Car()
+    // b.beep()//beep
+    // b.transform()//汽车人，变形
+
+    //   console.log(Object.keys(Car))//[]
+
+    // //   // ES5的类内部方法可以枚举
+    // //   console.log(Object.keys(Truck))//['crack', 'beep', 'run']
+
+    // // 构造函数
+    // class Car{
+    //   constructor(){
+    //     console.log('aaa')
+    //   }
+    // }
+    // // 构造函数自动被调用
+    // let a=new Car()//aaa
+
+    // class Truck{
+    //   // 没有定义构造函数
+    // }
+    // class Plane{
+    //   constructor(){
+    //     return new Truck()
+    //   }
+    // }
+    // let b=new Truck()
+    // // 没有定义构造函数的话会默认添加一个空的构造
+    // console.log(b.__proto__)//{constructor: ƒ}
+    // console.log(b instanceof Truck)//true
+
+    // let c=new Plane()
+    // console.log(c instanceof Plane);//false
+    // console.log(c instanceof Truck);//true
+
+    // // 实例的属性
+    // class Car{
+    //   constructor(a,b){
+    //     this.a=a
+    //     this.b=b
+    //     this.beep=function(){}
+    //   }
+    //   run(){
+    //     console.log('run')
+    //   }
+    // }
+
+    // let c=new Car(2,3)
+    // console.log(c.hasOwnProperty('a'))//true
+    // console.log(c.hasOwnProperty('b'))//true
+    // console.log(c.hasOwnProperty('beep'))//true
+    // console.log(c.hasOwnProperty('run'))//false
+    // console.log(c.__proto__.hasOwnProperty('run'))//true
+    // console.log(JSON.stringify(c));//{"a":2,"b":3}
+
+    // let d=new Car(4,5)
+    // console.log(c.__proto__===d.__proto__)//true
+
+    // 原型对象添加方法
+    class Car{
+    }
+
+    let a=new Car()
+    let b=new Car()
+    a.__proto__.run=function(){
+      console.log('run');
+    }
+    a.run()//run
+    b.run()//run
+
+    Car.prototype.beep=function(){
+      console.log('beep');
+    }
+    a.beep()//beep
+    b.beep()//beep
+
+    let pro=Object.getPrototypeOf(b)
+    console.log(pro===Car.prototype)//true
+    console.log(pro===b.__proto__)//true
+    pro.beep()//beep
+    pro.turn=function(){
+      console.log('turn')
+    }
+    a.turn()//turn
+    b.turn()//turn
+  </script>
+</html>
