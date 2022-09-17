@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // 普通symbol
+  // let s=Symbol()
+  // console.log(typeof s)//symbol
+
+  // 传入字符串
+  // let a=Symbol('hello')
+  // console.log(a)//Symbol(hello)
+  // console.log(a.toString())//"Symbol(hello)"
+
+  // // 传入对象
+  // let obj={
+  //   b:12
+  // }
+  // let a=Symbol(obj)
+  // console.log(a)//Symbol([object Object])
+  // let obj2={
+  //   toString(){
+  //     return '123'
+  //   }
+  // }
+  // let b=Symbol(obj2)
+  // console.log(b)//Symbol(123)
+
+  // 比较
+  // let a=Symbol('123')
+  // let b=Symbol('123')
+  // let c=Symbol()
+  // let d=Symbol()
+  // console.log(a==b)//false
+  // console.log(a===b)//false
+  // console.log(c==d)//false
+  // console.log(c===d)//false
+
+  // // symbol运算和转换
+  // let a=123
+  // let b=Symbol('123')
+  // let c=Symbol()
+  // // console.log(a+b)//err
+  // console.log(b.toString(),String(b))//Symbol(123) Symbol(123)
+  // console.log(Boolean(b))//true
+  // console.log(Number(b))//err
+
+  // // Symbol.prototype.description
+  // let a=Symbol('123')
+  // console.log(a.description)//123
+
+  // // symbol作为属性名
+  // let a=Symbol('123')
+  // let obj={
+  //   [a]:'hello'
+  // }
+  // console.log(obj.a)//undefined
+  // console.log(obj[a])//hello
+
+  // // symbol作为属性名遍历对象
+  let a=Symbol('123')
+  let obj={
+    b:'world',
+    [a]:'hello',
+    c:'damn'
+  }
+  for(i in obj){
+    console.log(i,obj[i])//b world c damn
+  }
+  console.log(JSON.stringify(obj))//{"b":"world","c":"damn"}
+  // console.log(Object.keys(obj))//['b', 'c']
+  // console.log(Object.getOwnPropertyNames(obj))//['b', 'c']
+  // console.log(Object.getOwnPropertySymbols(obj))//[Symbol(123)]
+  // console.log(Reflect.ownKeys(obj))//['b', 'c', Symbol(123)]
+
+  // // symbol.for,symbol.keyFor()
+  // let s1=Symbol.for('123')
+  // let s2=Symbol.for('123')
+  // console.log(s1==s2)//true
+  // console.log(s1===s2)//true
+
+  // symbol.keyFor()
+  // let a=Symbol('123')
+  // console.log(Symbol.keyFor(s1))///123
+  // console.log(Symbol.keyFor(a))//undefined
+</script>
+</html>
