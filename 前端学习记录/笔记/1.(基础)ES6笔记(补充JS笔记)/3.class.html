@@ -152,14 +152,82 @@
     // let car = new Car();
     // car.beep();//aaa
 
-    // 类的表达式定义
-    const myClass=class Mine{
-      getClassName(){
-        return Mine.name
+    // // 类的表达式定义
+    // const myClass=class Mine{
+    //   getClassName(){
+    //     return Mine.name
+    //   }
+    // }
+    // let a=new myClass()
+    // let b=new Mine()//Mine is not def2ined
+    // console.log(a.getClassName())//Mine
+
+    // // 立即执行的类
+    // let person=new class {
+    //   constructor(name){
+    //     this.name=name
+    //   }
+    //   sayName(){
+    //     console.log(this.name)
+    //   }
+    // }('李四')
+    // person.sayName()//李四
+
+    // // 类中不存在变量提升
+    // let tom=new tommy()//Uncaught ReferenceError: Cannot access 'tommy' before initialization
+    // class tommy{}
+
+    // // name属性
+    // class Car{}
+    // console.log(Car.name)//Car
+
+    // //generator方法
+    // class foo {
+    //   constructor(...args){
+    //     this.args=args
+    //   }
+    //   *[Symbol.iterator](){
+    //     for(let arg of this.args){
+    //       yield arg
+    //     }
+    //   }
+    // }
+
+    // for(let x of new foo('hello','world','yes')){
+    //   console.log(x)//hello,world,yes
+    // }
+
+    // // 静态方法
+    // class Car {
+    //   run(){
+    //     console.log('run')
+    //   }
+    //   static beep(){
+    //     console.log('beep')
+    //   }
+    // }
+    // let car =new Car()
+    // car.run()//run
+    // // car.beep()//car.beep is not a function
+    // Car.beep()//beep
+
+    // 静态方法使用this
+    class Foo {
+      static bat(){
+        this.cat()
+      }
+      bat(){
+        this.cat()
+      }
+      cat(){
+        console.log('meow');
+      }
+      static cat(){
+        console.log('woof');
       }
     }
-    let a=new myClass()
-    let b=new Mine()//Mine is not defined
-    console.log(a.getClassName())//Mine
+    Foo.bat()//woof
+    let foo=new Foo()//meow
+    foo.bat()
   </script>
 </html>
