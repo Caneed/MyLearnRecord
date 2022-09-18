@@ -122,19 +122,44 @@
     // a.turn()//turn
     // b.turn()//turn
 
-    // getter和setter
-    class Car{
-      constructor(){}
-      a
-      get prop(){
-        return this.a
-      }
-      set prop(a){
-        this.a=a
+    // // getter和setter
+    // class Car{
+    //   constructor(){}
+    //   a
+    //   get prop(){
+    //     return this.a
+    //   }
+    //   set prop(a){
+    //     this.a=a
+    //   }
+    // }
+    // let car=new Car()
+    // car.prop=3
+    // console.log(car.prop)//3
+
+    // console.log(Object.getOwnPropertyNames(car))//['a']
+    // let descriptor=Object.getOwnPropertyDescriptor(Car.prototype,'prop')
+    // console.log(descriptor)//{enumerable: false, configurable: true, get: ƒ, set: ƒ}
+
+    // // 类的属性名
+    // let a = "beep";
+    // class Car {
+    //   constructor() {}
+    //   [a]() {
+    //     console.log("aaa");
+    //   }
+    // }
+    // let car = new Car();
+    // car.beep();//aaa
+
+    // 类的表达式定义
+    const myClass=class Mine{
+      getClassName(){
+        return Mine.name
       }
     }
-    let car=new Car()
-    car.prop=3
-    console.log(car.prop)//3
+    let a=new myClass()
+    let b=new Mine()//Mine is not defined
+    console.log(a.getClassName())//Mine
   </script>
 </html>

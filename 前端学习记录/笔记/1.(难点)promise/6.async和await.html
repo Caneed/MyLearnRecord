@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // // async
+    // async function fun(){
+    //   // // 1.返回非promise
+    //   // return 123
+    //   // // 2.返回promise(成功)
+    //   // return new Promise((resolve,reject)=>{resolve('ok')})
+    //   // // 3. 返回promise(失败)
+    //   // return new Promise((resolve,reject)=>{reject('err')})
+    //   // 4.抛出异常
+    //   throw 'error'
+    // }
+    // let res=fun()
+    // console.log(res)
+    // //1.Promise{state:fulfilled,result:123}
+    // //2.Promise{state:fulfilled,result:ok}
+    // //3.Promise{state:rejected,result:err}
+    // //4.Promise{state:rejected,result:error}
+
+    // // await
+    // async function fun() {
+    //   let p = new Promise((resolve, reject) => {
+    //     resolve("ok");
+    //   });
+    //   let r = new Promise((resolve, reject) => {
+    //     reject("err");
+    //   });
+
+    //   // 1.右侧为promise
+    //   let res = await p;
+    //   console.log(res); //ok
+    //   // 2.右侧为其他类型的值
+    //   let res2 = await 30;
+    //   console.log(res2); //30
+    //   // 3.右侧为失败的promise
+    //   try {
+    //     let res3 = await r;
+    //   } catch (e) {
+    //     console.log(e); //err
+    //   }
+    // }
+    // fun();
+  </script>
+</html>
