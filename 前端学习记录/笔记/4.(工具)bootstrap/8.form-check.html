@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../../lib/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../../../lib/bootstrap.css" />
+  </head>
+  <body>
+    <form action="javascript:void(0)">
+      <div class="mb-3">
+        <label for="input1" class="form-label">Email address</label>
+        <input
+          name="emailInp"
+          type="email"
+          class="form-control"
+          id="input1"
+          placeholder="name@example.com"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="input2" class="form-label">name</label>
+        <input
+          required
+          name="nameInp"
+          type="text"
+          class="form-control"
+          id="input2"
+          placeholder="name"
+          minlength="2"
+          maxlength="5"
+        />
+      </div>
+      <button submit="onSubmit" class="btn btn-primary">提交</button>
+    </form>
+  </body>
+  <script>
+    let btn = document.querySelector("button");
+    let nameInp = document.querySelector("input[name=nameInp]");
+    let emailInp = document.querySelector("input[name=emailInp]");
+    console.log(nameInp.validity);
+    btn.addEventListener("click", () => {
+      console.log(nameInp.validity);
+      if (nameInp.validity.valueMissing) {
+        nameInp.setCustomValidity("名字为空");
+      } else if (nameInp.validity.tooShort) {
+        nameInp.setCustomValidity("太短");
+      }
+    });
+  </script>
+</html>

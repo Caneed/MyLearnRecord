@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // class Car {
+    //   constructor(x,y){
+    //     this.x=x
+    //     this.y=y
+    //   }
+    // }
+
+    // class Truck extends Car {
+    //   constructor(x,y,z){
+    //     // this.z=z//err
+    //     super(x,y)//调用父类的构造函数
+    //     this.z=z//正确
+    //   }
+    // }
+
+    // let t=new Truck()
+    // console.log(t instanceof Truck)//true
+    // console.log(t instanceof Car)//true
+
+    // console.log(Object.getPrototypeOf(Truck))//class Car{....}
+
+    // class A {
+    //   constructor(){
+    //     this.m=3
+    //     console.log(new.target.name)
+    //   }
+    //   say(){
+    //     console.log('say')
+    //   }
+    // }
+    // class B extends A{
+    //   constructor(){
+    //     super()
+    //     super.say()//say
+    //     A.prototype.say()//say
+    //   }
+    //   get p(){
+    //     return super.m
+    //   }
+    // }
+    // new A()//A
+    // let b=new B()//B
+    // console.log(b.p)//undefined
+
+    class A {
+      constructor() {
+        this.v = 3;
+        A.prototype.x=100
+      }
+    }
+
+    class B extends A {
+      constructor() {
+        super();
+        console.log(super.v);
+        console.log(super.x);
+      }
+      get V() {
+        return super.v;
+      }
+    }
+    let b = new B();//undefined 100
+    console.log(b.V); //undefined
+  </script>
+</html>
