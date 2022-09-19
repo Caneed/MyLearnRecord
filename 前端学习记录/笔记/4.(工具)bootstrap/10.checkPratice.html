@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../../../lib/bootstrap.js"></script>
+  <link rel="stylesheet" href="../../../../lib/bootstrap.css">
+</head>
+<body>
+  <!-- 请使用bootstrap创建一个学生信息表单，并完成表单验证
+
+字段和规则如下：
+
+- 姓名：必填，长度在 2~50 之间，且不能包含 “共产党” 敏感词
+- 年龄：必填，范围 0~200 之间
+- 简介：非必填，若填了，不能包含 “张三” 和 “奇迹” 两个词，且长度在200字以内
+- 班级：必填，下拉菜单
+- 爱好：必填，爱好数量不能大于3个
+- 是否入党：必填，单选按钮，是或否
+
+创建提交按钮，点击按钮对表单进行验证，通过的话，使用 alert/toast，提示成功 -->
+<div class="flex-colunm m-3 justify-content-center">
+  <div class="flex-row align-items-center">
+    <label class="form-label">姓名</label>
+    <input type="text" class="nameInput form-cotrol" placeholder="姓名" name="name" >
+    <div class="invalid-feedback">err</div>
+    <div class="valid-feedback">ok</div>
+  </div>
+
+  <div class="flex-row align-items-center">
+    <label class="form-label">年龄</label>
+    <input type="number" class="ageInput form-cotrol is-invalid" placeholder="年龄" name="age" required>
+    <div class="invalid-feedback"></div>
+    <div class="valid-feedback"></div>
+  </div>
+
+  <div class="flex-row align-items-center">
+    <label class="form-label">简介</label>
+    <textarea class="form-cotrol textarea is-invalid" placeholder="简介" name="desc" rows="3"></textarea>
+    <div class="invalid-feedback"></div>
+    <div class="valid-feedback"></div>
+  </div>
+
+  <div class="flex-row align-items-center">
+    <select class="form-select select" aria-label="Default select example" required>
+      <option disabled>班级</option>
+      <option value="1">1班</option>
+      <option value="2">2班</option>
+      <option value="3">3班</option>
+      <div class="invalid-feedback"></div>
+      <div class="valid-feedback"></div>
+    </select>
+  </div>
+
+  <div class="flex-row align-items-center mt-3">
+    <label>爱好</label>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="sing" value="option1">
+      <label class="form-check-label" for="sing">唱</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="dance" value="option2">
+      <label class="form-check-label" for="dance">跳</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="rap" value="option3">
+      <label class="form-check-label" for="rap">rap</label>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="basketball" value="option4">
+      <label class="form-check-label" for="basketball">篮球</label>
+    </div>
+  </div>
+  </div>
+
+  <div class="flex-row align-items-center m-3">
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="part">
+      <label class="form-check-label" for="part">是否入党</label>
+    </div>
+  </div>
+
+  <button class="btn btn-primary m-3 required" onsubmit="javascript:void(0)">提交</button>
+</div>
+</body>
+<script>
+  let btn=document.querySelector('button')
+  let nameInput=document.querySelector('input[name=name]')
+  let ageInput=document.querySelector('input[name=age]')
+  let textarea=document.querySelector('.textarea')
+  let nameConfirm=document.querySelector('input[name=name]~.valid-feedback')
+  let nameError=document.querySelector('input[name=name]~.invalid-feedback')
+  console.log(nameConfirm);
+
+  btn.addEventListener('click',()=>{
+    nameInput.classList.remove('is-valid','is-invalid')
+    ageInput.classList.remove('is-valid','is-invalid')
+
+    let nameVal=true
+    if(nameInput.value.trim()===''){
+      nameError.textContent='姓名不能为空'
+      nameVal=false
+    }else if(nameInput.value.length<2||nameInput.value.length>50){
+      nameError.textContent='长度不符合规定'
+      nameVal=false
+    }
+    nameInput.classList.add(nameVal?'is-valid':'is-invalid')
+  })
+</script>
+</html>
