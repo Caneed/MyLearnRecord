@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
-  </head>
-  <body></body>
-  <script>
+</head>
+<body></body>
+<script>
     // // promise构造函数
     // let p=new Promise((resolve,reject)=>{
     //   reject('err')
@@ -80,7 +80,7 @@
 
     // race方法
     let p1 = new Promise((resolve, reject) => {
-      resolve("ok");
+        resolve("ok");
     });
     let p2 = Promise.resolve("success");
     let p3 = Promise.resolve("resolved");
@@ -90,9 +90,9 @@
     // Promise[[Prototype]]: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]: "ok"
 
     let p4 = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve("delay ok");
-      }, 1000);
+        setTimeout(() => {
+            resolve("delay ok");
+        }, 1000);
     });
     let r2 = Promise.race([p4, p1, p2, p3]);
     console.log(r2);
@@ -102,12 +102,12 @@
 
     let p5 = Promise.reject("failed");
     p5.then(
-      (reason) => {
-        console.log(reason);
-      },
-      (value) => {
-        console.log(value);
-      }
+        (reason) => {
+            console.log(reason);
+        },
+        (value) => {
+            console.log(value);
+        }
     );
 
     let r3 = Promise.race([p5, p1, p2, p3]);
@@ -117,12 +117,14 @@
     // [[PromiseState]]: "rejected"
     // [[PromiseResult]]: "failed"
 
-    let p6=new Promise((resolve, reject)=>{
-      resolve('ok')
+    let p6 = new Promise((resolve, reject) => {
+        resolve('ok')
     })
-    p6.then(value => {console.log((value))},reason => {
-      console.log(reason)
-    }
+    p6.then(value => {
+            console.log((value))
+        }, reason => {
+            console.log(reason)
+        }
     )
-  </script>
+</script>
 </html>
