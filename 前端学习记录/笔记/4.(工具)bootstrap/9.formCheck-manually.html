@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../../lib/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../../../lib/bootstrap.css" />
+  </head>
+  <body class="d-flex justify-content-center">
+    <div class="card p-3">
+      <form action="javascript:void(0)" class="d-flex flex-column" novalidate>
+        <div class="d-flex flex-row vstack gap-3 p-3">
+          <label class="col-form-label cols-3">姓名</label>
+          <input
+            type="text"
+            name="name"
+            class="nameInput col-form-control is-invalid"
+          />
+          <div class="valid-feedback">ok</div>
+          <div class="invalid-feedback">err</div>
+        </div>
+        <div class="d-flex flex-row vstack gap-3 p-3">
+          <label class="col-form-label cols-3">年龄</label>
+          <input type="number" name="age" class="ageInput col-form-control" />
+          <div class="valid-feedback">ok</div>
+          <div class="invalid-feedback">err</div>
+        </div>
+        <button class="btn btn-primary">提交</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    let btn = document.querySelector("button");
+    let nameInput = document.querySelector("input[name=name]");
+    let ageInput = document.querySelector("input[name=age]");
+    let nameValid = document.querySelector("input[name=name]~.valid-feedback");
+    let ageValid = document.querySelector("input[name=age]~.valid-feedback");
+    let nameInvalid = document.querySelector("input[name=name]~.invalid-feedback");
+    let ageInvalid = document.querySelector("input[name=age]~.invalid-feedback");
+
+    btn.addEventListener("click", () => {
+      nameInput.classList.remove("is-valid", "is-invalid");
+      ageInput.classList.remove("is-valid", "is-invalid");
+
+      let nameVal = true;
+      if (nameInput.value.trim() === "") {
+        nameInvalid.textContent = "姓名为空";
+        nameVal = false;
+      } else if (nameInput.value.trim().length < 2 ||nameInput.value.trim().length > 10) {
+        nameInvalid.textContent = "长度不对";
+        nameVal = false;
+      }
+
+      nameInput.classList.add(nameVal ? "is-valid" : "is-invalid");
+    });
+  </script>
+</html>

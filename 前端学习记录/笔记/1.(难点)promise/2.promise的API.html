@@ -116,5 +116,13 @@
     //     [[Prototype]]: Promise
     // [[PromiseState]]: "rejected"
     // [[PromiseResult]]: "failed"
+
+    let p6=new Promise((resolve, reject)=>{
+      resolve('ok')
+    })
+    p6.then(value => {console.log((value))},reason => {
+      console.log(reason)
+    }
+    )
   </script>
 </html>
