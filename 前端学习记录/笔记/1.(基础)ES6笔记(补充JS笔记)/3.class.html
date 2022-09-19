@@ -211,23 +211,81 @@
     // // car.beep()//car.beep is not a function
     // Car.beep()//beep
 
-    // 静态方法使用this
-    class Foo {
-      static bat(){
-        this.cat()
-      }
-      bat(){
-        this.cat()
-      }
-      cat(){
-        console.log('meow');
-      }
-      static cat(){
-        console.log('woof');
-      }
+    // // 静态方法使用this
+    // class Foo {
+    //   static bat(){
+    //     this.cat()
+    //   }
+    //   bat(){
+    //     this.cat()
+    //   }
+    //   cat(){
+    //     console.log('meow');
+    //   }
+    //   static cat(){
+    //     console.log('woof');
+    //   }
+    // }
+    // Foo.bat()//woof
+    // let foo=new Foo()//meow
+    // foo.bat()
+
+    // // 子类可以继承父类的静态方法
+    // class foo {
+    //   static say(){
+    //     console.log(foo.name)
+    //   }
+    // }
+
+    // class son extends foo {
+
+    // }
+    // son.say()//foo
+
+    // // super
+
+    // class father {
+    //   static say() {
+    //     console.log("say");
+    //   }
+    // }
+    // class son extends father {
+    //   static sayFather() {
+    //     return super.say();
+    //   }
+    // }
+    // son.sayFather(); //say
+
+    // // 实例属性
+    // class Car {
+    //   wheel
+    //   controller
+    //   pan
+
+    //   beep(){}
+    //   run(){}
+    // }
+
+    // // 静态实例属性
+    // class Car {
+    //   static wheel=4
+    // }
+    // Car.controller='方向盘'
+    // console.log(Car.wheel,Car.controller)//4,方向盘
+
+
+    // 私有方法
+
+    class Car {
+      wheel=4
+      #controller='方向盘'
+      beep(){console.log('beep')}
+      #run(){console.log('run')}
     }
-    Foo.bat()//woof
-    let foo=new Foo()//meow
-    foo.bat()
+    let car=new Car()
+    car.beep()//beep
+    console.log(car.wheel);//4
+    console.log(car.controller);//undefined
+    car.run()//err
   </script>
 </html>
