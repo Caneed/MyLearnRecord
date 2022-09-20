@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../lib/react.development.js"></script>
+    <script src="../../../lib/react-dom.development.js"></script>
+    <script src="../../../lib/babel.min.js"></script>
+  </head>
+  <style>
+    .box{ 
+      color: aqua;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+    <div id="date"></div>
+  </body>
+  <script type="text/babel">
+    // 用一个变量来接收创建的根结点root
+    const root=ReactDOM.createRoot(document.querySelector('#root'))
+    // 调用render渲染函数来将render里面的DOM结点渲染到根结点上
+    root.render(<h1>hello im h1</h1>)
+
+
+    // 也可以用一个变量来创建react对象
+    const h2=<h2>im h2</h2>
+    ReactDOM.createRoot(document.querySelector('#app')).render(h2)//渲染
+
+
+    // ReactDOM对象多行时可以用()声明
+    const h3=(
+      <div className='box'>im h3
+        <div className='box'>im son of h3</div>
+        </div>
+    )
+    ReactDOM.createRoot(document.querySelector('#app2')).render(h3)
+
+    // 嵌套
+    const h4=(
+      <div>
+        hello,im h4 here are my DOMs
+        {h2} son of h4
+        {h3}
+        </div>
+    )
+    ReactDOM.createRoot(document.querySelector('#app3')).render(h4)
+
+
+    // 插值
+    let d=new Date()
+    const date=(
+      <div>{d.toLocaleString()}</div>
+    )
+    ReactDOM.createRoot(document.querySelector('#date')).render(date)
+  </script>
+</html>
