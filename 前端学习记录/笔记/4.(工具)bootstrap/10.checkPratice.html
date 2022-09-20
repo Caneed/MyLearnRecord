@@ -38,14 +38,14 @@
 
   <div class="flex-row align-items-center">
     <label class="form-label">简介</label>
-    <textarea class="form-cotrol textarea is-invalid" placeholder="简介" name="desc" rows="3"></textarea>
-    <div class="invalid-feedback"></div>
-    <div class="valid-feedback"></div>
+    <textarea class="form-cotrol textarea" placeholder="简介" name="desc" rows="3"></textarea>
+    <div class="invalid-feedback">err</div>
+    <div class="valid-feedback">ok</div>
   </div>
 
   <div class="flex-row align-items-center">
     <select class="form-select select" aria-label="Default select example" required>
-      <option disabled>班级</option>
+      <option value="0" disabled>班级</option>
       <option value="1">1班</option>
       <option value="2">2班</option>
       <option value="3">3班</option>
@@ -56,22 +56,24 @@
 
   <div class="flex-row align-items-center mt-3">
     <label>爱好</label>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="sing" value="option1">
-      <label class="form-check-label" for="sing">唱</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="dance" value="option2">
-      <label class="form-check-label" for="dance">跳</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="rap" value="option3">
-      <label class="form-check-label" for="rap">rap</label>
-    </div>
-
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="basketball" value="option4">
-      <label class="form-check-label" for="basketball">篮球</label>
+    <div class="checkBox">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="sing" value="option1">
+        <label class="form-check-label" for="sing">唱</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="dance" value="option2">
+        <label class="form-check-label" for="dance">跳</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="rap" value="option3">
+        <label class="form-check-label" for="rap">rap</label>
+      </div>
+  
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="basketball" value="option4">
+        <label class="form-check-label" for="basketball">篮球</label>
+      </div>
     </div>
   </div>
   </div>
@@ -93,11 +95,18 @@
   let textarea=document.querySelector('.textarea')
   let nameConfirm=document.querySelector('input[name=name]~.valid-feedback')
   let nameError=document.querySelector('input[name=name]~.invalid-feedback')
-  console.log(nameConfirm);
+  let ageConfirm=document.querySelector('input[name=age]~.valid-feedback')
+  let ageError=document.querySelector('input[name=age]~.invalid-feedback')
+  let textConfirm=document.querySelector('.textarea~.valid-feedback')
+  let textError=document.querySelector('.textarea~.invalid-feedback')
+  let checkBox=document.querySelector('.checkBox')
+  console.log(checkBox);
+
 
   btn.addEventListener('click',()=>{
     nameInput.classList.remove('is-valid','is-invalid')
     ageInput.classList.remove('is-valid','is-invalid')
+    textarea.classList.remove('is-valid','is-invalid')
 
     let nameVal=true
     if(nameInput.value.trim()===''){
@@ -106,8 +115,26 @@
     }else if(nameInput.value.length<2||nameInput.value.length>50){
       nameError.textContent='长度不符合规定'
       nameVal=false
+    }else if(nameInput.value.includes('共产党')){
+      nameError.textContent='姓名中含有敏感词！'
+      nameVal=false
     }
+    let ageVal=true
+    if(ageInput.value<0||ageInput.value>200){
+      ageError.textContent='年龄不符合规范'
+      ageVal=false
+    }
+    let textVal=true
+    if(textarea.value.trim()!==''){
+      if(textarea.value.trim().includes('张三')||textarea.value.trim().includes('奇迹')){
+        textError.textContent='简介中含有敏感词'
+        textVal=false
+      }
+    }
+    console.log(textVal)
     nameInput.classList.add(nameVal?'is-valid':'is-invalid')
+    ageInput.classList.add(ageVal?'is-valid':'is-invalid')
+    textarea.classList.add(textVal?'is-valid':'is-invalid')
   })
 </script>
 </html>
