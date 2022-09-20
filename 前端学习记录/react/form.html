@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../lib/react.development.js"></script>
+    <script src="../../../lib/react-dom.development.js"></script>
+    <script src="../../../lib/babel.min.js"></script>
+    <script src="../../../lib/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../../lib/bootstrap.css" />
+  </head>
+  <style>
+    #root {
+      font-style: italic;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    let json = [
+      {
+        id: 1,
+        name: "张三",
+        sex: "male",
+        age: 18,
+      },
+      {
+        id: 2,
+        name: "李四",
+        sex: "female",
+        age: 20,
+      },
+      {
+        id: 3,
+        name: "王五",
+        sex: "other",
+        age: 30,
+      },
+    ];
+
+    ReactDOM.createRoot(document.querySelector("#root")).render(
+      <div className="container">
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">姓名</th>
+              <th scope="col">性别</th>
+              <th scope="col">年龄</th>
+              <th scope="col">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {json.map((item) => (
+              <tr>
+                <th scope="row">{item.id}</th>
+                <td>{item.name}</td>
+                <td>
+                  {item.sex === "male" ? (
+                    <span style={{ color: "#00f", fontWeight: "border" }}>
+                      男
+                    </span>
+                  ) : item.sex === "female" ? (
+                    <span
+                      style={{ color: "#f00", textDecoration: "underline" }}
+                    >
+                      女
+                    </span>
+                  ) : (
+                    <span style={{ color: "#0f0", fontStyle: "italic" }}>
+                      其他
+                    </span>
+                  )}
+                </td>
+                <td>{item.age}</td>
+                <td>
+                  <button className="btn btn-danger">删除</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className="card p-3">
+
+          <div class="mb-3 d-flex flex-row m-1 justify-content-center">
+            <label for="name" class="form-label col-3">
+              姓名
+            </label>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              id="name"
+              placeholder="姓名"
+            />
+          </div>
+
+          <div class="mb-3 d-flex flex-row m-1 justify-content-center">
+            <label for="name" class="form-label col-3">
+              年龄
+            </label>
+            <input
+              type="number"
+              name="name"
+              class="form-control"
+              id="name"
+              placeholder="年龄"
+            />
+          </div>
+
+          <button className="btn btn-primary">提交</button>
+        </div>
+
+      </div>
+    );
+  </script>
+</html>
