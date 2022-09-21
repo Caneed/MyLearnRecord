@@ -20,102 +20,199 @@
     <div id="root"></div>
   </body>
   <script type="text/babel">
-    let json = [
-      {
-        id: 1,
-        name: "张三",
-        sex: "male",
-        age: 18,
-      },
-      {
-        id: 2,
-        name: "李四",
-        sex: "female",
-        age: 20,
-      },
-      {
-        id: 3,
-        name: "王五",
-        sex: "other",
-        age: 30,
-      },
-    ];
+    class List extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          json: [
+            { id: 1, name: "张三", sex: "男", age: 20 },
+            { id: 2, name: "李四", sex: "女", age: 20 },
+          ],
+          name: "",
+          age: "",
+          sex: "male",
+        };
+      }
+      // 删除事件
+      onDeleteHandler(ev) {
+        this.setState((state, props) => {
+          let list = this.state.json.filter(
+            (value) => value.id != ev.target.value
+          );
+          return { json: list };
+        });
+      }
 
-    ReactDOM.createRoot(document.querySelector("#root")).render(
-      <div className="container">
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">姓名</th>
-              <th scope="col">性别</th>
-              <th scope="col">年龄</th>
-              <th scope="col">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            {json.map((item) => (
-              <tr>
-                <th scope="row">{item.id}</th>
-                <td>{item.name}</td>
-                <td>
-                  {item.sex === "male" ? (
-                    <span style={{ color: "#00f", fontWeight: "border" }}>
+      // 姓名输入事件
+      nameChangeHandler(ev) {
+        this.setState({
+          name: ev.target.value,
+        });
+      }
+      // 年龄输入事件
+      ageChangeHandler(ev) {
+        this.setState({
+          age:ev.target.value
+        })
+      }
+      // 性别更改事件
+      sexChangeHandler(ev) {
+        this.setState({
+          sex:ev.target.value
+        })
+      }
+      // 点击提交事件
+      onSubmitClick(ev) {
+        this.setState((state, props) => {
+          let a={
+            id:this.state.json[this.state.json.length-1].id+1,
+            name:this.state.name,
+            age:this.state.age,
+            sex:this.state.sex,
+          }
+          console.log(this.state.json.concat(a))
+          return {json:this.state.json.concat(a)}
+        });
+      }
+      render() {
+        return (
+          <div className="container">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">姓名</th>
+                  <th scope="col">性别</th>
+                  <th scope="col">年龄</th>
+                  <th scope="col">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.json.map((item) => (
+                  <tr key={item.id}>
+                    <th scope="row" key={item.id}>
+                      {item.id}
+                    </th>
+                    <td>{item.name}</td>
+                    <td>
+                      {item.sex === "male" ? (
+                        <span style={{ color: "#00f", fontWeight: "border" }}>
+                          男
+                        </span>
+                      ) : item.sex === "female" ? (
+                        <span
+                          style={{ color: "#f00", textDecoration: "underline" }}
+                        >
+                          女
+                        </span>
+                      ) : (
+                        <span style={{ color: "#0f0", fontStyle: "italic" }}>
+                          其他
+                        </span>
+                      )}
+                    </td>
+                    <td>{item.age}</td>
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        value={item.id}
+                        onClick={this.onDeleteHandler.bind(this)}
+                      >
+                        删除
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="card p-3">
+              <div className="mb-3 d-flex flex-row m-1 justify-content-center">
+                <label htmlFor="name" className="form-label col-3">
+                  姓名
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  className="form-control"
+                  id="name"
+                  placeholder="姓名"
+                  value={this.state.name}
+                  onChange={this.nameChangeHandler.bind(this)}
+                />
+              </div>
+
+              <div className="mb-3 d-flex flex-row m-1 justify-content-center">
+                <label htmlFor="name" className="form-label col-3">
+                  年龄
+                </label>
+                <input
+                  type="number"
+                  name="name"
+                  className="form-control"
+                  id="name"
+                  placeholder="年龄"
+                  value={this.state.age}
+                  onChange={this.ageChangeHandler.bind(this)}
+                />
+              </div>
+              <div className="row">
+                <label className="col-3 col-form-label">性别</label>
+                <div className="col d-flex align-items-center">
+                  <div className="form-check form-check-inline">
+                    <input
+                      id="male"
+                      className="form-check-input"
+                      name="sex"
+                      type="radio"
+                      value="male"
+                      checked={this.state.sex == "male"}
+                      onChange={this.sexChangeHandler.bind(this)}
+                    />
+                    <label htmlFor="male" className="form-check-label">
                       男
-                    </span>
-                  ) : item.sex === "female" ? (
-                    <span
-                      style={{ color: "#f00", textDecoration: "underline" }}
-                    >
+                    </label>
+                  </div>
+                  <div className="form-check form-check-inline">
+                    <input
+                      id="female"
+                      className="form-check-input"
+                      name="sex"
+                      type="radio"
+                      value="female"
+                      checked={this.state.sex === "female"}
+                      onChange={this.sexChangeHandler.bind(this)}
+                    />
+                    <label htmlFor="female" className="form-check-label">
                       女
-                    </span>
-                  ) : (
-                    <span style={{ color: "#0f0", fontStyle: "italic" }}>
+                    </label>
+                  </div>
+                  <div className="form-check form-check-inline">
+                    <input
+                      id="other"
+                      className="form-check-input"
+                      name="sex"
+                      type="radio"
+                      value="other"
+                      checked={this.state.sex == "other"}
+                      onChange={this.sexChangeHandler.bind(this)}
+                    />
+                    <label htmlFor="other" className="form-check-label">
                       其他
-                    </span>
-                  )}
-                </td>
-                <td>{item.age}</td>
-                <td>
-                  <button className="btn btn-danger">删除</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className="card p-3">
-
-          <div class="mb-3 d-flex flex-row m-1 justify-content-center">
-            <label for="name" class="form-label col-3">
-              姓名
-            </label>
-            <input
-              type="text"
-              name="name"
-              class="form-control"
-              id="name"
-              placeholder="姓名"
-            />
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="btn btn-primary"
+                onClick={this.onSubmitClick.bind(this)}
+              >
+                提交
+              </button>
+            </div>
           </div>
-
-          <div class="mb-3 d-flex flex-row m-1 justify-content-center">
-            <label for="name" class="form-label col-3">
-              年龄
-            </label>
-            <input
-              type="number"
-              name="name"
-              class="form-control"
-              id="name"
-              placeholder="年龄"
-            />
-          </div>
-
-          <button className="btn btn-primary">提交</button>
-        </div>
-
-      </div>
-    );
+        );
+      }
+    }
+    ReactDOM.createRoot(document.querySelector("#root")).render(<List />);
   </script>
 </html>

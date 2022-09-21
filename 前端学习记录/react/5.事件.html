@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../lib/react.development.js"></script>
+    <script src="../../../lib/react-dom.development.js"></script>
+    <script src="../../../lib/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="app"></div>
+  </body>
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+
+      bindClickHandler(ev) {
+        console.log(ev); //事件对象
+      }
+      render() {
+        return <div onClick={this.bindClickHandler.bind(this)}>click me</div>;
+      }
+    }
+    ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
+
+    // 函数绑定
+
+    function Com(props) {
+      const [count, setCount] = React.useState(0);
+
+      function clickHandler(ev, argv1,argv2) {
+        console.log(ev);
+        console.log(argv1); //自定义参数1
+        console.log(argv2);//自定义参数2
+      }
+      return (
+        <div>
+          <button
+            onClick={(ev) => {
+              clickHandler(ev, 3,5);
+            }}
+          >
+            click me
+          </button>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.querySelector("#app")).render(<Com />);
+  </script>
+</html>
