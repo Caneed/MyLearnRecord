@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../lib/react.development.js"></script>
+    <script src="../../../lib/react-dom.development.js"></script>
+    <script src="../../../lib/babel.min.js"></script>
+    <script src="../../../lib/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../../lib/bootstrap.css" />
+  </head>
+  <style>
+    .toggle {
+      width: 50px;
+      height: 50px;
+      border-radius: 0;
+      line-height: 50px;
+      text-align: center;
+    }
+    .calc {
+      border: 1px solid #000;
+      border-radius: 10%;
+      width: 300px;      
+    }
+    input {
+      width: 200px;
+      border: 1px solid #000;
+      border-radius: 5%;
+      margin-bottom: 5px;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    class Board extends React.Component {
+      constructor(props) {
+        super(props);
+      }
+      renderSquare(i){
+        return (
+          <div className="toggle btn btn-light border-dark" value={i} onClick={this.props.onClick.bind(this)}>{i}</div>
+        )
+      }
+      render(){
+        return(
+          <div className="d-flex flex-column">
+
+            <div className="d-flex flex-row flex-nowrap justify-content-center border-1">
+            {this.renderSquare(7)}
+            {this.renderSquare(8)}
+            {this.renderSquare(9)}
+            {this.renderSquare('x')}
+            </div>
+
+            <div className="d-flex flex-row flex-nowrap justify-content-center">
+            {this.renderSquare(4)}
+            {this.renderSquare(5)}
+            {this.renderSquare(6)}
+            {this.renderSquare('-')}
+            </div>
+
+            <div className="d-flex flex-row flex-nowrap justify-content-center">
+            {this.renderSquare(1)}
+            {this.renderSquare(2)}
+            {this.renderSquare(3)}
+            {this.renderSquare('+')}
+            </div>
+
+            <div className="d-flex flex-row flex-nowrap justify-content-center">
+            {this.renderSquare('c')}
+            {this.renderSquare('/')}
+            {this.renderSquare(0)}
+            {this.renderSquare('=')}
+            </div>
+            </div>
+        ) 
+      }
+    }
+
+
+    class Calc extends React.Component {
+      constructor(props){
+        super(props)
+        this.state={
+          value:''
+        }
+      }
+      onChangeInput(ev){
+
+      }
+      clickHandler(ev){
+        if(!isNaN(parseInt(ev.target.innerText))&&this.state.value==''){
+          this.setState({
+            value:ev.target.innerText
+          })
+        }
+      }
+      render(){
+        return (
+          <div className="calc d-flex flex-column justify-content-center border-1 p-4 align-items-center">
+            <div>
+            <input type="text"  value={this.state.value} onChange={this.onChangeInput.bind(this)} />
+            </div>
+            <Board onClick={this.clickHandler.bind(this)}/>
+            </div>
+        )
+      }
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<Calc/>)
+  </script>
+</html>
