@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../../lib/react.development.js"></script>
+    <script src="../../../lib/react-dom.development.js"></script>
+    <script src="../../../lib/babel.min.js"></script>
+    <script src="../../../lib/bootstrap.js"></script>
+    <link rel="stylesheet" href="../../../lib/bootstrap.css" />
+  </head>
+  <style>
+    .form {
+      border: 1px solid #e1e1e1;
+      border-radius: 5%;
+      width: 300px;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    class MyForm extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          name: "",
+          sex: "male",
+          age: 0,
+        };
+      }
+      // 姓名更改
+      nameChangeHandler(ev) {
+        this.setState({
+          name: ev.target.value,
+        });
+      }
+      // 年龄更改
+      ageChangeHandler(ev) {
+        this.setState({
+          age: ev.target.value,
+        });
+      }
+      // 性别更改
+      sexChangeHandler(ev) {
+        console.log(ev.target.value);
+        this.setState({
+          sex: ev.target.value,
+        });
+      }
+      // 提交事件
+      onSubmitHandler() {
+        console.log("姓名:" + this.state.name);
+        console.log("姓别:" + this.state.sex);
+        console.log("年龄:" + this.state.age);
+      }
+      // 重置事件
+      onResetHandler() {
+        this.setState({
+          name: "",
+          sex: "male",
+          age: 0,
+        });
+      }
+      render() {
+        return (
+          <div className=" form d-flex flex-column m-2 p-4">
+            {/*姓名*/}
+            <div className="d-flex m-2">
+              <div className="mb-3">
+                <label htmlFor="name" className="form-label">
+                  name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  placeholder="姓名"
+                  value={this.state.name}
+                  onChange={this.nameChangeHandler.bind(this)}
+                />
+              </div>
+            </div>
+            {/*年龄*/}
+            <div className="d-flex m-2">
+              <div className="mb-3">
+                <label htmlFor="age" className="form-label">
+                  age
+                </label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="age"
+                  placeholder="年龄"
+                  value={this.state.age}
+                  onChange={this.ageChangeHandler.bind(this)}
+                />
+              </div>
+            </div>
+            {/*性别*/}
+            <div className="form-check form-check-inline">
+              <div>性别</div>
+              <input
+                className="form-check-input"
+                type="radio"
+                name="checkBox"
+                id="male"
+                value="male"
+                checked={this.state.sex === "male"}
+                onChange={this.sexChangeHandler.bind(this)}
+              />
+              <label className="form-check-label" htmlFor="male">
+                男
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="checkBox"
+                id="female"
+                value="female"
+                checked={this.state.sex === "female"}
+                onChange={this.sexChangeHandler.bind(this)}
+              />
+              <label className="form-check-label" htmlFor="female">
+                女
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="checkBox"
+                id="other"
+                value="other"
+                checked={this.state.sex === "other"}
+                onChange={this.sexChangeHandler.bind(this)}
+              />
+              <label className="form-check-label" htmlFor="other">
+                其他
+              </label>
+            </div>
+            <button
+              className="btn btn-primary"
+              onClick={this.onSubmitHandler.bind(this)}
+            >
+              提交
+            </button>
+            <button
+              className="btn btn-danger"
+              onClick={this.onResetHandler.bind(this)}
+            >
+              重置
+            </button>
+          </div>
+        );
+      }
+    }
+
+    class App extends React.Component {
+      child=[];
+      ref = React.createRef();
+      constructor(props) {
+        super(props);
+      }
+      // 提交全部
+      onSubmitAllHandler() {
+        console.log(this.child[0].state);
+        console.log(this.child[1].state);
+      }
+      // 重置全部
+      onResetAllHandler(){
+        this.child[0].onResetHandler()
+        this.child[1].onResetHandler()
+      }
+      render() {
+        return (
+          <div>
+            <MyForm ref={(child) => (this.child.unshift(child))} />
+            <MyForm ref={(child) => (this.child.unshift(child))} />
+            <button
+              className="btn btn-primary"
+              onClick={this.onSubmitAllHandler.bind(this)}
+            >
+              get all
+            </button>
+            <button className="btn btn-danger" onClick={this.onResetAllHandler.bind(this)}>reset all</button>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</html>
