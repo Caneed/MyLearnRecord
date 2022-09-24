@@ -1,6 +1,6 @@
 
 
-const fs = require('fs')
+// const fs = require('fs')
 
 // // 检查文件夹是否存在或者是否有访问权限
 
@@ -39,13 +39,13 @@ const fs = require('fs')
 
 // 读取文件夹内容
 
-fs.readdir('../pratice',(err,data)=>{
-  if(err){
-    console.log(err);
-    return
-  }
-  console.log(data);
-})
+// fs.readdir('../pratice',(err,data)=>{
+//   if(err){
+//     console.log(err);
+//     return
+//   }
+//   console.log(data);
+// })
 //[
 //   'consleLog.js',   'EventEmitter.js',
 //   'eventLoop.html', 'express.js',
@@ -57,8 +57,52 @@ fs.readdir('../pratice',(err,data)=>{
 //   'server.js'
 // ]
 
-try {
-  fs.readdirSync('../pratice').map(fileName=>console.log(fileName))
-} catch (e) {
-  console.log(e);
+// try {
+//   fs.readdirSync('../pratice').map(fileName=>console.log(fileName))
+// } catch (e) {
+//   console.log(e);
+// }
+
+// // 重命名文件夹
+// fs.rename('/Users/joe', '/Users/roger', err => {
+//   if (err) {
+//     console.error(err)
+//     return
+//   }
+//   //完成
+// })
+
+// try {
+//   fs.renameSync('/Users/joe', '/Users/roger')
+// } catch (err) {
+//   console.error(err)
+// }
+
+
+// 删除文件夹
+const fs = require('fs-extra')
+
+// fs.remove('./files/file.txt',err=>{
+//   if(err)return
+//   console.log('删除成功')
+// })
+
+// promise
+fs.remove('./files/file.txt').then((res)=>{
+  console.log('删除成功'+res);
+},(err)=>{
+  console.log('失败'+err);
+})
+
+// await和async
+async function removeFolder(folder) {
+  try {
+    await fs.remove(folder)
+    //完成
+  } catch (err) {
+    console.error(err)
+  }
 }
+
+const folder = '/Users/joe'
+removeFolder(folder)
