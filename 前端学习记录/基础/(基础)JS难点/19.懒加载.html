@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin: 0;
+  }
+  .container {
+    height: 100vh;
+    overflow: auto;
+  }
+  .content {
+    height: 3000px;
+    display: flex;
+    align-items: flex-end;
+  }
+  img {
+    width: 300px;
+    height: 200px;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="content">
+      <img src="./img/default.jpg" alt="" data-src="./img/formal.jpg">
+    </div>
+  </div>
+</body>
+<script>
+  // 获取元素
+  let container = document.querySelector('.container')
+  let content = document.querySelector('.content')
+  let img=document.querySelector('img')
+
+  container.addEventListener('scroll',ev=>{
+    // 如果滚动高度>=内容高度-图片高-视窗高，并且图片上没有done这个自定义属性，则加载图片
+    if(ev.target.scrollTop>=content.clientHeight-img.height-innerHeight&&(!img.getAttribute('done'))){
+      // 图片加载
+      img.src=img.getAttribute('data-src')
+      // 添加done属性，防止下次滚动条拉下来再次进入循环
+      img.setAttribute('done','true')
+    }
+  })
+</script>
+</html>
