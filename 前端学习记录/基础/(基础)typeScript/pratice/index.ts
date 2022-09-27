@@ -1,1 +1,3 @@
-console.log('my first TS program');
+let message:string='hello world'
+console.log(message);
+
