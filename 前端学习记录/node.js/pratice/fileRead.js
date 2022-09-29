@@ -1,5 +1,5 @@
 const fs = require('fs')
-
+const util=require('util')
 //  fs.open('./hello.txt' ,'r',(err,data)=>{
 //   if (err) return console.error(err);
 //   console.log(data.toString());
