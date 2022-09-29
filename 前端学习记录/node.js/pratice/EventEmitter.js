@@ -9,7 +9,16 @@ eventEmitter.on('start', () => {
 })
 eventEmitter.emit('start')
 
-eventEmitter.on('start',(number)=>{
+eventEmitter.on('start', (number) => {
   console.log(`开始事件触发，并且传入的参数为${number}`)
 })
-eventEmitter.emit('start',11)
+eventEmitter.emit('start', 11)
+
+let obj = {
+  a: 'obj',
+  say: eventEmitter.on('say', () => {
+    setTimeout(() => {
+      console.log(say);
+    })
+  })
+}
