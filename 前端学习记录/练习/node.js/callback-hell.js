@@ -14,63 +14,63 @@ const fs = require('fs')
 //   })
 // })
 
-// // promise
+// promise
 
-// function myPlan (path) {
-//   return new Promise((resolve,reject)=>{
+function myPlan (path) {
+  return new Promise((resolve,reject)=>{
+    fs.readFile(path,(err,data)=>{
+      if(err){
+        reject(err)
+      }
+      resolve(data)
+    })
+  })
+}
+
+
+myPlan('./txt/1.txt').then(res => {
+  return myPlan(res)
+}, reason => {
+  console.log(reason);
+}).then(res=>{
+  fs.writeFile('./txt/3.txt',res.toString(),err=>{
+    if(err)return
+    console.log('写入成功');
+  })
+},reason=>{
+  console.log(reason);
+})
+
+
+// // await&async
+
+// async function myPlan2(path){
+//   let p=new Promise((resolve,reject)=>{
 //     fs.readFile(path,(err,data)=>{
-//       if(err){
-//         reject(err)
-//       }
+//       if(err)reject(err)
 //       resolve(data)
 //     })
 //   })
+
+//   let f2=await p
+//   let res=new Promise((resolve,reject)=>{
+//     fs.readFile(f2,(err,data)=>{
+//       if(err)reject(err)
+//       resolve(data)
+//     })
+//   })
+//   let r2=await res 
+
+//   let res3=new Promise((resolve,reject)=>{
+//     fs.writeFile('./txt/3.txt',r2,err=>{
+//       if(err)reject(err)
+//       resolve('写入成功')
+//     })
+//   })
+
+//   let r3= await res3
+//   console.log(r3);
+//   return r3
 // }
 
-
-// myPlan('./txt/1.txt').then(res => {
-//   myPlan(res.toString()).then(res1 => {
-//     fs.writeFile('./txt/3.txt', res1, (err) => {
-//       if (err) return
-//       console.log('写入成功');
-//     })
-//   }, reason1 => {
-//     console.log(reason1);
-//   })
-// }, reason => {
-//   console.log(reason);
-// })
-
-
-// await&async
-
-async function myPlan2(path){
-  let p=new Promise((resolve,reject)=>{
-    fs.readFile(path,(err,data)=>{
-      if(err)reject(err)
-      resolve(data)
-    })
-  })
-
-  let f2=await p
-  let res=new Promise((resolve,reject)=>{
-    fs.readFile(f2,(err,data)=>{
-      if(err)reject(err)
-      resolve(data)
-    })
-  })
-  let r2=await res 
-
-  let res3=new Promise((resolve,reject)=>{
-    fs.writeFile('./txt/3.txt',r2,err=>{
-      if(err)reject(err)
-      resolve('写入成功')
-    })
-  })
-
-  let r3= await res3
-  console.log(r3);
-  return r3
-}
-
-myPlan2('./txt/1.txt')
+// myPlan2('./txt/1.txt')
