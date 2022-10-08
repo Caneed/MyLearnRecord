@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./index.js"></script>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-shrink: unset;
+    }
+    .container button {
+      margin: 10px 20px;
+    }
+    .point {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+    .point div {
+      font-size: 64px;
+      color: red;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <button class="punch">石头</button>
+      <button class="scissor">剪刀</button>
+      <button class="bu">布</button>
+    </div>
+
+    <div class="point">
+      <div>玩家</div>
+      <div class="point-player">0</div>
+      <div>:</div>
+      <div class="point-server">0</div>
+      <div>服务器</div>
+    </div>
+  </body>
+</html>
