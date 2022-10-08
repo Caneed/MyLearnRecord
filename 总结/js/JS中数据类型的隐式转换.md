@@ -87,6 +87,12 @@ let func = function () {};
 func.toString(); // "function () {}"
 ```
 
+除了以上这些之外，其他的都继承了 Object.prototype.toString()方法，返回的是该对象的类型
+
+```js
+console.log(Math.toString()); //[object Math]
+```
+
 ##### 通过`ToNumber()`转换为数字的规则
 
 | 参数      | 结果                                                                      |
@@ -109,9 +115,9 @@ func.toString(); // "function () {}"
 | 字符串    | 无需转换                                                                    |
 | 对象      | 先进行 ToPrimitive(obj, String)转换得到原始值，在进行 ToString 转换为字符串 |
 
-### +操作符
+### `+`操作符
 
-在`+`操作符两边至少有一个 String 类型时，两边的变量都会隐式的转换为 String 类型
+在`+`操作符两边至少有一个 String 类型时，两边的变量都会隐式的转换为 String 类型,在其它情况下两边变量都会转换为数字类型
 
 ```js
 console.log(1 + "abc"); //1abc
@@ -119,4 +125,31 @@ console.log(1 + false); //1
 console.log("1" + false); //1false
 console.log(1 + Symbol()); //err
 console.log(false + true); //1
+```
+
+### `==`操作符
+
+对于`==`操作符，两边尽量转换为 number 类型
+
+```js
+// ==
+console.log(3 == true); //false
+console.log("0" == false); //true
+console.log("0" == 0); //true
+```
+
+### `>`和`<`操作符
+
+对于`>`和`<`,如果是两个字符串比较，则比较字母表顺序
+
+```js
+console.log("a" > "b"); //false
+console.log("ac" > "ab"); //true
+```
+
+对于其他情况，优先转换为数字类型
+
+```js
+console.log(-1 < false); //true
+console.log("12" < 13); //true
 ```
