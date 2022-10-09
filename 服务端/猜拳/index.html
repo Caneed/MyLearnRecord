@@ -29,9 +29,9 @@
   </style>
   <body>
     <div class="container">
-      <button class="punch">石头</button>
-      <button class="scissor">剪刀</button>
-      <button class="bu">布</button>
+      <button data-type="1">石头</button>
+      <button data-type="2">剪刀</button>
+      <button data-type="3">布</button>
     </div>
 
     <div class="point">
@@ -44,19 +44,16 @@
   </body>
   <script>
     $(document).ready(function () {
-      $(".punch").click(() => {
-        $.ajax({
-          url:'./'
+
+      let btns=document.querySelectorAll('button')
+      btns.forEach(item=>{
+        item.addEventListener('click',(ev)=>{
+          let type=ev.target.getAttribute('data-type')
+          $.get(`http://localhost:3000?type=${type}`,type=>{
+            console.log(JSON.parse(data));
+          })
         })
-      });
-
-      $(".scissor").click(() => {
-        console.log("剪刀");
-      });
-
-      $(".bu").click(() => {
-        console.log("布");
-      });
+      })
     });
   </script>
 </html>

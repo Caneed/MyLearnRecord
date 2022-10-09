@@ -1,8 +1,16 @@
 
-const xhr=new XMLHttpRequest()
+const http=require('http')
+const path=require('path')
 
-xhr.open('GET','http://127.0.0.1:3000')
 
 
+
+const server=http.createServer()
+
+
+
+server.on('request',(req,res)=>{
+
+})
 
 
