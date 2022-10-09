@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./jquery-3.6.0.min.js"></script>
-    <script src="./index.js"></script>
   </head>
   <style>
     .container {
@@ -43,4 +42,21 @@
       <div>服务器</div>
     </div>
   </body>
+  <script>
+    $(document).ready(function () {
+      $(".punch").click(() => {
+        $.ajax({
+          url:'./'
+        })
+      });
+
+      $(".scissor").click(() => {
+        console.log("剪刀");
+      });
+
+      $(".bu").click(() => {
+        console.log("布");
+      });
+    });
+  </script>
 </html>
