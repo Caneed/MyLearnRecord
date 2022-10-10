@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form class="form1">
+      <input type="text" name="uname" /><br />
+      <input type="number" name="age" />
+      <button type="button" class="btn">submit</button>
+    </form>
+  </body>
+  <!-- <script>
+    // get
+    let form = document.querySelector(".form1");
+    let btn = document.querySelector(".btn");
+    btn.addEventListener("click", () => {
+      let formData = new FormData(form);
+      let uname=formData.get("uname")
+      let age=formData.get("age")
+      let xhr = new XMLHttpRequest();
+
+      xhr.open(
+        "get",
+        `http://localhost:3000/xhr_get?name=${uname}&${age}`
+      );
+      xhr.addEventListener("load", (ev) => {
+        console.log(ev);
+      });
+
+      xhr.send();
+    });
+  </script> -->
+
+  <!-- <script>
+    let form = document.querySelector(".form1");
+    let btn = document.querySelector(".btn");
+    btn.addEventListener("click", () => {
+      let formData = new FormData(form);
+      let uname=formData.get("uname")
+      let age=formData.get("age")
+      let xhr = new XMLHttpRequest();
+
+      xhr.open(
+        "post",
+        `http://localhost:3000/xhr_post`
+      );
+      xhr.addEventListener("load", (ev) => {
+        console.log(ev);
+      });
+      xhr.setRequestHeader('Content-Type','application/json')
+      xhr.send();
+    });
+  </script> -->
+
+  <script>
+    // axios
+    let btn = document.querySelector(".btn");
+    btn.addEventListener("click", () => {
+      axios.get("/axios_get", {
+        params: {
+          name: "张三",
+          age: 12,
+        },
+      }).then(res=>{
+        console.log(res);
+      }).catch(err=>{
+        console.log(err);
+      })
+    });
+  </script>
+</html>
