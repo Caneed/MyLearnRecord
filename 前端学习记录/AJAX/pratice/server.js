@@ -18,8 +18,4 @@ app.get('/name_get',(req,res)=>{
     })
   })
 })
-// app.get('/login.html',(res,req)=>{
-// console.log(req);
-//   res.send('ok')
-// })
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
