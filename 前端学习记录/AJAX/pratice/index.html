@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./axios.min.js"></script>
+  </head>
+  <body>
+    <form action="" method="get">
+      <input type="text" name="uname" />
+      <button type="button">submit</button>
+    </form>
+  </body>
+  <script>
+    let btn = document.querySelector("button");
+    let input=document.querySelector('input')
+    btn.addEventListener("click", () => {
+      axios
+        .get('/name_get',{params:{
+          name:input.value
+        }})
+        .then((res) => {
+          console.log(res);
+        }).then(res=>{
+          window.location.href='./login.html'
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  </script>
+</html>
