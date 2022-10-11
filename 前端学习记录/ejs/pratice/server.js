@@ -53,7 +53,7 @@ const ejs=require('ejs')
     }
   ]}
 app.get('/', (req, res) => {
-  ejs.renderFile('./index.ejs',headPhone,{},(err,data)=>{
+  ejs.renderFile('./index.html',headPhone,{},(err,data)=>{
     if(err)console.log(err);
     res.send(data)
   })
@@ -68,6 +68,7 @@ app.get ('/phone_get',(req,res)=>{
 app.get ('/computer_get',(req,res)=>{
   ejs.renderFile('./index.ejs',computer,{},(err,data)=>{
     if(err)console.log(err);
+    
     res.send(data)
   })
 })
