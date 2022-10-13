@@ -1,12 +1,15 @@
+const express = require('express')
+const router=express.Router()
+
+
 router.get('/add', (req, res, next) => {
-  console.log('I dont come here')
   res.send('add')
 })
 router.get('/delete', (req, res, next) => {
-  console.log('I dont come here')
   res.send('delete')
 })
-app.get('/update', (req, res) => {
-  console.log(' I come here too')
+router.get('/update', (req, res) => {
   res.send('update')
 })
+
+module.exports=router

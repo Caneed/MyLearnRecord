@@ -5,5 +5,5 @@ const router=require('./userRouter')
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.use('/user',router())
+app.use('/user',router)
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
