@@ -10,30 +10,46 @@
   <input type="text">
 </body>
 <script>
-  // 防抖的实现,参数1为需要防抖的函数，参数2为延迟的时间
-  function debounce(fn,delay){
-    // 初始化一个定时器
-    let timer=null
+  // // 防抖的实现,参数1为需要防抖的函数，参数2为延迟的时间
+  // function debounce(fn,delay){
+  //   // 初始化一个定时器
+  //   let timer=null
 
-    // 返回一个闭包。防止下次调用此函数时timer会被清空
+  //   // 返回一个闭包。防止下次调用此函数时timer会被清空
+  //   return function(){
+  //     // 保存传入的参数
+  //     let arg=arguments
+  //     // 调用它的时候就清除上一次的定时器
+  //     clearTimeout(timer)
+  //     // 开启此次的定时器
+  //     timer=setTimeout(()=>{
+  //       fn.apply(this,arg)
+  //     },delay)
+  //   }
+  // }
+  // // 测试
+  // function sayHello(){
+  //   console.log('hello');
+  // }
+  // document.querySelector('input').addEventListener('keydown',
+  // debounce(sayHello,300)
+  // // ()=>{console.log('hello');}
+  // )
+
+
+
+  function debounce(fn,delay) {
+    let timer=null
     return function(){
-      // 保存传入的参数
+
       let arg=arguments
-      // 调用它的时候就清除上一次的定时器
       clearTimeout(timer)
-      // 开启此次的定时器
+
       timer=setTimeout(()=>{
-        fn.apply(this,arg)
+        fn.apply(this,args)
       },delay)
     }
   }
-  // 测试
-  function sayHello(){
-    console.log('hello');
-  }
-  document.querySelector('input').addEventListener('keydown',
-  debounce(sayHello,300)
-  // ()=>{console.log('hello');}
-  )
+
 </script>
 </html>
