@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .container1,.container2,.container3,.container4{
+    display: flex;
+  }
+  .container1>div,.container2 div,.container3 div, .container4 div{
+    border: 1px solid #f00;
+  }
+  .container1 div{
+    flex: 1;
+  }
+  .container2 div{
+    flex: auto;
+  }
+  .container3 div{
+    flex: 0;
+  }
+  .container4 div{
+    flex: none;
+  }
+</style>
+<body>
+  <h2>flex:1</h2>
+  <div class="container1">
+    <div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈哈</div>
+  </div>
+  <h2>flex:auto</h2>
+  <div class="container2">
+    <div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈哈</div>
+  </div>
+  <h2>flex:0</h2>
+  <div class="container3">
+    <div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈哈</div>
+  </div>
+  <h2>flex:none</h2>
+  <div class="container4">
+    <div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈哈</div>
+    <div>哈哈哈哈哈哈哈</div>
+  </div>
+</body>
+</html>

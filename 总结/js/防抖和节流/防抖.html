@@ -38,18 +38,27 @@
 
 
 
-  function debounce(fn,delay) {
-    let timer=null
-    return function(){
+  // function debounce(fn,delay) {
+  //   let timer=null
+  //   return function(){
 
-      let arg=arguments
-      clearTimeout(timer)
+  //     let arg=arguments
+  //     clearTimeout(timer)
 
-      timer=setTimeout(()=>{
-        fn.apply(this,args)
-      },delay)
-    }
+  //     timer=setTimeout(()=>{
+  //       fn.apply(this,args)
+  //     },delay)
+  //   }
+  // }
+
+function debunce(){
+  let timer=null
+  return function(){
+    let arg=arguments
+    timer=setTimeout(()=>{
+      fn.apply(this,arg)
+    },delay)
   }
-
+}
 </script>
 </html>
