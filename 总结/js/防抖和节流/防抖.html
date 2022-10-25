@@ -51,14 +51,25 @@
   //   }
   // }
 
-function debunce(){
+
+function debounce(fn,delay){
   let timer=null
   return function(){
-    let arg=arguments
+    let args=arguments
+    clearTimeout(timer)
     timer=setTimeout(()=>{
-      fn.apply(this,arg)
+      console.log(args);
+      fn.apply(this)
     },delay)
   }
 }
+
+function fun(a,b){
+  console.log(arguments);
+  console.log('我在防抖里面');
+}
+
+document.querySelector('input').addEventListener('input',debounce(fun,1000))
+
 </script>
 </html>
