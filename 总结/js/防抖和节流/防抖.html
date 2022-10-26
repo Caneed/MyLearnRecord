@@ -58,7 +58,6 @@ function debounce(fn,delay){
     let args=arguments
     clearTimeout(timer)
     timer=setTimeout(()=>{
-      console.log(args);
       fn.apply(this)
     },delay)
   }
