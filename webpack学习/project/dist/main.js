@@ -1,0 +1,1 @@
+new Vue({el:"#app",data:{name:"张三",age:18,sex:"male"},template:"<div>name:{{this.name}}</div>\n    <div>age:{{this.age}}</div>\n    <div>sex:{{this.sex}}</div>"});
