@@ -7,10 +7,11 @@
  * @param {string} s
  * @return {string}
  */
- var longestPalindrome = function(s) {
-console.log(s.substring(3))
-};
+const longestPalindrome = function (s) {
+    for(let i=0;i<s.length;i++){
 
+    }
+};
 
 
 let s='hello'
