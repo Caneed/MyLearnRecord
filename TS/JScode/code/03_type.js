@@ -29,3 +29,4 @@ function fn() {
 function fn2() {
     throw new Error('报错');
 }
+export {};

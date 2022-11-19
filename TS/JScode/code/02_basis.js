@@ -14,3 +14,4 @@ function add(a, b) {
 }
 let res = add(123, 456);
 console.log(res);
+export {};
