@@ -34,7 +34,7 @@ if (typeof e == "string") {
 s = e as string;
 s = <string>e;
 
-
+export{}
 function fn():void{
 }
 function fn2():never{

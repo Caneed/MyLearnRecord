@@ -1,4 +1,4 @@
-import { StringKeyframeTrack } from "three";
+export{}
 
 let a: object;
 

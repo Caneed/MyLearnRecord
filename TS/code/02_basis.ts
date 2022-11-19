@@ -1,4 +1,4 @@
-
+export{}
 // 声明一个数字的变量a
 let a:number
 a=10
