@@ -4,4 +4,6 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 # 忽略 npm包
-node_modules/
+# node_modules
+# 忽略所有npm包
+**/node_modules
