@@ -1,17 +1,17 @@
 
 
-const express=require('express')
+const express = require('express')
 
-const app=express()
+const app = express()
 
-app.get('/',(req,res)=>{
-  res.end('hello')
+app.get('/', (req, res) => {
+  res.send(true)
 })
 
-app.post('/index',(req,res)=>{
+app.post('/index', (req, res) => {
   res.end('post')
 })
 
-app.listen(3000,()=>{
+app.listen(3000, () => {
   console.log('server is on 3000');
 })
