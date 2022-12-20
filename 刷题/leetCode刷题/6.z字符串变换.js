@@ -14,10 +14,8 @@
  * @return {string}
  */
 
- var convert = function(s, numRows) {
-  for(let i=1;i<numRows;i++){
-      console.log(s[2*numRows-2*i-1])
+var convert = function (s, numRows) {
+  for (let i = 1; i < numRows; i++) {
+    console.log(s[2 * numRows - 2 * i - 1])
   }
 };
-
-convert('PAYPALISHIRING',3)
