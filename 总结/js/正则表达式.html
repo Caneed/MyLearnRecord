@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // 创建正则表达式
+    // 1.使用//创建
+
+    // 执行时该正则表达式字面量就会被编译。当正则表达式保持不变时，使用此方法可获得更好的性能。
+    // let reg=/ab+c/
+
+    // 2.使用 regExp 构造函数
+
+    // let reg = new RegExp('ab+c')
+
+    // 正则表达式的模式
+
+    // 字符 '/' 转义字符，表示将一个字面量当作特殊字符
+    //  '^' 表示匹配开始字符
+
+    // let reg=/^a/
+    // console.log(reg.test('abc'))//true
+    // console.log(reg.test('cab'))//false
+
+    // '$' 表示匹配结束字符, /b$/ 表示匹配最后一个字符为 'b' 的字符串
+
+    // let reg=/b$/
+    // console.log(reg.test('cbb'));//true
+    // console.log(reg.test('cbc'));//false
+
+    // '*' 表示匹配前一个表达式 0 次或多次。等价于 {0,}
+
+    let reg = /bo*/;
+
+    console.log("A ghost boooooed".match(reg)); //"booooo"
+    console.log("A bird warbled".match(reg)); //'b'
+    console.log('A goat grunted'.match(reg));//null
+
+    // '+' 表示匹配一个表达式 1 次或者多次。等价于 {1,}。
+
+    // let reg = /cat+/;
+
+    // console.log("cat".match(reg)); //'cat'
+    // console.log("ccaattt".match(reg)); //null
+    // console.log("aacctt".match(reg)); //null
+    // console.log('ccaacatcat'.match(reg));
+  </script>
+</html>
