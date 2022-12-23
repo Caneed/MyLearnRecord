@@ -24,6 +24,7 @@
 var minArray = function (numbers) {
   let left = 0, right = numbers.length - 1;
   while (left < right) {
+    // 定义中间
     let middle = left + Math.floor((right - left) / 2);
     if (numbers[middle] > numbers[right]) left = middle + 1;
     else if (numbers[middle] < numbers[right]) right = middle;
