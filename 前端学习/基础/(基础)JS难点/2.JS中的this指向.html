@@ -31,39 +31,39 @@
     // fn1()//window , 1
 
     //隐式绑定
-    // var a = 'hello'
+    // var a = "hello";
 
     // var obj = {
-    //     a: 'world',
-    //     fn: function() {
-    //         console.log(this.a)
-    //     }
-    // }
+    //   a: "world",
+    //   fn: function () {
+    //     console.log(this.a);
+    //   },
+    // };
 
-    // obj.fn()
+    // obj.fn(); //world
 
     // const obj1 = {
-    //     text: 1,
-    //     fn: function() {
-    //         return this.text
-    //     }
-    // }
+    //   text: 1,
+    //   fn: function () {
+    //     return this.text;
+    //   },
+    // };
     // const obj2 = {
-    //     text: 2,
-    //     fn: function() {
-    //         return obj1.fn()
-    //     }
-    // }
+    //   text: 2,
+    //   fn: function () {
+    //     return obj1.fn();
+    //   },
+    // };
     // const obj3 = {
-    //     text: 3,
-    //     fn: function() {
-    //         var fn = obj1.fn
-    //         return fn()
-    //     }
-    // }
-    // console.log(obj1.fn())
-    // console.log(obj2.fn())
-    // console.log(obj3.fn())
+    //   text: 3,
+    //   fn: function () {
+    //     var fn = obj1.fn;
+    //     return fn();
+    //   },
+    // };
+    // console.log(obj1.fn()); //1
+    // console.log(obj2.fn()); //1
+    // console.log(obj3.fn()); //undefined
 
     //显示绑定
     // var a = 'hello'
@@ -199,7 +199,6 @@
     // let b = addTwo(a);
     // console.log(b);
 
-
     // var x={
     //   num:100,
     //   myFun:function(a,b){
@@ -213,47 +212,102 @@
     // }
     // x.myFun(10,10)
     // x.myApply()
-//     let obj = {
-//   num1: 117
-// }
-// let res = obj;
-// obj.child = obj = { num2: 935 };
-// var x = y = res.child.num2;
-// console.log(obj.child);
-// console.log(res.num1);
-// console.log(y);
+    //     let obj = {
+    //   num1: 117
+    // }
+    // let res = obj;
+    // obj.child = obj = { num2: 935 };
+    // var x = y = res.child.num2;
+    // console.log(obj.child);
+    // console.log(res.num1);
+    // console.log(y);
 
-// var str = 'eacdad';
-// var obj = {};
-// for (var i = 0;i<str.length;i++){
-//             if (obj[str.charAt(i)]){ //判断是obj里是否有str里面某个字母的属性
-//                 obj[str.charAt(i)]++;//如果有，给那个属性++
-//             }
-//             else {
-//                 obj[str.charAt(i)] = 1;      //如果没有，给obj添加那个属性
-//         }
-//         }
-// var val1;
-// var val2 = 0;
-// for (var k in obj) { //for in 循环遍历对象，k是键（也就是对象的属性名) obj就是原对象
-//             if (obj[k] > val2){  
-//               // 如果obj的属性值大于val2    里面a出现的最多。++次数最多，也就是3
-//                 val2 = obj[k];   //val2等于obj的属性值 
-//                 val1 = k;  //最后将属性名赋予  
-//             }
-// }
-// console.log(val1);//最后输出a
-// console.log(obj)
+    // var str = 'eacdad';
+    // var obj = {};
+    // for (var i = 0;i<str.length;i++){
+    //             if (obj[str.charAt(i)]){ //判断是obj里是否有str里面某个字母的属性
+    //                 obj[str.charAt(i)]++;//如果有，给那个属性++
+    //             }
+    //             else {
+    //                 obj[str.charAt(i)] = 1;      //如果没有，给obj添加那个属性
+    //         }
+    //         }
+    // var val1;
+    // var val2 = 0;
+    // for (var k in obj) { //for in 循环遍历对象，k是键（也就是对象的属性名) obj就是原对象
+    //             if (obj[k] > val2){
+    //               // 如果obj的属性值大于val2    里面a出现的最多。++次数最多，也就是3
+    //                 val2 = obj[k];   //val2等于obj的属性值
+    //                 val1 = k;  //最后将属性名赋予
+    //             }
+    // }
+    // console.log(val1);//最后输出a
+    // console.log(obj)
 
-const foo = {
-    name: 'hello',
-    logName: function() {
-        console.log(this.name)
-    }
-}
-const bar = {
-    name: 'world'
-}
-console.log(foo.logName.call(bar))
+    // const foo = {
+    //     name: 'hello',
+    //     logName: function() {
+    //         console.log(this.name)
+    //     }
+    // }
+    // const bar = {
+    //     name: 'world'
+    // }
+    // console.log(foo.logName.call(bar))
+
+    // 练习
+
+    // var obj = {
+    //   a: 1,
+    //   c: 2,
+    //   say: function (a) {
+    //     console.log("this1: " + this);
+    //     var sayA = function (a) {
+    //       console.log("this2: " + this);
+    //       this.a = a;
+    //     };
+    //     function sayC() {
+    //       console.log("this3: " + this);
+    //     }
+    //     sayA(a);
+    //     sayC();
+    //   },
+    // };
+    // obj.say(3);//this1:obj{},this2:window,this3:window
+    // console.log(obj.a + "  " + obj.c);//1,2
+    // console.log(window.a + "  " + window.c);//3,undefined
+    // -----------------------------------------------------------
+    // function Person(name,age){
+    //     this.name = name;
+    //     this.age = age;
+    // }
+    // var person1 = new Person("张三",18);
+    // var person2 = Person("李四",12);
+    // console.log(person1);//{name:张三,age:18}
+    // console.log(person2);//undefined
+    // console.log(person1.name,person1.age);//张三，18
+    // console.log(window.name,window.age);//李四，12
+
+    // --------------------------------------------------------
+    // function Test(a, b) {
+    //   this.a = a;
+    //   this.b = b;
+    //   this.say = function (a, b) {
+    //     this.a = a;
+    //     this.b = b;
+    //     console.log(this);
+    //     console.log(a, b);
+    //   };
+    // }
+    // var obj1 = new Test(1, 1);
+    // console.log(obj1.a, obj1.b); //1,1
+    // obj1.say(); //Test,undefined,undefined
+    // console.log(obj1.a, obj1.b); //un,un
+    // var obj2 = { a: 2, b: 2 };
+    // obj1.say(4, 4); //obj1,4,4
+    // console.log(obj1.a, obj1.b); //4,4
+    // console.log("------------");
+    // obj1.say.call(obj2, 3, 3); //obj2,3,3
+    // console.log(obj2.a + "--" + obj2.b); //3--3
   </script>
 </html>
