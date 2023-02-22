@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .father {
+      width: 500px;
+      height: 500px;
+      border: 1px solid #000;
+    }
+    .son {
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      position: absolute;
+    }
+    /* 1.相对定位+margin:0 */
+    /* .father {
+      position: relative;
+    }
+    .son {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    } */
+
+    /* 2.直接使用定位,子元素使用计算属性，50%减去自身的一半 */
+    /* .father{
+      position: relative;
+    }    
+    .son{
+      position: absolute;
+      left: calc(50% - 50px);
+      top:  calc(50% - 50px);
+    } */
+
+    /* 3.使用定位+transform */
+    /* .father{
+      position: relative;
+    }
+    .son{
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    } */
+
+
+    /* 4.flex布局 */
+    /* .father{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+
+    /* 5.flex布局(2) */
+    /* .father{
+      display: flex;
+      justify-content: center;
+    }
+    .son{
+      align-self: center;
+    } */
+
+    /* 6.子元素相对定位 */
+    .father{
+      position: relative;
+    }
+    .son{
+      position: relative;
+      margin: 0 auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+  <body>
+    <div class="father">
+      <div class="son"></div>
+    </div>
+  </body>
+</html>

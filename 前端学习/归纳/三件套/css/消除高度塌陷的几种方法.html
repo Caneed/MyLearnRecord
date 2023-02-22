@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  /* 创建一个高度塌陷的场景 */
+  .father{
+    background-color: red;
+  }
+  .son{
+    background-color: aqua;
+    width: 300px;
+    height: 100px;
+    float: left;
+  }
+
+  /* 1.给父元素设置高度,但是这样父元素就不能自适应高度了 */
+  /* .father{
+    height: 100px;
+  } */
+
+/* 2.给父元素设置overflow:hidden,但是这样如果父元素中的元素超出父元素，那么就不会显示了 */
+/* .father{
+  overflow: hidden;
+} */
+
+/* 3.给子元素下添加一个空元素，其中加上clear:both,但是这样会占用文档结构 */
+/* .clear_fix{
+  clear: both;
+} */
+
+/* 4.较为推荐:给父元素后面加上伪元素::after,添加clear:both,display:block(没有什么副作用) */
+/*  */
+.father::after{
+  content: '';
+  clear: both;
+  display: block;
+}
+</style>
+<body>
+  <div class="father">
+    <div class="son"></div>
+    <div class="clear_fix"></div>
+  </div>
+</body>
+</html>

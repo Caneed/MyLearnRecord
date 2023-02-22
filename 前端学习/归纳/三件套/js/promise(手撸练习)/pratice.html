@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    class myPromise {
+      static PENDING = "pending";
+      static FULFILLED = "fulfilled";
+      static REJECTED = "rejected";
+      constructor(func) {
+        this.onFulfilledCallbacks=[]
+        this.onRejectedCallbacks=[]
+        this.promiseResult = null;
+        this.promiseState = myPromise.PENDING;
+
+        try {
+          func(this.resolve.bind(this), this.reject.bind(this));
+        } catch (error) {
+          this.reject(error)
+        }
+
+      }
+      resolve(result) {
+        if (this.promiseState === myPromise.PENDING) {
+          this.promiseState = myPromise.FULFILLED;
+          this.promiseResult = result;
+        }
+      }
+      reject(reason) {
+        if (this.promiseState === myPromise.PENDING) {
+          this.promiseState = myPromise.REJECTED;
+          this.promiseResult = reason;
+        }
+      }
+      then(onResolved, onRejected) {
+        if(this.promiseState===myPromise.PENDING){
+          this.onRejectedCallbacks.push(onRejected)
+          this.onFulfilledCallbacks.push(onResolved)
+        }
+        if (this.promiseState === myPromise.FULFILLED) {
+          setTimeout(()=>{
+            onResolved(this.promiseResult)
+          })
+        }
+        if(this.promiseState===myPromise.REJECTED){
+          setTimeout(()=>{
+            onRejected(this.promiseResult)
+          })
+        }
+      }
+    }
+
+    let p2 = new myPromise((resolve, reject) => {
+      throw new Error('error')
+    });
+    p2.then(res=>{
+      console.log(res);
+    },reason=>{
+      console.log(reason);
+    })
+
+    // let p = new Promise((resolve, reject) => {
+    //   resolve("aaa");
+    // });
+    // p.then(
+    //   res => {
+    //     console.log(res);
+    //   },
+    //   reason => {}
+    // );
+    // console.log(p);
+  </script>
+</html>

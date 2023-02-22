@@ -12,6 +12,7 @@
  * @return {number}
  */
 var findRepeatNumber = function(nums) {
+  // 创建空数组
   let arr=[]
   for(let i=0;i<nums.length;i++){
       if(arr.includes(nums[i]))
