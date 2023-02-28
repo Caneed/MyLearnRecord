@@ -14,26 +14,27 @@
   function onInput(){
     console.log(input.value)
   }
-// 防抖
+// 防抖,传入两个参数分别是想要防抖的函数和延迟的时间
 function debounce(func, wait) {
+  // 设置定时器
   let timeout;
+  // 形成闭包
   return function () {
+    // 保存当前的上下文
     const context = this;
+    // 将函数的参数解构并保存
     const args = [...arguments];
+    // 如果当前的定时器不为空则将它清除
     if (timeout) clearTimeout(timeout);
+    // 如果为空(时间到了，可以再次触发事件)
     timeout = setTimeout(() => {
+      // 调用函数并绑定当前的this,将参数传入
       func.apply(context, args)
     }, wait);
   }
 }
 
 let input=document.querySelector('input')
-input.oninput=debounce(onInput(),1000)
-
-
-function argv(d1,d2,d3){
-  console.log(...arguments)
-}
-argv(1,2,3)
+input.oninput=debounce(onInput,1000)
 </script>
 </html>
