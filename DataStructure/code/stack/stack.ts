@@ -42,20 +42,24 @@ export class Stack {
     this.item = []
   }
   /**
-   * 
-   * @returns 
+   * 返回栈的长度
+   * @returns 栈的长度
    */
   public size():number{
     return this.length
   }
+  /**
+   * 将栈转换为字符串
+   * @returns 返回转换的结果
+   */
   public toString() {
-    let result
-    if(this.isEmpty()){
-      result = ''
-      return result
+    if (this.isEmpty()) {
+      return ''
     }
-    this.item.forEach((it:any)=>{
-      result+=result+it+''
-    })
+    let result = this.item['0']
+    for(let i = 1; i < this.length; i++) {
+      result = `${result},${this.item[i]}`
+    }
+    return result
   }
 }
