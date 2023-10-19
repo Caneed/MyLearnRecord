@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DataStructure/docs/10.哈夫曼树.md",
+                "file": "Dart/docs/变量.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DataStructure/docs/10.哈夫曼树.md",
+                "file": "Dart/docs/变量.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DataStructure/docs/10.哈夫曼树.md",
+                "file": "Dart/docs/变量.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DataStructure/docs/10.哈夫曼树.md"
+                "file": "Dart/docs/变量.md"
               }
             }
           }
@@ -148,6 +148,12 @@
   },
   "active": "e9fc57f65acd8b70",
   "lastOpenFiles": [
+    "数据库/1.sql语句.md",
+    "DataStructure/docs/10.哈夫曼树.md",
+    "Dart/code/变量.dart",
+    "Dart/docs/变量.md",
+    "Dart/docs",
+    "Dart/code",
     "Dart/index.dart",
     "Dart",
     "flutter/Dart/index.dart",
@@ -155,10 +161,6 @@
     "flutter/flutter_application/build/flutter_assets/shaders/ink_sparkle.frag.spirv",
     "flutter/flutter_application/build/9849d3fde14f8238bc82d80453267a41.cache.dill.track.dill",
     "flutter/flutter_application/build/flutter_assets/shaders/ink_sparkle.frag",
-    "flutter/flutter_application/build/flutter_assets/NOTICES",
-    "flutter/flutter_application/build/flutter_assets/FontManifest.json",
-    "flutter/flutter_application/build/flutter_assets/AssetManifest.bin",
-    "flutter/flutter_application/build/flutter_assets/AssetManifest.json",
     "flutter/flutter_application/web/icons/Icon-192.png",
     "flutter/flutter_application/web/icons/Icon-maskable-512.png",
     "flutter/flutter_application/web/icons/Icon-maskable-192.png",
@@ -170,7 +172,6 @@
     "flutter/flutter_application/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png",
     "flutter/flutter_application/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png",
     "flutter/flutter_application/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md",
-    "DataStructure/docs/10.哈夫曼树.md",
     "DataStructure/docs/7.树的实现.md",
     "DataStructure/docs/9.图的实现和遍历.md",
     "数据库/SQL语言.md",
