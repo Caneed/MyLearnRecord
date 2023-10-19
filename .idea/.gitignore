@@ -7,3 +7,4 @@
 # node_modules
 # 忽略所有npm包
 **/node_modules
+/.obsdian
