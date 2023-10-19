@@ -148,6 +148,8 @@
   },
   "active": "e9fc57f65acd8b70",
   "lastOpenFiles": [
+    "Dart/index.dart",
+    "Dart",
     "flutter/Dart/index.dart",
     "flutter/Dart",
     "flutter/flutter_application/build/flutter_assets/shaders/ink_sparkle.frag.spirv",
@@ -157,8 +159,6 @@
     "flutter/flutter_application/build/flutter_assets/FontManifest.json",
     "flutter/flutter_application/build/flutter_assets/AssetManifest.bin",
     "flutter/flutter_application/build/flutter_assets/AssetManifest.json",
-    "flutter/flutter_application/build/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf",
-    "flutter/flutter_application/build/flutter_assets/packages/cupertino_icons/assets",
     "flutter/flutter_application/web/icons/Icon-192.png",
     "flutter/flutter_application/web/icons/Icon-maskable-512.png",
     "flutter/flutter_application/web/icons/Icon-maskable-192.png",
