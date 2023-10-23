@@ -1,3 +1,5 @@
+import 'dart:math';
+
 void main() {
   var person = Person.Xm();
   var old = Person.oldP('dm', true);
@@ -25,6 +27,9 @@ class Person {
     age = 1000;
     this.isMale = isMale;
   }
+  num distanceTo(Person oth){
+    return age+oth.age;
+  }
   Person.reDir():this('xm',12,false);
   printPerson(Person person) {
     print('age:');
@@ -34,6 +39,14 @@ class Person {
     print('sex:');
     print(person.isMale == true ? 'male' : 'female');
   }
+  set elder(num increase){
+    age+=increase;
+  }
+  set younger(num decrease){
+    age-=decrease;
+  }
+  String get badName=>'bad'+name;
+  String get goodName=>'good'+name;
 }
 
 class Dog extends Person {
