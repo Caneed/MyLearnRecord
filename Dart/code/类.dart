@@ -51,4 +51,7 @@ class Person {
 
 class Dog extends Person {
   Dog.xD() : super.Xm() {}
+  woof(){
+    print('woof');
+  }
 }
