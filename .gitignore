@@ -1,7 +1,4 @@
 node_modules/
-.idea
-.vscode
-.obsdian
 build/
 .dart_tool/
 .packages
