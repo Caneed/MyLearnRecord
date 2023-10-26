@@ -1,4 +1,3 @@
-
 void main(){
   func(param1: true, param2: 23);
   assert(foo('123',1) == '123');
