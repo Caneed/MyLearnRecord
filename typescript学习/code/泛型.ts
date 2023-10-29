@@ -64,11 +64,20 @@
 
 // ------------------------------------------
 
-function getProperty<K, V extends keyof K>(obj: K, value: V) {
-  return obj[value]
-}
+// function getProperty<K, V extends keyof K>(obj: K, value: V) {
+//   return obj[value]
+// }
 
-let x = { a: 1, b: 2, c: 3, d: 4 }
+// let x = { a: 1, b: 2, c: 3, d: 4 }
 
-getProperty(x,'a')
-getProperty(x,'e')//error
+// getProperty(x,'a')
+// // getProperty(x,'e')//error
+
+// -----------------------------------------------
+
+// function create<T>(c: { new (): T }): T {
+//   return new c()
+// }
+
+// ---------------------------------------------
+
