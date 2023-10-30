@@ -60,7 +60,9 @@
 
 // ----------------------------------------------------------------
 
-type Flatten<T> = T extends any[] ? T[number] : T
+// type Flatten<T> = T extends any[] ? T[number] : T
 
-type str = Flatten<number>
-type arr = Flatten<string[]>
+// type str = Flatten<number>
+// type arr = Flatten<string[]>
+
+type Flatten<T> = T extends Array<infer Item> ? Item : T
