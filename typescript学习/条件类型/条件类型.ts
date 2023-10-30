@@ -65,4 +65,55 @@
 // type str = Flatten<number>
 // type arr = Flatten<string[]>
 
-type Flatten<T> = T extends Array<infer Item> ? Item : T
+// type Flatten<T> = T extends Array<infer Item> ? Item : T
+
+// --------------------------------------------------------------------
+
+// type GetReturnType<T> = T extends (...args: never[]) => infer Return
+//   ? Return
+//   : never
+
+// type Num = GetReturnType<() => number>
+
+// type str = GetReturnType<(x: string) => string>
+
+// type booleans = GetReturnType<(x: boolean, y: boolean) => boolean[]>
+// ---------------------------------------------------------------------------
+// type Nums = number[]
+// type Strs = string[]
+
+// type Unpacked<T> = T extends number[] ? number : string
+// type num = Unpacked<Nums>
+// type str = Unpacked<Strs>
+
+// type Nums = number[]
+// type Strs = string[]
+// type Unpacked<T> = T extends (infer R)[] ? R : T
+
+// type num = Unpacked<Nums>
+// type str = Unpacked<Strs>
+
+// -----------------------------------------------
+
+// type promise = Promise<number>
+
+// type Unpacked<T> = T extends Promise<infer R> ? R : T
+
+// type num = Unpacked<promise> //number
+// ----------------------------------------------------
+
+// type promise = Promise<Promise<Promise<Promise<Promise<number>>>>>
+
+// type Unpacked<T> = T extends Promise<infer R> ? Unpacked<R> : T
+
+// type num = Unpacked<promise> //number
+
+// ---------------------------------------------------------
+
+// type getArr<T> = T extends any ? T[] : never
+
+// type Union = getArr<number|string>
+
+// type getArr<T> = [T] extends [any] ? T[] : never
+
+// type Union = getArr<number|string>
