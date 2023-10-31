@@ -1,11 +1,9 @@
 node_modules/
 build/
 .dart_tool/
-.packages
 pubspec.lock # library relate lock files
 **/doc/api/
 **/ios/Flutter/.last_build_id
-.dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
@@ -15,11 +13,11 @@ pubspec.lock # library relate lock files
 *.ipr
 *.iws
 .idea/
-.obsdian/
+.obsdian
 .classpath
 .project
 .settings/
-.vscode/
+.vscode
 **/android/**/gradle-wrapper.jar
 .gradle/
 **/android/captures/
