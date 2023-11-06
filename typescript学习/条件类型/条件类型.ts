@@ -4,7 +4,6 @@
 
 // type Equal = Dog extends Animal ? string : boolean
 // type Unequal = Cat extends Animal ? string : boolean
-
 // interface IdLabel {
 //   id: number
 // }
