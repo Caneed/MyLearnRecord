@@ -252,3 +252,91 @@ public interface People {
 }
 
 ```
+
+### 内部类
+
+一种类可以被定义在一个类的内部，这样的类被称之为内部类：
+
+```java
+public class OuterClass {
+    OuterClass(){
+
+    }
+//    内部类
+    public class InnerClass{
+        InnerClass(){
+
+        }
+    }
+}
+```
+
+创建一个内部类的实例化：
+
+```java
+    public static void main(String[] args) {
+        OuterClass outer=new OuterClass();
+        OuterClass.InnerClass inner=outer.new InnerClass();
+    }
+```
+
+创建内部类的实例，要先创建外部类实例，然后通过外部类的实例来创建。
+
+> 因为 Inner Class 除了有一个 this 指向它自己，还隐含地持有一个 Outer Class 实例，可以用 Outer.this 访问这个实例。所以，实例化一个 Inner Class 不能脱离 Outer 实例。Inner Class 可以访问到外部类的 private 成员，因为内部类的作用域在外部类的内部。
+
+### 匿名类(Anonymous Class)
+
+匿名类也是一种定义内部类的方法，它不需要显式地使用 class 关键字去定义：
+
+```java
+   public class Outer{
+        String name;
+        Outer(String name){
+            this.name=name;
+        }
+
+        void hello(){
+            Runnable r=new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("name is:"+Outer.this.name);
+                }
+            };
+            new Thread(r).start();
+        }
+    }
+```
+
+在方法内部实例化了一个 Runnable。Runnable 本身是接口，接口是不能实例化的，所以这里实际上是定义了一个实现了 Runnable 接口的匿名类，并且通过 new 实例化该匿名类，然后转型为 Runnable。
+
+匿名类实现得语法：
+
+```java
+Runnable r = new Runnable() {
+    // 实现必要的抽象方法...
+};
+```
+
+### 静态内部类(Static Nested Class)
+
+静态内部类使用 static 关键字进行修饰：
+
+```java
+public class StaticNestedClass {
+        static class Nested {
+            String name;
+
+            Nested(String name) {
+                this.name = name;
+            }
+    }
+}
+```
+
+想要使用静态内部类，可以通过外部类直接访问：
+
+```java
+    StaticNestedClass.Nested nested=new StaticNestedClass.Nested("aaa");
+```
+
+> 用 static 修饰的内部类和 Inner Class 有很大的不同，它不再依附于 Outer 的实例，而是一个完全独立的类，因此无法引用 Outer.this，但它可以访问 Outer 的 private 静态字段和静态方法。如果把 StaticNested 移到 Outer 之外，就失去了访问 private 的权限。
