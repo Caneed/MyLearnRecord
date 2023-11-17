@@ -13,7 +13,7 @@ pubspec.lock # library relate lock files
 *.ipr
 *.iws
 .idea/
-.obsdian
+.obsdian/
 .classpath
 .project
 .settings/
