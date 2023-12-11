@@ -98,3 +98,19 @@ console.log(/(?<=abc)def/.test('abcdec')) //false
 console.log(/(?<!abc)def/.test('cbadef')) //true
 console.log(/(?<!abc)def/.test('abcdef')) //false
 ```
+
+## 练习
+
+```ts
+let buggyMultiline: string = `tey, ihe light-greon apple
+tangs on ihe greon traa`
+
+buggyMultiline = buggyMultiline.replace(/^t/gm, 'h')
+buggyMultiline = buggyMultiline.replace(/i(?=he)/g, 't')
+buggyMultiline = buggyMultiline.replace(/(?<=gre)o/g, 'e')
+buggyMultiline = buggyMultiline.replace(/aa$/, 'ee')
+
+console.log(buggyMultiline)
+// hey, the light-green apple
+// hangs on the green tree
+```
