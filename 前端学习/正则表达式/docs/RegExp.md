@@ -76,3 +76,79 @@ const reg1: RegExp = new RegExp('abc', 's')
 console.log(reg.global) //true
 console.log(reg1.global) //false
 ```
+
+### RegExp.prototype.ignoreCase
+
+ignoreCase 表示正则表达式是否使用了`i`修饰符
+
+```ts
+const reg: RegExp = new RegExp('abc', 'i')
+const reg1: RegExp = new RegExp('abc')
+console.log(reg.ignoreCase) //true
+console.log(reg1.ignoreCase) //false
+```
+
+### RegExp.prototype.source
+
+source 返回当前正则表达式的字面量（不包含修饰符）
+
+```ts
+const reg: RegExp = /abc/i
+const reg2: RegExp = /cde/gi
+
+console.log(reg.source) //abc
+console.log(reg2.source) //cde
+```
+
+### RegExp.prototype.sticky
+
+sticky 返回当前正则表达式是否开启粘滞模式
+
+```ts
+const reg: RegExp = /abc/y
+const reg1: RegExp = /abc/
+
+console.log(reg.sticky) //true
+console.log(reg1.sticky) //false
+```
+
+### RegExp.prototype.Unicode
+
+Unicode 返回当前正则表达式是否开启完整的 Unicode 支持
+
+```ts
+const reg: RegExp = /abc/u
+const reg1: RegExp = /abc/
+
+console.log(reg.unicode) //true
+console.log(reg1.unicode) //false
+```
+
+## 实例方法
+
+### RegExp.prototype.exec()
+
+exec() 方法在一个指定字符串中执行一个搜索匹配。返回一个结果数组或 null
+
+> (method) RegExp.exec(string: string): RegExpExecArray | null
+
+```ts
+console.log(/\d/.exec('12345')) //[ '1', index: 0, input: '12345', groups: undefined ]
+console.log(/abc/d.exec('abc'))
+// [
+//     'abc',
+//     index: 0,
+//     input: 'abc',
+//     groups: undefined,
+//     indices: [ [ 0, 3 ], groups: undefined ]
+//   ]
+```
+
+**返回值类型 RegExpExecArray：**
+
+- index:匹配到的字符串索引
+- input:匹配的原始字符串
+- groups:捕获组对象,未定义时返回 undefined
+- indices:可选属性,在设置 d 修饰符时存在,是一个数组，表示捕获到的结果边界
+
+>在设置了 global 或 sticky 标志位的情况下（如 /foo/g 或 /foo/y），JavaScript RegExp 对象是有状态的。它们会将上次成功匹配后的位置记录在 lastIndex 属性中。使用此特性，exec() 可用来对单个字符串中的多次匹配结果进行逐条的遍历（包括捕获到的匹配），而相比之下， String.prototype.match() 只会返回匹配到的结果。
