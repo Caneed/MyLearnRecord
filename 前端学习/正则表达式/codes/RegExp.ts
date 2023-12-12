@@ -73,4 +73,4 @@ console.log(/abc/d.exec('abc'));
 //     indices: [ [ 0, 3 ], groups: undefined ]
 //   ]
 
-console.log(/a/g.exec('aaaaaaaaa').);
+console.log(/a/g.exec('aaaaaaaaa'));
